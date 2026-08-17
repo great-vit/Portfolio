@@ -1685,5 +1685,24 @@ let myTotalRankScore = 1142;
 
 })();
 </script>
+
+<script>
+/* URL 해시로 특정 뷰에 바로 진입 (예: #memory-hub) */
+(function(){
+  function applyHash(){
+    var v = (location.hash || '').replace('#','');
+    var allowed = ['memory-hub','games','number','match','dotcount','cardorder'];
+    if(allowed.indexOf(v) === -1) return;
+    document.body.className = 'view-' + v;
+    if(v === 'match' && window.initMatchGame){ window.initMatchGame(); }
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', applyHash);
+  } else {
+    applyHash();
+  }
+  window.addEventListener('hashchange', applyHash);
+})();
+</script>
 </body>
 </html>
