@@ -1,0 +1,877 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>한국두뇌평가원 — 기억력 게임 허브</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #2f3746; --bg-2: #28303f; --bg-deep: #222a39;
+    --panel: rgba(255,255,255,0.08); --panel-2: rgba(255,255,255,0.05);
+    --panel-strong: rgba(54,62,78,0.90); --glass: rgba(150,168,204,0.12);
+    --fg: #f8faff; --fg-dim: #d4dae8; --fg-mute: #aeb7c9;
+    --line: rgba(255,255,255,0.15); --line-soft: rgba(255,255,255,0.09);
+    --glow: #c9dbf5; --glow-2: #a9c4ec;
+    --champagne: #e6d8b8;
+    --up: #9fd9c0; --down: #e6a89a;
+    --c-memory: #e6c068; --c-math: #6fd9b0; --c-cognition: #7fb4dc; --c-focus: #b3a0e6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: radial-gradient(120% 80% at 12% -12%, rgba(120,150,200,0.06), transparent 55%), linear-gradient(180deg, #2f3847 0%, #232a38 100%); background-attachment: fixed; }
+  body { background:none; color:var(--fg); font-family:'Noto Sans KR',sans-serif; font-weight:500; -webkit-font-smoothing:antialiased; min-height:100vh; }
+  p,li,td,th,span,small,a,button,input { font-weight:500; }
+  a { color:inherit; text-decoration:none; }
+  .container { max-width:1320px; margin:0 auto; padding:0 32px; }
+  .serif { font-family:'Noto Serif KR',serif; }
+  .mono { font-family:'IBM Plex Mono',monospace; }
+
+  /* ===== TICKER ===== */
+  .ticker-bar { background: rgba(30,36,48,0.92); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); padding: 10px 0; overflow: hidden; white-space: nowrap; }
+  .ticker-track { display: inline-block; animation: scroll 60s linear infinite; font-family: 'IBM Plex Mono'; font-size: 12px; }
+  .ticker-track .item { margin: 0 24px; display: inline-flex; gap: 8px; }
+  .ticker-track .sym { color: var(--fg); }
+  .ticker-track .price { color: var(--fg-dim); }
+  .ticker-track .delta.up { color: var(--up); }
+  @keyframes scroll { to { transform: translateX(-50%); } }
+
+  /* ===== NAV ===== */
+  nav.top { padding: 18px 0; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: rgba(33,40,52,0.92); backdrop-filter: blur(8px); z-index: 50; }
+  nav.top .row { display: flex; align-items: center; justify-content: space-between; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: 'Noto Serif KR'; font-weight: 500; font-size: 22px; letter-spacing: -0.02em; }
+  .brand .mark { width: 32px; height: 32px; background: linear-gradient(135deg, var(--champagne), #cdb988); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); box-shadow: 0 0 18px rgba(230,216,184,0.35); }
+  .brand sup { font-family: 'IBM Plex Mono'; font-size: 9px; color: var(--fg-mute); vertical-align: top; margin-left: 4px; }
+  nav.top ul { display: flex; list-style: none; gap: 36px; font-size: 14px; }
+  nav.top ul a { color: var(--fg-dim); }
+  nav.top ul a:hover, nav.top ul a.active { color: var(--fg); }
+  .login-row { display: flex; gap: 16px; align-items: center; }
+  .login { color: var(--fg-dim); font-size: 14px; }
+  .btn { padding: 10px 20px; font-size: 13px; font-weight: 500; border-radius: 6px; border: 1px solid transparent; transition: 0.2s; display: inline-flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; font-family: inherit; }
+  .btn-primary { background: linear-gradient(135deg, var(--champagne), #d4c197); color: #232a36; box-shadow: 0 6px 24px rgba(230,216,184,0.22); }
+  .btn-primary:hover { box-shadow: 0 8px 30px rgba(230,216,184,0.34); transform: translateY(-1px); }
+  .btn-outline { border-color: var(--line); color: var(--fg); background: var(--panel-strong); }
+  .btn-outline:hover { border-color: var(--glow); background: rgba(201,219,245,0.08); }
+
+  /* ===== 공용: 헤더 ===== */
+  main { padding: 56px 0 120px; }
+  .games-back { display:inline-flex; align-items:center; gap:8px; font-family:'IBM Plex Mono'; font-size:12px; letter-spacing:0.06em; color:var(--fg-dim); margin-bottom:28px; cursor:pointer; background:none; border:none; transition: color 0.2s; }
+  .games-back:hover { color: var(--glow); }
+  .games-head { margin-bottom: 48px; max-width: 720px; }
+  .games-head .label { font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--glow); margin-bottom:18px; display:block; }
+  .games-head h2 { font-family:'Noto Serif KR'; font-weight:500; font-size:clamp(30px,4vw,48px); line-height:1.15; letter-spacing:-0.03em; margin-bottom:16px; }
+  .games-head h2 .accent { color:var(--c-memory); }
+  .games-head p { font-size:15px; color:var(--fg-dim); line-height:1.65; }
+
+  /* ===== 기억력 게임 허브 ===== */
+  .memory-hub { display: block; }
+  .type-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:24px; }
+  .type-card { position:relative; background:var(--panel-strong); backdrop-filter:blur(3px); border:1px solid var(--line); border-radius:16px; padding:30px 26px; display:flex; flex-direction:column; overflow:hidden; transition:transform .25s cubic-bezier(.22,1,.36,1), border-color .25s, box-shadow .25s; }
+  .type-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg, transparent, var(--c-memory), transparent); }
+  .type-card:hover { transform:translateY(-4px); border-color:rgba(230,192,104,0.4); box-shadow:0 20px 50px rgba(0,0,0,0.28); }
+  .type-badge { position:absolute; top:16px; right:16px; font-family:'IBM Plex Mono'; font-size:9px; font-weight:700; letter-spacing:1px; padding:4px 9px; border-radius:999px; }
+  .type-badge.new { background:linear-gradient(135deg, var(--champagne), #d4c197); color:#232a36; }
+  .type-badge.progress { background:var(--panel); color:var(--fg-dim); border:1px solid var(--line-soft); }
+  .type-icon { width:52px; height:52px; color:var(--c-memory); margin-bottom:20px; }
+  .type-icon svg { width:100%; height:100%; }
+  .type-title { font-family:'Noto Serif KR'; font-weight:600; font-size:21px; letter-spacing:-0.02em; margin-bottom:6px; }
+  .type-sub { font-family:'IBM Plex Mono'; font-size:10px; color:var(--fg-mute); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:14px; }
+  .type-desc { font-size:13.5px; color:var(--fg-dim); line-height:1.65; flex:1; margin-bottom:20px; }
+  .type-meta { display:flex; gap:10px; font-size:11px; color:var(--fg-mute); padding-top:14px; margin-bottom:16px; border-top:1px solid var(--line-soft); font-family:'IBM Plex Mono'; letter-spacing:0.04em; }
+  .type-cta { text-align:center; padding:13px; border-radius:8px; font-size:13px; font-weight:700; cursor:pointer; border:none; font-family:inherit; transition:all .2s; }
+  .type-cta.primary { background:linear-gradient(135deg, var(--champagne), #d4c197); color:#232a36; }
+  .type-cta.primary:hover { box-shadow:0 8px 24px rgba(230,216,184,0.24); }
+  .type-cta.outline { background:transparent; color:var(--glow); border:1px solid rgba(201,219,245,0.3); }
+  .type-cta.outline:hover { background:rgba(201,219,245,0.1); }
+
+  /* ===== 게임 상단 진행 정보(HUD) 공통 ===== */
+  .game-hud { display:flex; align-items:center; justify-content:space-between; background:var(--panel-strong); border:1px solid var(--line); border-radius:12px; padding:16px 22px; margin-bottom:22px; flex-wrap:wrap; gap:12px; }
+  .hud-item { display:flex; flex-direction:column; gap:3px; }
+  .hud-item .l { font-family:'IBM Plex Mono'; font-size:9.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--fg-mute); }
+  .hud-item .v { font-family:'IBM Plex Mono'; font-size:18px; font-weight:600; color:var(--fg); }
+  .hud-item .v.hearts { font-size:15px; letter-spacing:2px; }
+
+  /* ===== 게임 뷰 컨테이너 (좁은 폭) ===== */
+  .game-shell { max-width: 620px; }
+
+  /* ============================================ */
+  /* === 1. 숫자 기억력 게임 === */
+  /* ============================================ */
+  .num-play { background: var(--panel-strong); border: 1px solid var(--line); border-radius: 16px; padding: 50px 30px; text-align: center; }
+  .num-display { font-family: 'IBM Plex Mono'; font-size: 56px; font-weight: 600; letter-spacing: 6px; color: var(--glow); margin-bottom: 24px; min-height: 80px; display: flex; align-items: center; justify-content: center; }
+  .num-input-group { display: flex; gap: 12px; justify-content: center; margin-top: 20px; }
+  .num-input { background: rgba(0,0,0,0.2); border: 1.5px solid var(--line); color: var(--fg); font-family: 'IBM Plex Mono'; font-size: 26px; text-align: center; border-radius: 8px; padding: 12px; width: 220px; outline: none; transition: border-color 0.2s; }
+  .num-input:focus { border-color: var(--c-memory); box-shadow: 0 0 0 3px rgba(230,192,104,0.15); }
+  .num-over { display: none; text-align: center; background: var(--panel-strong); border: 1px solid rgba(230,192,104,0.35); border-radius: 16px; padding: 44px 30px; }
+  .num-over.show { display: block; }
+  .num-over .emoji { font-size:40px; margin-bottom:14px; }
+  .num-over .label { font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:0.1em; color:var(--fg-mute); text-transform:uppercase; margin-bottom:6px; }
+  .num-over .final { font-family:'Noto Serif KR'; font-size:48px; font-weight:600; color:var(--c-memory); margin-bottom:26px; }
+
+  /* ============================================ */
+  /* === 2. 카드 짝맞추기 (Concentration) === */
+  /* ============================================ */
+  .match-board { display:grid; grid-template-columns:repeat(var(--cols, 4), 1fr); gap:12px; perspective:1000px; }
+  .match-card { aspect-ratio:1/1; cursor:pointer; }
+  .card-inner { position:relative; width:100%; height:100%; transform-style:preserve-3d; transform:rotateY(180deg); transition:transform .5s cubic-bezier(.22,1,.36,1); }
+  .match-card.flipped .card-inner { transform:rotateY(0deg); }
+  .card-face { position:absolute; inset:0; backface-visibility:hidden; border-radius:8px; display:flex; align-items:center; justify-content:center; }
+  .card-face.front { background:var(--panel-strong); border:1.5px solid var(--line); font-size:26px; transition:font-size 0.3s; }
+  .card-face.back { background:linear-gradient(135deg, rgba(230,192,104,0.16), rgba(230,192,104,0.05)); border:1.5px solid rgba(230,192,104,0.35); color:var(--c-memory); font-size:20px; transform:rotateY(180deg); transition:font-size 0.3s; }
+  .match-card.matched .card-face.front { border-color:var(--c-memory); box-shadow:0 0 0 2px rgba(230,192,104,0.3) inset; }
+  .match-card.mismatch .card-face.front { border-color:var(--down); animation:cardshake .4s; }
+  @keyframes cardshake { 0%,100%{transform:translateX(0);} 25%{transform:translateX(-4px);} 75%{transform:translateX(4px);} }
+  .match-preview-note { text-align:center; font-family:'IBM Plex Mono'; font-size:12px; color:var(--fg-mute); margin-bottom:14px; letter-spacing:0.04em; }
+  .match-preview-note .bar { width:100%; height:3px; background:var(--line-soft); border-radius:2px; overflow:hidden; margin-top:8px; }
+  .match-preview-note .bar-fill { height:100%; background:var(--c-memory); width:100%; transform-origin:left; animation:shrinkbar 2.4s linear forwards; }
+  @keyframes shrinkbar { from{transform:scaleX(1);} to{transform:scaleX(0);} }
+  .match-complete { display:none; text-align:center; background:var(--panel-strong); border:1px solid rgba(230,192,104,0.35); border-radius:16px; padding:40px 30px; margin-top:22px; }
+  .match-complete.show { display:block; }
+  .match-complete .emoji { font-size:40px; margin-bottom:14px; }
+  .match-complete h3 { font-family:'Noto Serif KR'; font-size:24px; font-weight:600; margin-bottom:18px; }
+  .match-complete .stats { display:flex; justify-content:center; gap:36px; margin-bottom:26px; }
+  .match-complete .stats div .v { font-family:'IBM Plex Mono'; font-size:22px; font-weight:700; color:var(--c-memory); }
+  .match-complete .stats div .l { font-family:'IBM Plex Mono'; font-size:10px; color:var(--fg-mute); letter-spacing:0.06em; margin-top:4px; }
+  .game-actions { display:flex; gap:10px; justify-content:center; }
+
+  /* ============================================ */
+  /* === 3. 순간 수량 인지 (서비타이징) === */
+  /* ============================================ */
+  .dot-rules { background:var(--panel-strong); border:1px solid var(--line); border-radius:16px; padding:36px 32px; }
+  .dot-rules .emoji { font-size:36px; margin-bottom:14px; }
+  .dot-rules h3 { font-family:'Noto Serif KR'; font-size:22px; font-weight:600; margin-bottom:10px; }
+  .dot-rules .lede { font-size:14px; color:var(--fg-dim); line-height:1.7; margin-bottom:24px; }
+  .dot-rules ol { list-style:none; display:flex; flex-direction:column; gap:10px; margin-bottom:20px; }
+  .dot-rules ol li { font-size:13.5px; color:var(--fg-dim); display:flex; gap:10px; line-height:1.6; }
+  .dot-rules ol li b { color:var(--fg); font-family:'IBM Plex Mono'; font-size:11px; flex-shrink:0; }
+  .dot-tip { font-size:12.5px; color:var(--fg-mute); background:var(--panel); border-radius:8px; padding:14px 16px; line-height:1.6; margin-bottom:26px; }
+  .dot-tip b { color:var(--glow); }
+
+  .dot-play { display:none; }
+  .dot-play.show { display:block; }
+  .dot-stage-wrap { position:relative; }
+  .dot-stage { position:relative; width:100%; height:260px; background:var(--panel-strong); border:1px solid var(--line); border-radius:14px; overflow:hidden; }
+  .dot { position:absolute; width:16px; height:16px; border-radius:50%; background:var(--glow); box-shadow:0 0 12px rgba(201,219,245,0.65); }
+  .dot-ready-overlay { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-family:'Noto Serif KR'; font-size:19px; color:var(--fg-dim); background:rgba(34,41,53,0.55); backdrop-filter:blur(2px); }
+
+  .dot-choices { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:20px; min-height:64px; }
+  .dot-choice-btn { padding:16px 10px; border-radius:10px; border:1.5px solid var(--line); background:var(--panel-strong); color:var(--fg); font-family:'IBM Plex Mono'; font-size:21px; font-weight:700; cursor:pointer; transition:all .15s; }
+  .dot-choice-btn:hover:not(:disabled) { border-color:var(--glow); background:rgba(201,219,245,0.08); }
+  .dot-choice-btn:disabled { cursor:default; }
+  .dot-choice-btn.correct { border-color:var(--up); background:rgba(159,217,192,0.16); color:var(--up); }
+  .dot-choice-btn.wrong { border-color:var(--down); background:rgba(230,168,154,0.16); color:var(--down); }
+
+  .dot-over { display:none; text-align:center; background:var(--panel-strong); border:1px solid rgba(230,192,104,0.35); border-radius:16px; padding:44px 30px; }
+  .dot-over.show { display:block; }
+  .dot-over .emoji { font-size:40px; margin-bottom:14px; }
+  .dot-over .label { font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:0.1em; color:var(--fg-mute); text-transform:uppercase; margin-bottom:6px; }
+  .dot-over .final { font-family:'Noto Serif KR'; font-size:52px; font-weight:600; color:var(--c-memory); margin-bottom:26px; }
+
+  /* ===== VIEW SWITCH ===== */
+  .match-game, .dotcount-game, .number-game { display:none; }
+  body.view-match .memory-hub, body.view-match .dotcount-game, body.view-match .number-game { display:none; }
+  body.view-match .match-game { display:block; }
+  body.view-dotcount .memory-hub, body.view-dotcount .match-game, body.view-dotcount .number-game { display:none; }
+  body.view-dotcount .dotcount-game { display:block; }
+  body.view-number .memory-hub, body.view-number .match-game, body.view-number .dotcount-game { display:none; }
+  body.view-number .number-game { display:block; }
+
+  /* ===== FOOTER ===== */
+  footer { padding: 60px 0 32px; border-top: 1px solid var(--line); background: rgba(30,36,48,0.7); backdrop-filter: blur(3px); margin-top: 80px; }
+  .ft-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 50px; }
+  .ft-grid h5 { font-family: 'IBM Plex Mono'; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-mute); margin-bottom: 18px; font-weight: 500; }
+  .ft-grid li { list-style: none; padding: 5px 0; font-size: 14px; }
+  .ft-grid li a:hover { color: var(--glow); }
+  .ft-brand-blurb { font-family: 'Noto Serif KR'; font-size: 14px; line-height: 1.65; color: var(--fg-dim); margin-top: 16px; max-width: 320px; }
+  .ft-bot { display: flex; justify-content: space-between; padding-top: 16px; font-family: 'IBM Plex Mono'; font-size: 11px; color: var(--fg-mute); letter-spacing: 0.06em; border-top:1px solid var(--line); }
+
+  @media (max-width: 900px) {
+    .type-grid { grid-template-columns:1fr; }
+  }
+  @media (max-width: 640px) {
+    .container { padding:0 20px; }
+    nav.top ul { display:none; }
+    .match-board { grid-template-columns:repeat(var(--cols-mobile, 4), 1fr); gap:8px; }
+    .card-face { font-size:20px; }
+    .dot-choices { grid-template-columns:repeat(2,1fr); }
+    .ft-grid { grid-template-columns:1fr 1fr; gap:32px; }
+    .ft-grid > div:first-child { grid-column:1/-1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .card-inner, .match-preview-note .bar-fill { transition:none !important; animation:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="ticker-bar">
+  <div class="ticker-track">
+    <span class="item"><span class="sym">기억력</span><span class="price">평균 782점</span><span class="delta up">+1.2%</span></span>
+    <span class="item"><span class="sym">오늘의 도전</span><span class="price">카드 짝맞추기</span><span class="delta up">참여 4,210명</span></span>
+    <span class="item"><span class="sym">신규 게임</span><span class="price">숫자 기억력 (2분 제한)</span><span class="delta up">NEW</span></span>
+    <span class="item"><span class="sym">기억력</span><span class="price">평균 782점</span><span class="delta up">+1.2%</span></span>
+    <span class="item"><span class="sym">오늘의 도전</span><span class="price">카드 짝맞추기</span><span class="delta up">참여 4,210명</span></span>
+    <span class="item"><span class="sym">신규 게임</span><span class="price">숫자 기억력 (2분 제한)</span><span class="delta up">NEW</span></span>
+  </div>
+</div>
+
+<nav class="top">
+  <div class="container row">
+    <a class="brand" href="#"><span class="mark"></span> 한국두뇌평가원<sup>KOREA BRAIN ASSESSMENT</sup></a>
+    <ul>
+      <li><a href="#" class="active">게임</a></li>
+      <li><a href="#">랭킹</a></li>
+      <li><a href="#">나의 기록</a></li>
+      <li><a href="#">연구소</a></li>
+    </ul>
+    <div class="login-row">
+      <a class="login" href="#">로그인 ↗</a>
+      <a class="btn btn-primary" href="#">전체 게임 보기</a>
+    </div>
+  </div>
+</nav>
+
+<main class="container">
+
+  <!-- ============================================ -->
+  <!-- 0. 기억력 게임 허브                          -->
+  <!-- ============================================ -->
+  <section class="memory-hub">
+    <a class="games-back" href="#">← 메인 메뉴로</a>
+    <div class="games-head">
+      <span class="label">§01.1 — MEMORY HUB</span>
+      <h2>기억력 게임, <span class="accent">4가지 방식</span>으로 훈련하세요.</h2>
+      <p>단순한 암기력부터 작업 기억력, 수량 인지 능력까지 다각도로 두뇌를 자극하는 게임들이 준비되어 있습니다. 카테고리별로 선택해 본인의 한계에 도전해보세요.</p>
+    </div>
+
+    <div class="type-grid">
+      <!-- 1) 숫자 기억력 -->
+      <div class="type-card">
+        <span class="type-badge new">NEW</span>
+        <div class="type-icon">
+          <svg viewBox="0 0 56 56" fill="none">
+            <rect x="10" y="14" width="36" height="28" rx="4" stroke="currentColor" stroke-width="2"/>
+            <text x="28" y="34" font-family="monospace" font-size="16" font-weight="bold" fill="currentColor" text-anchor="middle">7492</text>
+          </svg>
+        </div>
+        <div class="type-title">숫자 기억력</div>
+        <div class="type-sub">Number Memory · 작업 기억력</div>
+        <p class="type-desc">화면에 나타난 숫자를 기억하고, 숫자가 사라진 뒤 그대로 입력하세요. 정답을 맞힐 때마다 기억해야 할 숫자의 자릿수가 점점 늘어납니다.</p>
+        <div class="type-meta"><span>⏱ 2분 시간 제한</span><span>·</span><span>난이도 상승형</span></div>
+        <button class="type-cta primary" data-go="number">지금 도전하기 →</button>
+      </div>
+
+      <!-- 2) 카드 짝맞추기 (5단계 확장) -->
+      <div class="type-card">
+        <span class="type-badge new">NEW</span>
+        <div class="type-icon">
+          <svg viewBox="0 0 56 56" fill="none">
+            <rect x="9" y="15" width="24" height="32" rx="4" stroke="currentColor" stroke-width="2" transform="rotate(-9 21 31)"/>
+            <rect x="22" y="9" width="24" height="32" rx="4" fill="#2f3746" stroke="currentColor" stroke-width="2"/>
+            <circle cx="34" cy="25" r="3" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="type-title">카드 짝맞추기</div>
+        <div class="type-sub">Memory Match · 회상 + 위치기억</div>
+        <p class="type-desc">16장의 카드를 잠깐 보여드립니다. 그림의 위치를 기억했다가, 뒤집힌 카드 중 같은 그림 두 장을 짝지어 모두 맞춰보세요. 총 5단계로 진행되며 마지막엔 52장이 등장합니다.</p>
+        <div class="type-meta"><span>⏱ 기록 측정</span><span>·</span><span>5단계 (최대 52장)</span></div>
+        <button class="type-cta outline" data-go="match">지금 도전하기 →</button>
+      </div>
+
+      <!-- 3) 순간 수량 인지 / 서비타이징 -->
+      <div class="type-card">
+        <span class="type-badge progress">진행중</span>
+        <div class="type-icon">
+          <svg viewBox="0 0 56 56" fill="none">
+            <circle cx="14" cy="17" r="4" fill="currentColor"/><circle cx="31" cy="11" r="4" fill="currentColor"/>
+            <circle cx="45" cy="21" r="4" fill="currentColor"/><circle cx="19" cy="34" r="4" fill="currentColor"/>
+            <circle cx="38" cy="40" r="4" fill="currentColor"/><circle cx="9" cy="44" r="4" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="type-title">순간 수량 인지</div>
+        <div class="type-sub">Subitizing · 서비타이징</div>
+        <p class="type-desc">화면에 점들이 순식간에 번쩍이고 사라집니다. 세지 말고 직관으로 개수를 맞춰보세요. 오답 시 생명이 소진되며 레벨이 오를수록 점은 늘고 시간은 짧아집니다.</p>
+        <div class="type-meta"><span>⏱ 무제한 (생명제)</span><span>·</span><span>난이도 상승형</span></div>
+        <button class="type-cta outline" data-go="dotcount">지금 도전하기 →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- 1. 숫자 기억력 게임                          -->
+  <!-- ============================================ -->
+  <section class="number-game">
+    <a class="games-back" data-go="hub">← 기억력 게임으로</a>
+    <div class="games-head">
+      <span class="label">§01.1 — MEMORY / NUMBER</span>
+      <h2>숫자 <span class="accent">기억력</span></h2>
+      <p>제한시간 2분 동안 숫자를 기억하고 입력하세요. 성공할 때마다 자릿수가 계속 늘어납니다.</p>
+    </div>
+
+    <div class="game-shell">
+      <div class="game-hud">
+        <div class="hud-item"><span class="l">현재 자릿수 (레벨)</span><span class="v" id="numLevel">3</span></div>
+        <div class="hud-item"><span class="l">남은 시간</span><span class="v" id="numTime">02:00</span></div>
+      </div>
+
+      <div class="num-play" id="numPlay">
+        <div class="num-display" id="numDisplay">준비...</div>
+        <div class="num-input-group" id="numInputGroup" style="display:none;">
+          <input type="number" class="num-input" id="numInput" placeholder="숫자 입력" autocomplete="off" />
+          <button class="btn btn-primary" id="numSubmitBtn">확인</button>
+        </div>
+        <p id="numMsg" style="margin-top: 18px; font-size: 14.5px; color: var(--fg-mute);">아래 버튼을 눌러 게임을 시작하세요.</p>
+        <button class="btn btn-primary" id="numStartBtn" style="margin-top:24px;">시작하기</button>
+      </div>
+
+      <div class="num-over" id="numOver">
+        <div class="emoji">🧠</div>
+        <div class="label">최종 암기 성공 자릿수</div>
+        <div class="final" id="numFinalLevel">0</div>
+        <div class="game-actions">
+          <button class="btn btn-primary" id="numRetryBtn">다시 도전</button>
+          <a class="btn btn-outline" data-go="hub" href="#">기억력 게임으로</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- 2. 카드 짝맞추기 게임                        -->
+  <!-- ============================================ -->
+  <section class="match-game">
+    <a class="games-back" data-go="hub">← 기억력 게임으로</a>
+    <div class="games-head">
+      <span class="label">§01.2 — MEMORY / MATCH</span>
+      <h2>카드 <span class="accent">짝맞추기</span></h2>
+      <p>카드가 잠깐 공개됩니다. 위치를 기억했다가, 같은 그림 두 장을 찾아 모두 짝지어 보세요. (총 5단계)</p>
+    </div>
+
+    <div class="game-shell">
+      <div class="game-hud">
+        <div class="hud-item"><span class="l">단계</span><span class="v" id="matchStageHUD">1 / 5</span></div>
+        <div class="hud-item"><span class="l">이동 횟수</span><span class="v" id="matchMoves">0</span></div>
+        <div class="hud-item"><span class="l">남은 짝</span><span class="v" id="matchPairsLeft">8</span></div>
+        <div class="hud-item"><span class="l">총 경과 시간</span><span class="v" id="matchTime">00:00</span></div>
+      </div>
+
+      <div class="match-preview-note" id="matchPreviewNote">
+        🧠 카드 위치를 기억하세요 — 잠시 후 뒤집힙니다
+        <div class="bar"><div class="bar-fill"></div></div>
+      </div>
+
+      <div class="match-board" id="matchBoard"></div>
+
+      <div class="match-complete" id="matchComplete">
+        <div class="emoji">🎉</div>
+        <h3 id="matchCompleteTitle">모든 짝을 맞췄습니다!</h3>
+        <div class="stats">
+          <div><div class="v" id="matchFinalMoves">0</div><div class="l">총 이동 횟수</div></div>
+          <div><div class="v" id="matchFinalTime">00:00</div><div class="l">총 경과 시간</div></div>
+          <div><div class="v" id="matchFinalScore">0</div><div class="l">최종 점수</div></div>
+        </div>
+        <div class="game-actions">
+          <button class="btn btn-outline" id="matchRestartBtn">다음 단계</button>
+          <a class="btn btn-primary" data-go="hub" href="#">기억력 게임으로</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- 3. 순간 수량 인지 (서비타이징) 게임          -->
+  <!-- ============================================ -->
+  <section class="dotcount-game">
+    <a class="games-back" data-go="hub">← 기억력 게임으로</a>
+    <div class="games-head">
+      <span class="label">§01.3 — MEMORY / SUBITIZING</span>
+      <h2>순간 <span class="accent">수량 인지</span></h2>
+      <p>점들이 번쩍이고 사라지면, 세지 말고 직관으로 개수를 맞혀보세요.</p>
+    </div>
+
+    <div class="game-shell">
+      <!-- 규칙 안내 -->
+      <div class="dot-rules" id="dotRules">
+        <div class="emoji">🧠</div>
+        <h3>서비타이징 테스트</h3>
+        <p class="lede">점들이 순식간에 번쩍이고 사라집니다. 세지 말고 — 직관으로 맞혀보세요!</p>
+        <ol>
+          <li><b>①</b> 점이 번쩍 표시됐다 사라집니다.</li>
+          <li><b>②</b> 4개 보기 중 개수를 선택하세요.</li>
+          <li><b>③</b> 생명 3개, 오답 시 -1 · 소진 시 종료됩니다.</li>
+        </ol>
+        <div class="dot-tip">💡 인간의 뇌는 <b>4개 이하</b>는 세지 않고 즉각 인식합니다 — 이를 <b>서비타이징</b>이라 합니다. 레벨이 오를수록 점의 개수가 늘고, 번쩍이는 시간은 짧아집니다.</div>
+        <button class="btn btn-primary" id="dotStartBtn">도전하기 →</button>
+      </div>
+
+      <!-- 플레이 화면 -->
+      <div class="dot-play" id="dotPlay">
+        <div class="game-hud">
+          <div class="hud-item"><span class="l">레벨</span><span class="v" id="dotLevel">1</span></div>
+          <div class="hud-item"><span class="l">생명</span><span class="v hearts" id="dotHearts">❤️❤️❤️</span></div>
+          <div class="hud-item"><span class="l">연속</span><span class="v" id="dotStreak">0</span></div>
+        </div>
+        <div class="dot-stage-wrap">
+          <div class="dot-stage" id="dotStage">
+            <div class="dot-ready-overlay" id="dotReadyOverlay">준비… 잘 보세요!</div>
+          </div>
+        </div>
+        <div class="dot-choices" id="dotChoices"></div>
+      </div>
+
+      <!-- 결과 화면 -->
+      <div class="dot-over" id="dotOver">
+        <div class="emoji">🧠</div>
+        <div class="label">최종 레벨</div>
+        <div class="final" id="dotFinalLevel">0</div>
+        <div class="game-actions">
+          <button class="btn btn-primary" id="dotRetryBtn">다시 도전</button>
+          <a class="btn btn-outline" data-go="hub" href="#">기억력 게임으로</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="ft-grid">
+      <div>
+        <a class="brand" href="#"><span class="mark"></span> 한국두뇌평가원<sup>KOREA BRAIN ASSESSMENT</sup></a>
+        <p class="ft-brand-blurb">인지 신경과학에 기반한 두뇌 훈련 플랫폼. 서울에 본사, 도쿄·싱가포르에 지사를 두고 있습니다.</p>
+      </div>
+      <div><h5>훈련 영역</h5><ul><li><a href="#">기억력</a></li><li><a href="#">수리력</a></li><li><a href="#">인지력</a></li><li><a href="#">집중력</a></li></ul></div>
+      <div><h5>커뮤니티</h5><ul><li><a href="#">주간 랭킹</a></li><li><a href="#">오늘의 도전</a></li><li><a href="#">훈련 일지</a></li></ul></div>
+      <div><h5>회사</h5><ul><li><a href="#">한국두뇌평가원 소개</a></li><li><a href="#">연구팀</a></li><li><a href="#">채용</a></li></ul></div>
+      <div><h5>고객</h5><ul><li><a href="#">회원가입</a></li><li><a href="#">문의하기</a></li><li><a href="#">고객센터</a></li></ul></div>
+    </div>
+    <div class="ft-bot">
+      <span>© 2026 한국두뇌평가원 · ALL RIGHTS RESERVED</span>
+      <span>사업자등록 · 개인정보보호 · 이용약관</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* ===== 뷰 전환 (네비게이션) ===== */
+  function show(view){
+    document.body.classList.remove('view-match','view-dotcount','view-number');
+    if(view==='match'){ document.body.classList.add('view-match'); window.initMatchGame && window.initMatchGame(); }
+    if(view==='dotcount'){ document.body.classList.add('view-dotcount'); }
+    if(view==='number'){ document.body.classList.add('view-number'); }
+    try{ window.scrollTo({top:0, behavior:'instant'}); }catch(e){ window.scrollTo(0,0); }
+  }
+  document.querySelectorAll('[data-go]').forEach(function(el){
+    el.addEventListener('click', function(e){
+      e.preventDefault();
+      show(el.dataset.go === 'hub' ? 'hub' : el.dataset.go);
+    });
+  });
+})();
+
+/* ============================================ */
+/* === 1. 숫자 기억력 게임 로직 (2분 타이머 반영) === */
+/* ============================================ */
+(function(){
+  const startBtn = document.getElementById('numStartBtn');
+  const submitBtn = document.getElementById('numSubmitBtn');
+  const retryBtn = document.getElementById('numRetryBtn');
+  const inputEl = document.getElementById('numInput');
+  const displayEl = document.getElementById('numDisplay');
+  const inputGroup = document.getElementById('numInputGroup');
+  const playPanel = document.getElementById('numPlay');
+  const overPanel = document.getElementById('numOver');
+  const levelEl = document.getElementById('numLevel');
+  const finalLevelEl = document.getElementById('numFinalLevel');
+  const msgEl = document.getElementById('numMsg');
+  const timeEl = document.getElementById('numTime');
+
+  let currentLevel = 3; 
+  let currentNumber = "";
+  let timer = null;
+  let timeLeft = 120; 
+
+  function updateTimerDisplay(){
+    const m = String(Math.floor(timeLeft / 60)).padStart(2, '0');
+    const s = String(timeLeft % 60).padStart(2, '0');
+    if(timeEl) timeEl.textContent = `${m}:${s}`;
+  }
+
+  function startGame(){
+    currentLevel = 3;
+    timeLeft = 120;
+    clearInterval(timer);
+    updateTimerDisplay();
+
+    overPanel.classList.remove('show');
+    startBtn.style.display = 'none';
+
+    timer = setInterval(() => {
+      timeLeft--;
+      updateTimerDisplay();
+      if(timeLeft <= 0){
+        clearInterval(timer);
+        gameOver();
+      }
+    }, 1000);
+
+    nextRound();
+  }
+
+  function nextRound(){
+    if(timeLeft <= 0) return;
+    levelEl.textContent = currentLevel;
+    inputGroup.style.display = 'none';
+    inputEl.value = '';
+    msgEl.textContent = '숫자를 기억하세요...';
+    
+    const min = Math.pow(10, currentLevel - 1);
+    const max = Math.pow(10, currentLevel) - 1;
+    currentNumber = Math.floor(min + Math.random() * (max - min + 1)).toString();
+
+    displayEl.textContent = currentNumber;
+    displayEl.style.display = 'flex';
+
+    const showTime = Math.max(1000, currentLevel * 750);
+    setTimeout(() => {
+      if(timeLeft <= 0) return;
+      displayEl.style.display = 'none';
+      inputGroup.style.display = 'flex';
+      msgEl.textContent = '기억한 숫자를 입력하세요.';
+      inputEl.focus();
+    }, showTime);
+  }
+
+  function checkAnswer(){
+    if(timeLeft <= 0) return;
+    const val = inputEl.value.trim();
+    if(!val) return;
+    if(val === currentNumber){
+      currentLevel++;
+      msgEl.textContent = '정답입니다! 다음 레벨을 준비하세요...';
+      inputGroup.style.display = 'none';
+      setTimeout(nextRound, 1200);
+    } else {
+      gameOver();
+    }
+  }
+
+  function gameOver(){
+    clearInterval(timer);
+    playPanel.style.display = 'block';
+    inputGroup.style.display = 'none';
+    displayEl.textContent = "준비...";
+    displayEl.style.display = 'flex';
+    msgEl.textContent = '아래 버튼을 눌러 게임을 시작하세요.';
+    startBtn.style.display = 'inline-flex';
+    
+    finalLevelEl.textContent = (currentLevel - 1) + '자리';
+    overPanel.classList.add('show');
+  }
+
+  startBtn.addEventListener('click', startGame);
+  retryBtn.addEventListener('click', () => {
+    overPanel.classList.remove('show');
+    startGame();
+  });
+  submitBtn.addEventListener('click', checkAnswer);
+  inputEl.addEventListener('keypress', function(e){
+    if(e.key === 'Enter') checkAnswer();
+  });
+})();
+
+/* ============================================ */
+/* === 2. 카드 짝맞추기 게임 로직 (5단계 확장) === */
+/* ============================================ */
+(function(){
+  const board = document.getElementById('matchBoard');
+  const movesEl = document.getElementById('matchMoves');
+  const pairsEl = document.getElementById('matchPairsLeft');
+  const timeEl = document.getElementById('matchTime');
+  const completePanel = document.getElementById('matchComplete');
+  const completeTitle = document.getElementById('matchCompleteTitle');
+  const restartBtn = document.getElementById('matchRestartBtn');
+  const stageEl = document.getElementById('matchStageHUD');
+  const previewNote = document.getElementById('matchPreviewNote');
+  
+  // 총 26개의 심볼 (52장 대응)
+  const symbolsPool = ['🍎','🎵','🌙','⭐','🔑','🎯','🐝','🍀','🍓','🎈','💎','🚀','🐶','🐱','🌺','🍉','🍇','🍕','🍩','⚽','🚗','✈️','💡','🎁','🌈','🔥'];
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  let deck = [], flipped = [], matchedCount = 0, moves = 0, timer = null, seconds = 0, locked = false;
+  let currentStage = 1;
+  const stagePairs = [8, 12, 16, 20, 26]; // 각 단계별 쌍의 개수 (16, 24, 32, 40, 52장)
+
+  function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+
+  function buildDeck(){
+    const pairsCount = stagePairs[currentStage - 1];
+    const stageSymbols = symbolsPool.slice(0, pairsCount);
+    deck = shuffle(stageSymbols.concat(stageSymbols).map(function(s,i){ return {id:i, sym:s}; }));
+  }
+
+  function render(){
+    const cardsCount = deck.length;
+    let cols = 4, colsMobile = 4;
+    
+    // 카드 개수에 따라 그리드 컬럼 동적 설정
+    if (cardsCount > 16 && cardsCount <= 24) { cols = 6; colsMobile = 4; }
+    else if (cardsCount > 24 && cardsCount <= 32) { cols = 8; colsMobile = 4; }
+    else if (cardsCount > 32 && cardsCount <= 40) { cols = 8; colsMobile = 5; }
+    else if (cardsCount > 40) { cols = 8; colsMobile = 6; } // 최대 52장
+
+    board.style.setProperty('--cols', cols);
+    board.style.setProperty('--cols-mobile', colsMobile);
+
+    // 카드가 많아지면 폰트 사이즈 조정
+    const frontFontSize = cardsCount > 24 ? '18px' : '26px';
+    const backFontSize = cardsCount > 24 ? '14px' : '20px';
+
+    board.innerHTML = deck.map(function(c){
+      return '<div class="match-card" data-sym="'+c.sym+'">'+
+        '<div class="card-inner">'+
+          '<div class="card-face front" style="font-size:' + frontFontSize + ';">'+c.sym+'</div>'+
+          '<div class="card-face back" style="font-size:' + backFontSize + ';">◆</div>'+
+        '</div>'+
+      '</div>';
+    }).join('');
+  }
+
+  function startPreview(){
+    previewNote.style.display = 'block';
+    document.querySelectorAll('.match-card').forEach(function(c){ c.classList.add('flipped'); });
+    setTimeout(function(){
+      document.querySelectorAll('.match-card').forEach(function(c){ c.classList.remove('flipped'); });
+      previewNote.style.display = 'none';
+    }, reduce ? 300 : 2400);
+  }
+
+  function startTimer(){
+    if (seconds === 0 && currentStage === 1) timeEl.textContent = '00:00';
+    timer = setInterval(function(){
+      seconds++;
+      const m = String(Math.floor(seconds/60)).padStart(2,'0');
+      const s = String(seconds%60).padStart(2,'0');
+      timeEl.textContent = m+':'+s;
+    }, 1000);
+  }
+
+  board.addEventListener('click', function(e){
+    const card = e.target.closest('.match-card');
+    if(!card || locked) return;
+    if(card.classList.contains('flipped') || card.classList.contains('matched')) return;
+    if(!timer) startTimer();
+
+    card.classList.add('flipped');
+    flipped.push(card);
+
+    if(flipped.length === 2){
+      moves++; movesEl.textContent = moves;
+      locked = true;
+      const a = flipped[0], b = flipped[1];
+      if(a.dataset.sym === b.dataset.sym){
+        a.classList.add('matched'); b.classList.add('matched');
+        matchedCount++;
+        pairsEl.textContent = stagePairs[currentStage - 1] - matchedCount;
+        flipped = []; locked = false;
+        
+        if(matchedCount === stagePairs[currentStage - 1]) {
+          setTimeout(finishStage, 300);
+        }
+      } else {
+        a.classList.add('mismatch'); b.classList.add('mismatch');
+        setTimeout(function(){
+          a.classList.remove('flipped','mismatch');
+          b.classList.remove('flipped','mismatch');
+          flipped = []; locked = false;
+        }, reduce ? 200 : 750);
+      }
+    }
+  });
+
+  function finishStage(){
+    clearInterval(timer); timer = null;
+    
+    if (currentStage < 5) {
+      completeTitle.textContent = currentStage + '단계 클리어!';
+      restartBtn.textContent = '다음 단계 진행';
+    } else {
+      completeTitle.textContent = '모든 단계를 완료했습니다!';
+      restartBtn.textContent = '처음부터 다시하기';
+    }
+
+    const score = Math.max(100, (currentStage * 1000) - moves*10 - seconds*2);
+    document.getElementById('matchFinalMoves').textContent = moves;
+    document.getElementById('matchFinalTime').textContent = timeEl.textContent;
+    document.getElementById('matchFinalScore').textContent = score;
+    
+    completePanel.classList.add('show');
+  }
+
+  function initGame(isNextStage = false){
+    if (!isNextStage) {
+      currentStage = 1;
+      moves = 0;
+      seconds = 0;
+      timeEl.textContent = '00:00';
+    }
+    
+    matchedCount = 0; flipped = []; locked = false;
+    clearInterval(timer); timer = null;
+    
+    stageEl.textContent = currentStage + ' / 5';
+    movesEl.textContent = moves; 
+    pairsEl.textContent = stagePairs[currentStage - 1]; 
+    
+    completePanel.classList.remove('show');
+    buildDeck(); 
+    render();
+    setTimeout(startPreview, 120);
+  }
+
+  restartBtn.addEventListener('click', function(){
+    if (currentStage < 5) {
+      currentStage++;
+      initGame(true);
+    } else {
+      initGame(false);
+    }
+  });
+  
+  window.initMatchGame = function() { initGame(false); };
+})();
+
+/* ============================================ */
+/* === 3. 순간 수량 인지(서비타이징) 게임 로직 === */
+/* ============================================ */
+(function(){
+  const startBtn = document.getElementById('dotStartBtn');
+  const retryBtn = document.getElementById('dotRetryBtn');
+  const rulesPanel = document.getElementById('dotRules');
+  const playPanel = document.getElementById('dotPlay');
+  const overPanel = document.getElementById('dotOver');
+  const stage = document.getElementById('dotStage');
+  const readyOverlay = document.getElementById('dotReadyOverlay');
+  const choicesWrap = document.getElementById('dotChoices');
+  const levelEl = document.getElementById('dotLevel');
+  const heartsEl = document.getElementById('dotHearts');
+  const streakEl = document.getElementById('dotStreak');
+  const finalLevelEl = document.getElementById('dotFinalLevel');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  let level = 1, lives = 3, streak = 0, currentAnswer = 0, answering = false;
+
+  function updateHUD(){
+    levelEl.textContent = level;
+    heartsEl.textContent = '❤️'.repeat(Math.max(0,lives)) + '🤍'.repeat(Math.max(0,3-lives));
+    streakEl.textContent = streak;
+  }
+
+  function randInt(min,max){ return Math.floor(Math.random()*(max-min+1))+min; }
+
+  function placeDots(count){
+    stage.querySelectorAll('.dot').forEach(function(d){ d.remove(); });
+    const w = stage.clientWidth || 500, h = stage.clientHeight || 260;
+    const placed = [];
+    let tries = 0;
+    while(placed.length < count && tries < 800){
+      tries++;
+      const x = randInt(18, w-34), y = randInt(18, h-34);
+      let ok = true;
+      for(let i=0;i<placed.length;i++){
+        if(Math.hypot(placed[i].x-x, placed[i].y-y) < 32){ ok = false; break; }
+      }
+      if(ok) placed.push({x:x,y:y});
+    }
+    placed.forEach(function(p){
+      const d = document.createElement('div');
+      d.className = 'dot';
+      d.style.left = p.x+'px'; d.style.top = p.y+'px';
+      stage.appendChild(d);
+    });
+    return placed.length;
+  }
+
+  function buildChoices(correct){
+    const set = new Set([correct]);
+    let guard = 0;
+    while(set.size < 4 && guard < 50){
+      guard++;
+      const delta = randInt(-3,3) || 1;
+      const v = correct + delta;
+      if(v > 0) set.add(v);
+    }
+    const arr = Array.from(set).sort(function(){ return Math.random()-0.5; });
+    choicesWrap.innerHTML = arr.map(function(v){
+      return '<button class="dot-choice-btn" data-v="'+v+'">'+v+'</button>';
+    }).join('');
+  }
+
+  function round(){
+    answering = false;
+    readyOverlay.textContent = '준비… 잘 보세요!';
+    readyOverlay.style.display = 'flex';
+    choicesWrap.innerHTML = '';
+    const count = Math.min(3 + Math.floor((level-1)*0.8), 14);
+    const flashMs = reduce ? 900 : Math.max(320, 900 - level*35);
+    setTimeout(function(){
+      readyOverlay.style.display = 'none';
+      currentAnswer = placeDots(count);
+      setTimeout(function(){
+        stage.querySelectorAll('.dot').forEach(function(d){ d.remove(); });
+        buildChoices(currentAnswer);
+        answering = true;
+      }, flashMs);
+    }, 650);
+  }
+
+  choicesWrap.addEventListener('click', function(e){
+    if(!answering) return;
+    const btn = e.target.closest('.dot-choice-btn');
+    if(!btn) return;
+    answering = false;
+    const chosen = parseInt(btn.dataset.v, 10);
+    const buttons = choicesWrap.querySelectorAll('.dot-choice-btn');
+    buttons.forEach(function(b){ b.disabled = true; if(parseInt(b.dataset.v,10) === currentAnswer) b.classList.add('correct'); });
+
+    if(chosen === currentAnswer){
+      level++; streak++;
+      updateHUD();
+      setTimeout(round, 700);
+    } else {
+      btn.classList.add('wrong');
+      lives--;
+      streak = 0;
+      updateHUD();
+      if(lives <= 0){
+        setTimeout(gameOver, 800);
+      } else {
+        setTimeout(round, 900);
+      }
+    }
+  });
+
+  function gameOver(){
+    playPanel.classList.remove('show');
+    finalLevelEl.textContent = level;
+    overPanel.classList.add('show');
+  }
+
+  function startGame(){
+    level = 1; lives = 3; streak = 0;
+    rulesPanel.style.display = 'none';
+    overPanel.classList.remove('show');
+    playPanel.classList.add('show');
+    updateHUD();
+    round();
+  }
+
+  startBtn.addEventListener('click', startGame);
+  retryBtn.addEventListener('click', startGame);
+})();
+</script>
+</body>
+</html>
