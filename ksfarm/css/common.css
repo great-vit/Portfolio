@@ -1,0 +1,151 @@
+/* ===== Reset ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html, body, h1, h2, h3, h4, p, figure, blockquote, dl, dd, ul, ol { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+img, picture, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+input, textarea { font: inherit; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scrollbar-gutter: stable; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+/* ===== Design tokens ===== */
+:root {
+  /* color */
+  --sprout: #3F9A45;
+  --sprout-deep: #276B2C;
+  --sprout-bright: #5CB85A;
+  --ink: #16221A;
+  --ink-soft: #445045;
+  --husk: #FDFDFB;
+  --husk-soft: #FFFFFF;
+  --husk-line: #E7E7E2;
+  --straw: #C8934C;
+  --coral: #D9573F;
+  --white: #FFFFFF;
+  --bezel: #121417;
+
+  --sunbeam: #F5B93F;
+  --sunbeam-deep: #C9860E;
+
+  --glass-green-06: rgba(63, 154, 69, 0.06);
+  --glass-green-12: rgba(63, 154, 69, 0.12);
+  --glass-green-20: rgba(63, 154, 69, 0.20);
+  --glass-green-32: rgba(63, 154, 69, 0.32);
+  --glass-border: rgba(63, 154, 69, 0.22);
+
+  --glass-yellow-10: rgba(245, 185, 63, 0.07);
+  --glass-yellow-18: rgba(245, 185, 63, 0.13);
+  --glass-yellow-border: rgba(245, 185, 63, 0.35);
+
+  /* type */
+  --font-display: 'Cabinet Grotesk', 'Pretendard', 'Inter', sans-serif;
+  --font-headline: 'Black Han Sans', 'Pretendard', 'Inter', sans-serif;
+  --font-body: 'Inter', 'Pretendard', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* layout */
+  --container: 1180px;
+  --gutter: clamp(20px, 5vw, 64px);
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --radius-sm: 10px;
+  --shadow-soft: 0 20px 60px -24px rgba(22, 34, 26, 0.25);
+  --shadow-card: 0 10px 30px -16px rgba(22, 34, 26, 0.18);
+}
+
+/* This page is intentionally always-light: an ivory/white farm-fresh
+   palette is the brand, so it does not follow prefers-color-scheme. */
+
+body {
+  background: var(--husk);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-headline);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  overflow-wrap: break-word;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sprout-deep);
+}
+.eyebrow::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--sprout);
+  box-shadow: 0 0 0 4px var(--glass-green-20);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 26px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+.btn-primary {
+  background: var(--sprout);
+  color: #FFFFFF;
+  box-shadow: 0 12px 28px -12px rgba(63, 154, 69, 0.55);
+}
+.btn-primary:hover { background: var(--sprout-deep); transform: translateY(-1px); }
+.btn-ghost {
+  background: var(--white);
+  color: var(--ink);
+  border: 1px solid var(--husk-line);
+}
+.btn-ghost:hover { border-color: var(--sprout); color: var(--sprout-deep); }
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--sprout);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  transition-delay: var(--d, 0s);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farm Friend — An AI farming expert in every pocket</title>
+<meta name="description" content="Farm Friend is an AI companion that diagnoses crop problems from a photo and answers farming questions in plain language, any time of day.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&family=Black+Han+Sans&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,650,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/common.css?v=9">
+<link rel="stylesheet" href="css/pages/landing.css?v=28">
+</head>
+<body>
+
+<header class="site-header site-header--hero">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="index.html">
+      <span class="brand__mark" aria-hidden="true">
+        <img src="assets/images/mascot-icon.png" alt="" class="brand__mascot">
+        <img src="assets/images/friend-logo.png" alt="" class="brand__appicon">
+      </span>
+      <span class="brand__name">Farm Friend</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Primary">
+      <a href="product.html">Product</a>
+      <a href="company.html">Company</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <a class="btn btn-primary site-header__cta" href="#download">Download App</a>
+
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <a href="product.html">Product</a>
+    <a href="company.html">Company</a>
+    <a href="contact.html">Contact</a>
+    <a class="btn btn-primary" href="#download">Download App</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero__glow" aria-hidden="true"></div>
+    <div class="wrap hero__inner">
+      <div class="hero__copy">
+        <h1 class="hero__title">Every farmer deserves an expert in their pocket.</h1>
+        <p class="hero__sub">Farm Friend is an AI companion that reads a photo of a struggling crop and answers a farmer's question the way a trusted expert would — in plain language, any hour of the day.</p>
+        <div class="hero__actions">
+          <a class="btn btn-primary" href="#download">Download App<span aria-hidden="true">&nbsp;→</span></a>
+          <a class="btn btn-ghost" href="#product">See how it works</a>
+        </div>
+      </div>
+
+      <div class="hero__visual reveal">
+        <div class="phone-frame">
+          <img src="assets/images/home-friend.webp" alt="Farm Friend home screen: a friendly AI robot mascot greets the farmer and offers to answer questions or diagnose a crop photo." loading="eager">
+        </div>
+        <div class="hero__blob hero__blob--a" aria-hidden="true"></div>
+        <div class="hero__blob hero__blob--b" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRUST STRIP ===== -->
+  <section class="capstrip">
+    <div class="wrap capstrip__inner">
+      <div class="capstrip__card reveal">
+        <span class="capstrip__icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M17.5 19a4.5 4.5 0 0 0 0-9 6 6 0 0 0-11.5 1.5A3.5 3.5 0 0 0 6.5 19z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        </span>
+        <h3>KMA short-term forecast</h3>
+        <p>Weather for the exact plot a farmer registered — not just the nearest city.</p>
+      </div>
+      <div class="capstrip__card reveal">
+        <span class="capstrip__icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2.5l8 3v6c0 5-3.4 8.8-8 10c-4.6-1.2-8-5-8-10v-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><polyline points="8.6 12 11 14.4 15.6 9.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        </span>
+        <h3>RDA's NCPMS</h3>
+        <p>Every diagnosis links back to Korea's official crop pest management database.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ASK ANYTIME ===== -->
+  <section class="product" id="product">
+    <div class="wrap">
+      <div class="feature-row reveal">
+        <div class="feature-row__copy">
+          <span class="feature-row__index">01</span>
+          <h3 class="pin-heading">
+            <span class="pin-heading__line reveal">Ask anytime,</span>
+            <span class="pin-heading__line reveal" style="--d:.09s">get an answer right away.</span>
+          </h3>
+          <p>A tomato grower asks why the lower leaves are yellowing. Farm Friend asks one follow-up question, then explains the cause and what to do next.</p>
+        </div>
+        <div class="feature-row__visual">
+          <div class="shot-card">
+            <img src="assets/images/chat-full.webp" alt="Chat conversation: a farmer asks about yellowing tomato leaves and watering, and the AI answers with a diagnosis and a watering schedule.">
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== ANSWER DEPTH (scroll-pinned, 3 steps) ===== -->
+      <div class="pin-feature pin-feature--gray" data-steps="3">
+        <div class="pin-feature__track">
+          <div class="pin-feature__stage">
+            <div class="pin-feature__copy">
+              <span class="feature-row__index">02</span>
+              <h3 class="pin-heading">
+                <span class="pin-heading__line reveal">The same question,</span>
+                <span class="pin-heading__line reveal" style="--d:.09s">answered at a different depth.</span>
+              </h3>
+              <p>Pick a level once, and Farm Friend keeps using it. Beginners get plain next steps; specialists get the cause and the evidence behind it.</p>
+              <div class="pin-feature__caps">
+                <p class="pin-feature__cap is-active" data-i="0"><b>1</b>Pick a level, once</p>
+                <p class="pin-feature__cap" data-i="1"><b>2</b>Beginner — what to do first</p>
+                <p class="pin-feature__cap" data-i="2"><b>3</b>Expert — the cause, and the evidence</p>
+              </div>
+            </div>
+            <div class="pin-feature__visual">
+              <div class="shot-card">
+                <img class="pin-feature__img is-active" data-i="0" src="assets/images/chat-level-modal.webp" alt="Answer-level picker: choose beginner-level or expert-level answers.">
+                <img class="pin-feature__img" data-i="1" src="assets/images/chat-beginner.webp" alt="Beginner-level answer: lower-leaf yellowing is usually a water or fertilizer issue, explained in plain language.">
+                <img class="pin-feature__img" data-i="2" src="assets/images/chat-expert.webp" alt="Expert-level answer diagnosing lower-leaf yellowing as nitrogen mobility deficiency, with root-zone EC and pH checks suggested.">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== AI DIAGNOSE (scroll-pinned, 3 steps) ===== -->
+      <div class="pin-feature pin-feature--dark" data-steps="3">
+        <div class="pin-feature__track">
+          <div class="pin-feature__stage">
+            <div class="pin-feature__copy">
+              <span class="feature-row__index">03</span>
+              <h3 class="pin-heading">
+                <span class="pin-heading__line reveal">Doesn't stop at a photo,</span>
+                <span class="pin-heading__line reveal" style="--d:.09s">it asks first.</span>
+              </h3>
+              <p>When it isn't confident, it says so — "inconclusive" is a real answer here, not a forced guess.</p>
+              <div class="pin-feature__caps">
+                <p class="pin-feature__cap is-active" data-i="0"><b>1</b>Symptom and location, first</p>
+                <p class="pin-feature__cap" data-i="1"><b>2</b>A photo sharpens the answer</p>
+                <p class="pin-feature__cap" data-i="2"><b>3</b>Evidence, confidence, alternatives</p>
+              </div>
+            </div>
+            <div class="pin-feature__visual">
+              <div class="shot-card">
+                <img class="pin-feature__img is-active" data-i="0" src="assets/images/diagnose-step2.webp" alt="Diagnosis step 2: choosing where the symptom appears (leaf) and what it looks like (powdery white coating).">
+                <img class="pin-feature__img" data-i="1" src="assets/images/diagnose-step3.webp" alt="Diagnosis step 3: adding a symptom photo and growing conditions before running the AI diagnosis.">
+                <img class="pin-feature__img" data-i="2" src="assets/images/diagnose-result-others.webp" alt="Diagnosis result with treatment steps and a ranked list of other possible causes.">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== OFFICIAL DATA ===== -->
+      <div class="feature-row feature-row--reverse feature-row--mint reveal">
+        <div class="feature-row__copy">
+          <span class="feature-row__index">04</span>
+          <h3 class="pin-heading">The government's data — not the AI's opinion</h3>
+          <p>Every diagnosis links back to Korea's National Crop Pest Management System (NCPMS), the Rural Development Administration's own database. The AI organizes the explanation — it doesn't invent the facts.</p>
+        </div>
+        <div class="feature-row__visual">
+          <div class="shot-card">
+            <img src="assets/images/diagnose-result.webp" alt="Diagnosis result screen with a high-confidence badge for tomato powdery mildew, symptoms, growing conditions, spread, and treatment.">
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== DIARY + HUMAN EXPERT (continuous band) ===== -->
+      <div class="feature-band feature-band--gray">
+        <div class="feature-row reveal">
+          <div class="feature-row__copy">
+            <span class="feature-row__index">05</span>
+            <h3 class="pin-heading">Your farm's record, day by day.</h3>
+            <p>Register a plot's location and crop once, then log every spray, harvest, and task in the diary as you go.</p>
+          </div>
+          <div class="feature-row__visual">
+            <div class="shot-card">
+              <img src="assets/images/diary-write.webp" alt="Farming diary entry screen: selecting the farm, crop, work date, and task type, with a photo attached.">
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-row reveal">
+          <div class="feature-row__copy">
+            <span class="feature-row__index">06</span>
+            <h3 class="pin-heading">When AI isn't enough, a person answers</h3>
+            <p>Expert questions route to an actual specialist by category and stay open until answered. Farmers can rate the answer, and see support-program deadlines alongside it.</p>
+          </div>
+          <div class="feature-row__visual">
+            <div class="shot-card">
+              <img src="assets/images/qna-detail.webp" alt="Expert question detail screen with an 'answered' badge, the specialist's reply, and a star rating for satisfaction.">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SENSOR ===== -->
+  <section class="sensor-section">
+    <div class="wrap sensor__inner">
+      <div>
+        <h2>Not just sensors — a decision-support system.</h2>
+        <p class="sub">ROUTE17 gateways collect temperature, humidity, and CO2 around the clock, and AltisAI turns that stream into action — catching anomalies early and recommending the best operating conditions before a problem costs you the harvest.</p>
+        <p class="sensor__live"><i aria-hidden="true"></i>Receiving live data</p>
+      </div>
+      <div class="sensor__device">
+        <div class="sensor__device-shot">
+          <img src="assets/images/route17-device.webp" alt="ROUTE17 Air Sensor Gateway, the hardware device Farm Friend connects to for greenhouse temperature, humidity, and CO2 data.">
+        </div>
+        <div class="sensor__device-caption">
+          <p class="sensor__device-name">Sensor data, in. AI guidance, out.</p>
+          <p class="sensor__device-sub">ROUTE17 collects the data; AltisAI's AI analyzes it for early alerts and optimal operating conditions.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap altisai__phases">
+      <div class="altisai__phase reveal">
+        <span class="altisai__phase-num">Phase 01</span>
+        <h3>Data collection &amp; analysis service</h3>
+        <ul>
+          <li>Real-time monitoring of equipment and sensor data</li>
+          <li>Early detection and alerts for anomalies</li>
+          <li>Automatic generation of operational status reports</li>
+          <li>Data-driven maintenance scheduling</li>
+          <li>Analysis and reports on work efficiency</li>
+        </ul>
+      </div>
+      <div class="altisai__phase altisai__phase--accent reveal">
+        <span class="altisai__phase-num">Phase 02</span>
+        <h3>AI-based decision support system</h3>
+        <ul>
+          <li>AI-based analysis of equipment operating patterns</li>
+          <li>Predictive maintenance timing</li>
+          <li>Optimal operating conditions for each piece of equipment</li>
+          <li>Operating guides to improve productivity</li>
+          <li>Operating scenarios to reduce costs</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TEASER GRID ===== -->
+  <section class="teaser-section teaser-section--gray">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Everything you need is already in here.</h2>
+      </div>
+
+      <div class="teaser-icons reveal">
+        <a href="product.html#support-programs">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="8" width="17" height="4" rx="1"/><path d="M4.5 12v7.5a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V12"/><path d="M12 8v12.5"/><path d="M12 8C12 8 11 3.5 8 3.5a2.3 2.3 0 0 0 0 4.5h4"/><path d="M12 8C12 8 13 3.5 16 3.5a2.3 2.3 0 0 1 0 4.5h-4"/></svg>
+          Support programs
+        </a>
+        <a href="product.html#pest-library">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 9V7a3 3 0 0 1 6 0v2"/><rect x="8" y="9" width="8" height="12" rx="4"/><path d="M19 9l-3 2"/><path d="M5 9l3 2"/><path d="M19 15h-3"/><path d="M8 15H5"/><path d="M19 21l-3-2"/><path d="M5 21l3-2"/></svg>
+          Pest &amp; disease library
+        </a>
+        <a href="product.html#cultivation-guides">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-9.5"/><path d="M12 11.5C12 7.5 9 5.5 4 5.5c0 4 2.2 6.8 8 6.8z"/><path d="M12 13.5c0-3 2.4-5 7-5c0 3.4-2 5.8-7 5.8z"/></svg>
+          Cultivation guides
+        </a>
+        <a href="product.html#community">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.5 7.2L4 20l1-4.5A8 8 0 1 1 21 12z"/></svg>
+          Farmer community
+        </a>
+        <a href="product.html#video-lessons">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2.6"/><path d="M10.4 9.6l4 2.4-4 2.4z" fill="currentColor" stroke="none"/></svg>
+          Video lessons
+        </a>
+      </div>
+
+      <div class="teaser-shot reveal">
+        <div class="shot-card">
+          <img src="assets/images/pest.webp" alt="Pest and disease library screen with a search bar and official pest information by crop.">
+        </div>
+      </div>
+
+      <p class="teaser-more reveal"><a class="btn btn-primary" href="#download">Download App<span aria-hidden="true">&nbsp;→</span></a></p>
+    </div>
+  </section>
+
+  <!-- ===== FINAL CTA ===== -->
+  <section class="final-cta" id="download">
+    <div class="hero__glow" aria-hidden="true"></div>
+    <div class="wrap">
+      <img class="final-cta__mascot reveal" src="assets/images/mascot.webp" alt="">
+      <h2 class="reveal">Don't grow this season alone.</h2>
+      <p class="reveal">Meet Farm Friend in the app — free to download, ready whenever a question is.</p>
+
+      <div class="store-badges reveal">
+        <a class="store-badge" href="https://app.ksfarm.kr">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M3.6 2.1a1 1 0 0 0-.5.9v18a1 1 0 0 0 .5.9l10-9.9zM15 10.7l-2.7-2.7L5 1.2l10.9 6.2zM17.8 12.3l2.6-1.5a1.1 1.1 0 0 1 0 2l-2.6 1.5-1.9-2zM12.3 16l2.7-2.7 1 1L5 21.9z"/></svg>
+          <span class="t"><small>Get it on</small><strong>Google Play</strong></span>
+        </a>
+        <a class="store-badge" href="https://app.ksfarm.kr">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M16.4 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.9-3.5.9s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.5-1-2.5-3.9zM14.2 5.9c.6-.8 1-1.9.9-3-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.8-.9 2.9 1 .1 2-.5 2.7-1.3z"/></svg>
+          <span class="t"><small>Download on the</small><strong>App Store</strong></span>
+        </a>
+      </div>
+
+      <div class="final-cta__qr reveal">
+        <img src="assets/images/qr-download.svg" alt="QR code to download the Farm Friend app.">
+        <span>Scan with your phone</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <div class="site-footer__brand">
+      <span class="brand__mark brand__mark--sm" aria-hidden="true">
+        <img src="assets/images/mascot-icon.png" alt="" class="brand__mascot">
+        <img src="assets/images/friend-logo.png" alt="" class="brand__appicon">
+      </span>
+      <div>
+        <p class="site-footer__name">Farm Friend</p>
+        <p class="site-footer__tagline">An AI farming expert, in every pocket.</p>
+      </div>
+    </div>
+
+    <div class="site-footer__col">
+      <p class="site-footer__heading">Product</p>
+      <a href="product.html">Overview</a>
+    </div>
+    <div class="site-footer__col">
+      <p class="site-footer__heading">Company</p>
+      <a href="company.html">About KS Farm</a>
+    </div>
+    <div class="site-footer__col">
+      <p class="site-footer__heading">Contact</p>
+      <a href="contact.html">Get in touch</a>
+      <a href="mailto:hello@ksfarm.example">hello@ksfarm.example</a>
+    </div>
+  </div>
+  <div class="wrap site-footer__legal site-footer__legal--stack">
+    <p>&copy; 2026 KS Farm. All rights reserved.</p>
+    <p>Screens shown are from the real Farm Friend app; displayed data is for illustration. Farm Friend is an AI assistant and does not replace professional agronomic advice.</p>
+    <p>Data sources: KMA short-term forecast &middot; RDA National Crop Pest Management System (NCPMS).</p>
+  </div>
+</footer>
+
+<script src="js/common.js?v=3"></script>
+</body>
+</html>
