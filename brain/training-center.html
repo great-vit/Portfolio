@@ -1,0 +1,1689 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>두뇌훈련센터 — 매일 15분, 당신의 뇌를 깨우다</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #2f3746;
+    --bg-2: #28303f;
+    --bg-deep: #222a39;
+    --panel: rgba(255, 255, 255, 0.08);
+    --panel-2: rgba(255, 255, 255, 0.05);
+    --panel-strong: rgba(54, 62, 78, 0.90);
+    --glass: rgba(150, 168, 204, 0.12);
+    --fg: #f8faff;
+    --fg-dim: #d4dae8;
+    --fg-mute: #aeb7c9;
+    --line: rgba(255, 255, 255, 0.15);
+    --line-soft: rgba(255, 255, 255, 0.09);
+    --glow: #c9dbf5;
+    --glow-2: #a9c4ec;
+    --champagne: #e6d8b8;
+    --up: #9fd9c0;
+    --down: #e6a89a;
+    --c-memory: #e6c068;
+    --c-math: #6fd9b0;
+    --c-cognition: #7fb4dc;
+    --c-focus: #b3a0e6;
+    --c-perfect: #e6c068;
+    --c-cleared: #7fb4dc;
+    --c-next: #b3a0e6;
+    --c-passed: #8d97ad;
+    --c-locked: #6b7589;
+    --t-muted: #c7cdda;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0;}
+  html {
+    background:
+      radial-gradient(120% 80% at 12% -12%, rgba(120,150,200,0.06), transparent 55%),
+      linear-gradient(180deg, #2f3847 0%, #232a38 100%);
+    background-attachment: fixed;
+  }
+  body {
+    background: none;
+    color: var(--fg);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+  p, li, td, th, span, small, a, button, input { font-weight: 500; }
+  a { color: inherit; text-decoration: none;}
+  .container { max-width: 1320px; margin: 0 auto; padding: 0 32px;}
+  .serif { font-family: 'Noto Serif KR', serif;}
+  .mono { font-family: 'IBM Plex Mono', monospace;}
+
+  /* TICKER */
+  .ticker-bar { background: rgba(30,36,48,0.92); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); padding: 10px 0; overflow: hidden; white-space: nowrap;}
+  .ticker-track { display: inline-block; animation: scroll 60s linear infinite; font-family: 'IBM Plex Mono'; font-size: 12px;}
+  .ticker-track .item { margin: 0 24px; display: inline-flex; gap: 8px;}
+  .ticker-track .sym { color: var(--fg);}
+  .ticker-track .price { color: var(--fg-dim);}
+  .ticker-track .delta.up { color: var(--up);}
+  @keyframes scroll { to { transform: translateX(-50%);} }
+
+  /* NAV */
+  nav.top { padding: 18px 0; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: rgba(33,40,52,0.92); backdrop-filter: blur(8px); z-index: 50;}
+  nav.top .row { display: flex; align-items: center; justify-content: space-between;}
+  .brand { display: flex; align-items: center; gap: 12px; font-family: 'Noto Serif KR'; font-weight: 500; font-size: 22px; letter-spacing: -0.02em;}
+  .brand .mark {
+    width: 32px; height: 32px; background: linear-gradient(135deg, var(--champagne), #cdb988);
+    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+    box-shadow: 0 0 18px rgba(230,216,184,0.35);
+  }
+  .brand sup { font-family: 'IBM Plex Mono'; font-size: 9px; color: var(--fg-mute); vertical-align: top; margin-left: 4px;}
+  nav.top ul { display: flex; list-style: none; gap: 36px; font-size: 14px;}
+  nav.top ul a { color: var(--fg-dim);}
+  nav.top ul a:hover, nav.top ul a.active { color: var(--fg);}
+  .login-row { display: flex; gap: 16px; align-items: center;}
+  .login { color: var(--fg-dim); font-size: 14px;}
+  .btn { padding: 10px 20px; font-size: 13px; font-weight: 500; border-radius: 6px; border: 1px solid transparent; transition: 0.2s; display: inline-flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; font-family: inherit;}
+  .btn-primary { background: linear-gradient(135deg, var(--champagne), #d4c197); color: #232a36; box-shadow: 0 6px 24px rgba(230,216,184,0.22);}
+  .btn-primary:hover { box-shadow: 0 8px 30px rgba(230,216,184,0.34); transform: translateY(-1px);}
+  .btn-outline { border-color: var(--line); color: var(--fg); background: var(--panel-strong); backdrop-filter: blur(4px);}
+  .btn-outline:hover { border-color: var(--glow); background: rgba(201,219,245,0.08);}
+
+  /* HERO */
+  .hero { padding: 90px 0 70px; position: relative;}
+  .hero-grid { display: grid; grid-template-columns: 1fr 1.08fr; gap: 72px; align-items: center;}
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: 'IBM Plex Mono'; font-size: 11px; letter-spacing: 0.12em; color: var(--glow);
+    margin-bottom: 28px; text-transform: uppercase;
+  }
+  .hero-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--glow);}
+  .hero h1 {
+    font-family: 'Noto Serif KR', serif; font-weight: 500;
+    font-size: clamp(40px, 5.2vw, 76px); line-height: 1.15; letter-spacing: -0.035em;
+    margin-bottom: 28px;
+  }
+  .hero h1 .accent { color: var(--glow); font-weight: 600;}
+  .hero p.lede { font-size: 18px; line-height: 1.65; color: var(--fg-dim); max-width: 540px; margin-bottom: 36px;}
+  .hero-cta { display: flex; gap: 12px; align-items: center; flex-wrap: wrap;}
+  .hero-trust { display: flex; gap: 28px; margin-top: 60px; padding-top: 28px; border-top: 1px solid var(--line); flex-wrap: wrap;}
+  .trust { font-size: 13px;}
+  .trust .v { font-family: 'Noto Serif KR'; font-size: 28px; font-weight: 600;}
+  .trust .v .accent { color: var(--glow);}
+  .trust .l { color: var(--fg-mute); margin-top: 4px; font-size: 12px;}
+
+  /* HERO RANKING PANEL */
+  .rank-panel {
+    background:
+      radial-gradient(120% 90% at 82% -10%, rgba(201,219,245,0.08), transparent 55%),
+      linear-gradient(180deg, rgba(54,62,78,0.92), rgba(42,49,62,0.92));
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(201,219,245,0.22); border-radius: 16px; padding: 26px;
+    box-shadow: 0 40px 120px rgba(0,0,0,0.36), 0 0 60px rgba(169,196,236,0.10);
+    position: relative; overflow: hidden;
+  }
+  .rank-panel::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background: linear-gradient(90deg, transparent, var(--glow), transparent); }
+  .rank-head { display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 1px solid var(--line); margin-bottom: 8px;}
+  .rank-head .t { font-family: 'Noto Serif KR'; font-size: 19px; font-weight: 600; display:flex; align-items:center; gap:8px;}
+  .rank-head .t .sub { font-family: 'Noto Sans KR'; font-size: 12px; font-weight: 600; color: var(--fg-dim); margin-left: 8px;}
+  .rank-tabs { display: flex; gap: 4px; font-family: 'IBM Plex Mono'; font-size: 11px; letter-spacing: 0.06em;}
+  .rank-tabs span { padding: 4px 10px; border-radius: 4px; color: var(--fg-dim); cursor: pointer;}
+  .rank-tabs span.active { background: var(--panel); color: var(--fg);}
+  .rank-meta { display: flex; justify-content: space-between; font-family: 'IBM Plex Mono'; font-size: 10px; color: var(--fg-mute); letter-spacing: 0.08em; text-transform: uppercase; padding: 12px 6px 6px;}
+  .rank-row { display: grid; grid-template-columns: 32px 1fr 68px 76px; gap: 12px; align-items: center; padding: 10px 6px; border-bottom: 1px solid var(--line-soft); font-size: 13px;}
+  .rank-row:last-child { border-bottom: 0;}
+  .rank-row .rk { font-family: 'IBM Plex Mono'; font-size: 13px; color: var(--fg-mute); text-align: center;}
+  .rank-row.top .rk { color: var(--glow); font-weight: 500;}
+  .rank-row .who { display: flex; align-items: center; gap: 10px;}
+  .rank-row .av { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: 11px; font-weight: 600; color: #232a36; flex-shrink: 0;}
+  .rank-row .nm { font-weight: 500; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .rank-row .nm small { display: block; color: var(--fg-mute); font-size: 10px; font-family: 'IBM Plex Mono'; margin-top: 2px; text-overflow: ellipsis; overflow: hidden;}
+  .rank-row .sc { font-family: 'IBM Plex Mono'; font-size: 13px; text-align: right; font-weight: 500;}
+  .rank-row .dm { font-family: 'IBM Plex Mono'; font-size: 10px; text-align: right; color: var(--fg-dim);}
+  .rank-foot { display: flex; justify-content: space-between; align-items: center; padding: 14px 6px 2px; margin-top: 6px; border-top: 1px solid var(--line); font-size: 12px; color: var(--fg-dim);}
+  .rank-foot .me { display: flex; align-items: center; gap: 8px;}
+  .rank-foot .me .badge { padding: 2px 8px; border-radius: 4px; background: var(--panel); font-family: 'IBM Plex Mono'; font-size: 10px; color: var(--glow);}
+  .rank-foot a { color: var(--glow); font-family: 'IBM Plex Mono'; font-size: 11px;}
+
+  /* LOGOS */
+  .logos { padding: 50px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);}
+  .logos-h { font-family: 'IBM Plex Mono'; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fg-mute); text-align: center; margin-bottom: 30px;}
+  .logos-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 40px; align-items: center; justify-items: center;}
+  .logos-grid div { font-family: 'Noto Serif KR'; font-size: 18px; font-weight: 600; text-align: center;}
+
+  /* DOMAINS */
+  .domains { padding: 130px 0;}
+  .sect-head { margin-bottom: 70px; display: grid; grid-template-columns: 1fr 1.4fr; gap: 60px; align-items: end;}
+  .sect-head .label { font-family: 'IBM Plex Mono'; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--glow);}
+  .sect-head h2 { font-family: 'Noto Serif KR'; font-weight: 500; font-size: clamp(36px, 4.6vw, 64px); line-height: 1.15; letter-spacing: -0.03em; margin-top: 16px;}
+  .sect-head h2 .accent { color: var(--glow);}
+  .sect-head p { font-size: 16px; color: var(--fg-dim); line-height: 1.65; max-width: 540px;}
+
+  .domains-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 10px; overflow: hidden;}
+  .domain { background: var(--panel-strong); backdrop-filter: blur(3px); padding: 32px 26px; min-height: 380px; display: flex; flex-direction: column; position: relative;}
+  .domain::after { content:''; position:absolute; top:0; left:0; right:0; height:2px; background: var(--accent); }
+  .domain.a { --accent: var(--c-memory); }
+  .domain.b { --accent: var(--c-math); }
+  .domain.c { --accent: var(--c-cognition); }
+  .domain.d { --accent: var(--c-focus); }
+  .domain .n { font-family: 'IBM Plex Mono'; font-size: 11px; letter-spacing: 0.08em; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; color: var(--accent);}
+  .domain .n .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+  .domain .icon-box { height: 72px; margin-bottom: 22px; display: flex; align-items: center; color: var(--accent);}
+  .domain .icon-box svg { width: 56px; height: 56px;}
+  .domain h3 { font-family: 'Noto Serif KR'; font-weight: 600; font-size: 24px; letter-spacing: -0.02em; margin-bottom: 10px;}
+  .domain .kor-sub { font-family: 'IBM Plex Mono'; font-size: 11px; color: var(--fg-mute); letter-spacing: 0.08em; margin-bottom: 16px; text-transform: uppercase;}
+  .domain p { color: var(--fg-dim); font-size: 14px; line-height: 1.7; flex: 1;}
+  .domain .games { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 6px;}
+  .domain .games span { font-size: 11px; padding: 4px 9px; background: var(--panel); border: 1px solid var(--line-soft); border-radius: 12px; color: var(--fg-dim);}
+  .domain .stat { margin-top: 18px; display: flex; justify-content: space-between; align-items: baseline;}
+  .domain .stat .v { font-family: 'Noto Serif KR'; font-size: 26px; font-weight: 600; color: var(--accent);}
+  .domain .stat .l { font-family: 'IBM Plex Mono'; font-size: 10px; color: var(--fg-mute); letter-spacing: 0.06em; text-transform: uppercase; max-width: 130px; text-align: right;}
+
+  /* BOARD */
+  .board { padding: 100px 0; background: rgba(30,36,48,0.7); backdrop-filter: blur(3px); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);}
+  .board-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px; align-items: start;}
+  .board-text h2 { font-family: 'Noto Serif KR'; font-weight: 500; font-size: 48px; line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 24px;}
+  .board-text h2 .accent { color: var(--glow);}
+  .board-text p { font-size: 15px; line-height: 1.7; color: var(--fg-dim); margin-bottom: 14px;}
+  .board-text .note { font-family: 'IBM Plex Mono'; font-size: 11px; color: var(--fg-mute); margin-top: 30px; padding-top: 16px; border-top: 1px solid var(--line); line-height: 1.6;}
+  
+  .board-table-wrap { overflow-x: auto; padding-bottom: 10px;}
+  .board-table { background: var(--panel-strong); backdrop-filter: blur(3px); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; min-width: 600px;}
+  .bt-head { display: grid; grid-template-columns: 40px 2fr 1.1fr 1fr 1fr 1fr; gap: 14px; padding: 14px 20px; background: rgba(255,255,255,0.04); font-family: 'IBM Plex Mono'; font-size: 10px; text-transform: uppercase; color: var(--fg-mute); border-bottom: 1px solid var(--line);}
+  .bt-row { display: grid; grid-template-columns: 40px 2fr 1.1fr 1fr 1fr 1fr; gap: 14px; padding: 16px 20px; border-bottom: 1px solid var(--line-soft); font-size: 14px; align-items: center;}
+  .bt-row:last-child { border-bottom: 0;}
+  .bt-row .rk { font-family: 'IBM Plex Mono'; color: var(--fg-mute); font-size: 13px;}
+  .bt-row.gold .rk { color: var(--champagne); font-weight: 600;}
+  .bt-row .n { display: flex; align-items: center; gap: 10px;}
+  .bt-row .n .av { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-size: 11px; font-weight: 600; color: #232a36;}
+  .bt-row .n .info { font-weight: 500;}
+  .bt-row .n .info small { display: block; color: var(--fg-mute); font-size: 11px; font-family: 'IBM Plex Mono'; margin-top: 2px;}
+  .bt-row .dm { font-size: 12px; color: var(--fg-dim);}
+  .bt-row .dm .pill { display: inline-block; padding: 2px 8px; border-radius: 4px; background: var(--panel); font-family: 'IBM Plex Mono'; font-size: 10px;}
+  .bt-row .v { font-family: 'IBM Plex Mono'; }
+  .bt-row .v.up { color: var(--up);}
+
+  /* QUOTE */
+  .quote-band { padding: 0;}
+  .quote-inner {
+    min-height: 320px; padding: 60px 0;
+    background:
+      radial-gradient(ellipse 800px 400px at 20% 20%, rgba(169,196,236,0.14), transparent 60%),
+      rgba(40,47,60,0.5);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    display: flex; align-items: center;
+  }
+  .quote-row { display: flex; justify-content: space-between; width: 100%; align-items: flex-end; gap: 60px; flex-wrap: wrap;}
+  .quote-text { font-family: 'Noto Serif KR'; font-weight: 500; font-size: clamp(24px, 3vw, 36px); line-height: 1.35; color: var(--fg); max-width: 820px;}
+  .quote-text .accent { color: var(--glow);}
+  .quote-attr { font-family: 'IBM Plex Mono'; font-size: 11px; letter-spacing: 0.14em; color: var(--champagne); text-transform: uppercase; text-align: right; line-height: 1.7;}
+
+  /* CTA */
+  .cta-section { padding: 140px 0; position: relative; overflow: hidden;}
+  .cta-wrap { text-align: center; position: relative; max-width: 800px; margin: 0 auto;}
+  .cta-wrap .label { font-family: 'IBM Plex Mono'; font-size: 11px; letter-spacing: 0.14em; color: var(--glow); margin-bottom: 24px; display: block; text-transform: uppercase;}
+  .cta-wrap h2 { font-family: 'Noto Serif KR'; font-weight: 500; font-size: clamp(40px, 5.5vw, 76px); line-height: 1.2; margin-bottom: 24px;}
+  .cta-wrap h2 .accent { color: var(--glow);}
+  .cta-wrap p { font-size: 17px; color: var(--fg-dim); margin-bottom: 36px; max-width: 540px; margin-left: auto; margin-right: auto; line-height: 1.65;}
+  .cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;}
+
+  /* FOOTER */
+  footer { padding: 60px 0 32px; border-top: 1px solid var(--line); background: rgba(30,36,48,0.7); backdrop-filter: blur(3px);}
+  .ft-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 50px;}
+  .ft-grid h5 { font-family: 'IBM Plex Mono'; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-mute); margin-bottom: 18px; font-weight: 500;}
+  .ft-grid li { list-style: none; padding: 5px 0; font-size: 14px;}
+  .ft-grid li a:hover { color: var(--glow);}
+  .ft-brand-blurb { font-family: 'Noto Serif KR'; font-size: 14px; line-height: 1.65; color: var(--fg-dim); margin-top: 16px; max-width: 320px;}
+  .ft-disc { padding: 24px 0; border-top: 1px solid var(--line); font-size: 11px; color: var(--fg-mute); line-height: 1.7; max-width: 1100px;}
+  .ft-bot { display: flex; justify-content: space-between; padding-top: 16px; font-family: 'IBM Plex Mono'; font-size: 11px; color: var(--fg-mute); flex-wrap: wrap; gap: 10px;}
+
+  /* ---------------------------------------------------- */
+  /* GAMES MENU VIEW */
+  .games-menu { display: none; padding: 64px 0 110px; }
+  .games-back { display:inline-flex; align-items:center; gap:8px; font-family:'IBM Plex Mono'; font-size:12px; color:var(--fg-dim); margin-bottom:28px; cursor:pointer; background:none; border:none; }
+  .games-back:hover { color: var(--glow); }
+  .games-head { margin-bottom: 56px; max-width: 720px; }
+  .games-head .label { font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--glow); margin-bottom:18px; display:block; }
+  .games-head h2 { font-family:'Noto Serif KR'; font-weight:500; font-size:clamp(34px,4.4vw,56px); line-height:1.15; margin-bottom:18px; }
+  .games-head h2 .accent { color:var(--glow); }
+  .games-head p { font-size:16px; color:var(--fg-dim); line-height:1.65; }
+  .games-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+  .game-card { background: var(--panel-strong); backdrop-filter: blur(3px); border:1px solid var(--line); border-radius:16px; padding:34px 30px; min-height:360px; display:flex; flex-direction:column; position:relative; overflow:hidden; transition:transform .25s, border-color .25s, box-shadow .25s; cursor:pointer; }
+  .game-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: linear-gradient(90deg, transparent, var(--accent), transparent); }
+  .game-card.m { --accent: var(--c-memory); }
+  .game-card.a { --accent: var(--c-math); }
+  .game-card.v { --accent: var(--c-cognition); }
+  .game-card:hover { transform:translateY(-6px); border-color: var(--accent); box-shadow: 0 24px 60px rgba(0,0,0,0.32); }
+  .game-card .icon-box { height:72px; margin-bottom:24px; display:flex; align-items:center; color: var(--accent); }
+  .game-card .icon-box svg { width:56px; height:56px; }
+  .game-card h3 { font-family:'Noto Serif KR'; font-weight:600; font-size:26px; margin-bottom:8px; }
+  .game-card .kor-sub { font-family:'IBM Plex Mono'; font-size:11px; color:var(--accent); letter-spacing:0.1em; margin-bottom:18px; text-transform:uppercase; }
+  .game-card p { color:var(--fg-dim); font-size:14px; line-height:1.7; flex:1; }
+  .game-card .start { margin-top:26px; padding-top:20px; border-top:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; }
+  .game-card .start .go { font-family:'IBM Plex Mono'; font-size:12px; display:inline-flex; align-items:center; gap:8px; color: var(--accent); }
+  .game-card .tag { font-family:'IBM Plex Mono'; font-size:10px; color:var(--fg-mute); }
+
+  /* ---------------------------------------------------- */
+  /* MEMORY HUB VIEW */
+  .memory-hub-view { display: none; padding: 48px 0 120px; }
+  .type-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:24px; }
+  .type-card { position:relative; background:var(--panel-strong); backdrop-filter:blur(3px); border:1px solid var(--line); border-radius:16px; padding:30px 26px; display:flex; flex-direction:column; overflow:hidden; transition:transform .25s cubic-bezier(.22,1,.36,1), border-color .25s, box-shadow .25s; }
+  .type-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg, transparent, var(--c-memory), transparent); }
+  .type-card:hover { transform:translateY(-4px); border-color:rgba(230,192,104,0.4); box-shadow:0 20px 50px rgba(0,0,0,0.28); }
+  .type-badge { position:absolute; top:16px; right:16px; font-family:'IBM Plex Mono'; font-size:9px; font-weight:700; letter-spacing:1px; padding:4px 9px; border-radius:999px; }
+  .type-badge.new { background:linear-gradient(135deg, var(--champagne), #d4c197); color:#232a36; }
+  .type-badge.progress { background:var(--panel); color:var(--fg-dim); border:1px solid var(--line-soft); }
+  .type-icon { width:52px; height:52px; color:var(--c-memory); margin-bottom:20px; }
+  .type-icon svg { width:100%; height:100%; }
+  .type-title { font-family:'Noto Serif KR'; font-weight:600; font-size:21px; margin-bottom:6px; }
+  .type-sub { font-family:'IBM Plex Mono'; font-size:10px; color:var(--fg-mute); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:14px; }
+  .type-desc { font-size:13.5px; color:var(--fg-dim); line-height:1.65; flex:1; margin-bottom:20px; }
+  .type-meta { display:flex; gap:10px; font-size:11px; color:var(--fg-mute); padding-top:14px; margin-bottom:16px; border-top:1px solid var(--line-soft); font-family:'IBM Plex Mono'; }
+  .type-cta { text-align:center; padding:13px; border-radius:8px; font-size:13px; font-weight:700; cursor:pointer; border:none; font-family:inherit; transition:all .2s; }
+  .type-cta.primary { background:linear-gradient(135deg, var(--champagne), #d4c197); color:#232a36; }
+  .type-cta.primary:hover { box-shadow:0 8px 24px rgba(230,216,184,0.24); }
+  .type-cta.outline { background:transparent; color:var(--glow); border:1px solid rgba(201,219,245,0.3); }
+  .type-cta.outline:hover { background:rgba(201,219,245,0.1); }
+
+  /* ---------------------------------------------------- */
+  /* 게임 공통 UI 쉘 */
+  .game-hud { display:flex; align-items:center; justify-content:space-between; background:var(--panel-strong); border:1px solid var(--line); border-radius:12px; padding:16px 22px; margin-bottom:22px; flex-wrap:wrap; gap:12px; }
+  .hud-item { display:flex; flex-direction:column; gap:3px; }
+  .hud-item .l { font-family:'IBM Plex Mono'; font-size:9.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--fg-mute); }
+  .hud-item .v { font-family:'IBM Plex Mono'; font-size:18px; font-weight:600; color:var(--fg); }
+  .hud-item .v.hearts { font-size:15px; letter-spacing:2px; }
+  .game-shell { max-width: 620px; margin: 0 auto; }
+
+  /* 1. 숫자 기억력 게임 */
+  .num-play { background: var(--panel-strong); border: 1px solid var(--line); border-radius: 16px; padding: 50px 30px; text-align: center; }
+  .num-display { font-family: 'IBM Plex Mono'; font-size: 56px; font-weight: 600; letter-spacing: 6px; color: var(--glow); margin-bottom: 24px; min-height: 80px; display: flex; align-items: center; justify-content: center; }
+  .num-input-group { display: flex; gap: 12px; justify-content: center; margin-top: 20px; }
+  .num-input { background: rgba(0,0,0,0.2); border: 1.5px solid var(--line); color: var(--fg); font-family: 'IBM Plex Mono'; font-size: 26px; text-align: center; border-radius: 8px; padding: 12px; width: 220px; outline: none; }
+  .num-input:focus { border-color: var(--c-memory); box-shadow: 0 0 0 3px rgba(230,192,104,0.15); }
+  .num-over { display: none; text-align: center; background: var(--panel-strong); border: 1px solid rgba(230,192,104,0.35); border-radius: 16px; padding: 44px 30px; }
+  .num-over.show { display: block; }
+  .num-over .emoji { font-size:40px; margin-bottom:14px; }
+  .num-over .label { font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:0.1em; color:var(--fg-mute); text-transform:uppercase; margin-bottom:6px; }
+  .num-over .final { font-family:'Noto Serif KR'; font-size:48px; font-weight:600; color:var(--c-memory); margin-bottom:26px; }
+
+  /* 2. 52개 카드 짝 맞추기 */
+  .match-board { display:grid; grid-template-columns:repeat(var(--cols, 4), 1fr); gap:12px; perspective:1000px; }
+  .match-card { aspect-ratio:1/1; cursor:pointer; }
+  .card-inner { position:relative; width:100%; height:100%; transform-style:preserve-3d; transform:rotateY(180deg); transition:transform .5s cubic-bezier(.22,1,.36,1); }
+  .match-card.flipped .card-inner { transform:rotateY(0deg); }
+  .card-face { position:absolute; inset:0; backface-visibility:hidden; border-radius:8px; display:flex; align-items:center; justify-content:center; }
+  .card-face.front { background:var(--panel-strong); border:1.5px solid var(--line); font-size:26px; }
+  .card-face.back { background:linear-gradient(135deg, rgba(230,192,104,0.16), rgba(230,192,104,0.05)); border:1.5px solid rgba(230,192,104,0.35); color:var(--c-memory); font-size:20px; transform:rotateY(180deg); }
+  .match-card.matched .card-face.front { border-color:var(--c-memory); box-shadow:0 0 0 2px rgba(230,192,104,0.3) inset; }
+  .match-card.mismatch .card-face.front { border-color:var(--down); animation:cardshake .4s; }
+  @keyframes cardshake { 0%,100%{transform:translateX(0);} 25%{transform:translateX(-4px);} 75%{transform:translateX(4px);} }
+  .match-preview-note { text-align:center; font-family:'IBM Plex Mono'; font-size:12px; color:var(--fg-mute); margin-bottom:14px; }
+  .match-preview-note .bar { width:100%; height:3px; background:var(--line-soft); border-radius:2px; overflow:hidden; margin-top:8px; }
+  .match-preview-note .bar-fill { height:100%; background:var(--c-memory); width:100%; transform-origin:left; animation:shrinkbar 2.4s linear forwards; }
+  @keyframes shrinkbar { from{transform:scaleX(1);} to{transform:scaleX(0);} }
+  .match-complete { display:none; text-align:center; background:var(--panel-strong); border:1px solid rgba(230,192,104,0.35); border-radius:16px; padding:40px 30px; margin-top:22px; }
+  .match-complete.show { display:block; }
+  .match-complete .emoji { font-size:40px; margin-bottom:14px; }
+  .match-complete h3 { font-family:'Noto Serif KR'; font-size:24px; font-weight:600; margin-bottom:18px; }
+  .match-complete .stats { display:flex; justify-content:center; gap:36px; margin-bottom:26px; }
+  .match-complete .stats div .v { font-family:'IBM Plex Mono'; font-size:22px; font-weight:700; color:var(--c-memory); }
+  .match-complete .stats div .l { font-family:'IBM Plex Mono'; font-size:10px; color:var(--fg-mute); margin-top:4px; }
+  .game-actions { display:flex; gap:10px; justify-content:center; }
+
+  /* 3. 순간 수량 인지 (서비타이징) */
+  .dot-rules { background:var(--panel-strong); border:1px solid var(--line); border-radius:16px; padding:36px 32px; }
+  .dot-rules .emoji { font-size:36px; margin-bottom:14px; }
+  .dot-rules h3 { font-family:'Noto Serif KR'; font-size:22px; font-weight:600; margin-bottom:10px; }
+  .dot-rules .lede { font-size:14px; color:var(--fg-dim); line-height:1.7; margin-bottom:24px; }
+  .dot-rules ol { list-style:none; display:flex; flex-direction:column; gap:10px; margin-bottom:20px; }
+  .dot-rules ol li { font-size:13.5px; color:var(--fg-dim); display:flex; gap:10px; line-height:1.6; }
+  .dot-rules ol li b { color:var(--fg); font-family:'IBM Plex Mono'; font-size:11px; flex-shrink:0; }
+  .dot-tip { font-size:12.5px; color:var(--fg-mute); background:var(--panel); border-radius:8px; padding:14px 16px; line-height:1.6; margin-bottom:26px; }
+  .dot-tip b { color:var(--glow); }
+  .dot-play { display:none; }
+  .dot-play.show { display:block; }
+  .dot-stage-wrap { position:relative; }
+  .dot-stage { position:relative; width:100%; height:260px; background:var(--panel-strong); border:1px solid var(--line); border-radius:14px; overflow:hidden; }
+  .dot { position:absolute; width:16px; height:16px; border-radius:50%; background:var(--glow); box-shadow:0 0 12px rgba(201,219,245,0.65); }
+  .dot-ready-overlay { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-family:'Noto Serif KR'; font-size:19px; color:var(--fg-dim); background:rgba(34,41,53,0.55); backdrop-filter:blur(2px); }
+  .dot-choices { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:20px; min-height:64px; }
+  .dot-choice-btn { padding:16px 10px; border-radius:10px; border:1.5px solid var(--line); background:var(--panel-strong); color:var(--fg); font-family:'IBM Plex Mono'; font-size:21px; font-weight:700; cursor:pointer; transition:all .15s; }
+  .dot-choice-btn:hover:not(:disabled) { border-color:var(--glow); background:rgba(201,219,245,0.08); }
+  .dot-choice-btn:disabled { cursor:default; }
+  .dot-choice-btn.correct { border-color:var(--up); background:rgba(159,217,192,0.16); color:var(--up); }
+  .dot-choice-btn.wrong { border-color:var(--down); background:rgba(230,168,154,0.16); color:var(--down); }
+  .dot-over { display:none; text-align:center; background:var(--panel-strong); border:1px solid rgba(230,192,104,0.35); border-radius:16px; padding:44px 30px; }
+  .dot-over.show { display:block; }
+  .dot-over .emoji { font-size:40px; margin-bottom:14px; }
+  .dot-over .label { font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:0.1em; color:var(--fg-mute); text-transform:uppercase; margin-bottom:6px; }
+  .dot-over .final { font-family:'Noto Serif KR'; font-size:52px; font-weight:600; color:var(--c-memory); margin-bottom:26px; }
+
+  /* 4. 카드 순서 암기 (Card Order Memory - 60초 타임어택) */
+  .cardorder-stage { background:var(--panel-strong); border:1px solid var(--line); border-radius:16px; padding:40px 30px; text-align:center; min-height: 380px;}
+  .cardorder-slots { display: flex; gap: 12px; justify-content: center; margin: 30px 0 40px; }
+  .co-slot { width: 64px; height: 90px; border: 2px dashed var(--line); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 28px; background: rgba(0,0,0,0.2); transition: 0.2s; cursor: pointer; }
+  .co-slot.filled { background: #fff; border: 2px solid #ccc; cursor: pointer; }
+  .co-slot.filled.red { color: #d9534f; }
+  .co-slot.filled.black { color: #1a1a1a; }
+  .co-slot.correct { border-color: var(--up); box-shadow: 0 0 12px rgba(159,217,192,0.4); }
+  .co-slot.wrong { border-color: var(--down); box-shadow: 0 0 12px rgba(230,168,154,0.4); animation: cardshake 0.4s; }
+  .co-deck { display: none; grid-template-columns: repeat(5, 1fr); gap: 10px; max-width: 400px; margin: 0 auto; }
+  .co-deck.show { display: grid; }
+  .co-card-btn { height: 60px; background: #fff; border: 1px solid #ccc; border-radius: 6px; font-size: 24px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.15s; }
+  .co-card-btn:hover { transform: translateY(-3px); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+  .co-card-btn.red { color: #d9534f; }
+  .co-card-btn.black { color: #1a1a1a; }
+  .co-card-btn:disabled { opacity: 0.3; cursor: not-allowed; transform: none; box-shadow: none; }
+  .co-msg { font-size: 16px; color: var(--fg-dim); margin-bottom: 20px; min-height: 24px;}
+  .co-over { display:none; text-align:center; background:var(--panel-strong); border:1px solid rgba(230,192,104,0.35); border-radius:16px; padding:44px 30px; }
+  .co-over.show { display:block; }
+  .co-over .emoji { font-size:40px; margin-bottom:14px; }
+  .co-over .label { font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:0.1em; color:var(--fg-mute); text-transform:uppercase; margin-bottom:6px; }
+  .co-over .final { font-family:'Noto Serif KR'; font-size:48px; font-weight:600; color:var(--c-memory); margin-bottom:10px; }
+  .co-over .sub-score { font-family:'IBM Plex Mono'; font-size:16px; color:var(--glow); margin-bottom: 26px; }
+
+  /* ---------------------------------------------------- */
+  /* SUB-VIEWS DISPLAY CLASSES */
+  .match-game-view, .dotcount-game-view, .number-game-view, .cardorder-game-view { display:none; padding: 48px 0 120px; }
+
+  /* 뷰 스위치 CSS (엄격하게 분리) */
+  /* 메인 홈 뷰 요소들 */
+  body.view-home .hero, body.view-home .logos, body.view-home .domains, body.view-home .board, body.view-home .quote-band, body.view-home .cta-section { display: block; }
+  body:not(.view-home) .hero, body:not(.view-home) .logos, body:not(.view-home) .domains, body:not(.view-home) .board, body:not(.view-home) .quote-band, body:not(.view-home) .cta-section { display: none; }
+
+  /* 게임 메뉴 뷰 요소들 */
+  body.view-games .games-menu { display: block; }
+
+  /* 기억력 게임 허브 뷰 요소들 */
+  body.view-memory-hub .memory-hub-view { display: block; }
+
+  /* 개별 게임 뷰들 */
+  body.view-number .number-game-view { display: block; }
+  body.view-match .match-game-view { display: block; }
+  body.view-dotcount .dotcount-game-view { display: block; }
+  body.view-cardorder .cardorder-game-view { display: block; }
+
+  /* ========================================================
+     반응형 미디어 쿼리 (갤럭시 등 모바일 기기 최적화)
+     ======================================================== */
+  @media (max-width: 1024px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 60px;}
+    .domains-grid { grid-template-columns: repeat(2, 1fr);}
+    .board-grid { grid-template-columns: 1fr; gap: 40px;}
+    .ft-grid { grid-template-columns: 1.5fr 1fr 1fr; gap: 40px;}
+    .games-grid { grid-template-columns:repeat(2,1fr);}
+  }
+  
+  @media (max-width: 640px) {
+    .container { padding: 0 20px;}
+    nav.top ul { display: none;}
+    .games-grid { grid-template-columns: 1fr;}
+
+    /* 타이포그래피 및 간격 조정 */
+    .hero h1 { font-size: clamp(32px, 8vw, 44px); margin-bottom: 20px; }
+    .hero p.lede { font-size: 16px; margin-bottom: 28px; }
+    .hero-grid { gap: 40px;}
+    .hero-trust { margin-top: 40px; padding-top: 20px; gap: 20px;}
+    .hero-cta { flex-direction: column; align-items: stretch; }
+    .hero-cta .btn { justify-content: center; }
+
+    /* 랭킹 패널 */
+    .rank-panel { padding: 20px 16px; }
+    .rank-row { grid-template-columns: 24px 1fr 48px 56px; gap: 8px; font-size: 12px; }
+    .rank-row .who { gap: 6px; }
+    .rank-row .av { width: 22px; height: 22px; font-size: 10px; }
+
+    /* 로고 */
+    .logos-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .logos-grid div { font-size: 14px; }
+
+    /* 도메인 (섹션 헤더 및 그리드) */
+    .sect-head { grid-template-columns: 1fr; gap: 16px; margin-bottom: 40px; }
+    .domains-grid { grid-template-columns: 1fr; }
+    .domain { min-height: auto; padding: 24px 20px; }
+
+    /* 인용구 */
+    .quote-row { flex-direction: column; gap: 24px; align-items: flex-start; }
+    .quote-attr { align-self: flex-end; }
+
+    /* 푸터 */
+    .ft-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .ft-grid > div:first-child { grid-column: 1 / -1; }
+
+    /* 게임 허브 및 내부 UI */
+    .type-grid { grid-template-columns: 1fr; }
+    .game-hud { justify-content: center; flex-wrap: wrap; gap: 16px; }
+    .game-actions { flex-direction: column; width: 100%; }
+
+    /* 서비타이징 점 선택 버튼 */
+    .dot-choices { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+
+    /* 게임 완료 모달 */
+    .match-complete .stats { flex-direction: column; gap: 16px; align-items: center; }
+    
+    /* 카드 암기 게임 슬롯 */
+    .co-slot { width: 48px; height: 70px; font-size: 22px; }
+  }
+
+  @media (max-width: 480px) {
+    /* 아주 좁은 화면 최적화 */
+    .logos-grid { grid-template-columns: repeat(2, 1fr); }
+    .ft-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body class="view-home"> <!-- 초기 상태는 home -->
+
+<div class="ticker-bar">
+  <div class="ticker-track">
+    <span class="item"><span class="sym">기억력</span><span class="price">평균 782점</span><span class="delta up">+1.2%</span></span>
+    <span class="item"><span class="sym">수리력</span><span class="price">평균 694점</span><span class="delta up">+0.8%</span></span>
+    <span class="item"><span class="sym">인지력</span><span class="price">평균 811점</span></span>
+    <span class="item"><span class="sym">오늘의 도전</span><span class="price">52개 카드 짝 맞추기</span><span class="delta up">참여 4,210명</span></span>
+    <span class="item"><span class="sym">신규 게임</span><span class="price">카드 순서 암기 (60초 타임어택)</span><span class="delta up">NEW</span></span>
+  </div>
+</div>
+
+<nav class="top">
+  <div class="container row">
+    <a class="brand" href="#" data-go="home"><span class="mark"></span> 두뇌훈련센터<sup>BRAIN TRAINING CENTER</sup></a>
+    <ul>
+      <li><a href="#" class="active" data-go="home">게임</a></li>
+      <li><a href="#">랭킹</a></li>
+      <li><a href="#">나의 기록</a></li>
+      <li><a href="#">연구소</a></li>
+    </ul>
+    <div class="login-row">
+      <a class="login" href="#">로그인 ↗</a>
+      <a class="btn btn-primary" href="#" data-go="games">무료로 시작하기</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow">하루 15분, 두뇌 활성화 훈련</div>
+        <h1>당신의 뇌는<br>당신이 평가하는 것보다<br><span class="accent">훨씬 더 똑똑합니다.</span></h1>
+        <p class="lede">기억력, 수리력, 인지력, 집중력 — 인지 신경과학자들이 설계한 두뇌 훈련 게임으로 매일의 컨디션을 측정하고 한계에 도전해보세요.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#" data-go="games">지금 무료로 응시하기 →</a>
+          <a class="btn btn-outline" href="#" data-go="games">오늘의 도전 살펴보기</a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust"><div class="v"><span class="accent">234</span>만</div><div class="l">누적 응시자 수</div></div>
+          <div class="trust"><div class="v"><span class="accent">42</span>종</div><div class="l">과학적으로 설계된 게임</div></div>
+        </div>
+      </div>
+
+      <div class="rank-panel">
+        <div class="rank-head">
+          <div class="t">주간 종합 랭킹 <span class="sub">TOP 10</span></div>
+          <div class="rank-tabs">
+            <span>일간</span><span class="active">주간</span><span>월간</span>
+          </div>
+        </div>
+        <div class="rank-meta">
+          <span>순위 · 응시자</span>
+          <span>점수 · 변동</span>
+        </div>
+        <div class="rank-row top">
+          <div class="rk">01</div>
+          <div class="who"><div class="av" style="background:#c9dbf5;">이</div><div class="nm">이수민<small>서울 · Lv.42</small></div></div>
+          <div class="sc">1,982</div>
+          <div class="dm" style="color: var(--up);">▲ 128</div>
+        </div>
+        <div class="rank-row top">
+          <div class="rk">02</div>
+          <div class="who"><div class="av" style="background:#9fd9c0;">박</div><div class="nm">박지훈<small>부산 · Lv.38</small></div></div>
+          <div class="sc">1,948</div>
+          <div class="dm" style="color: var(--up);">▲ 42</div>
+        </div>
+        <div class="rank-row top">
+          <div class="rk">03</div>
+          <div class="who"><div class="av" style="background:#e6a89a;">최</div><div class="nm">최유나<small>대구 · Lv.40</small></div></div>
+          <div class="sc">1,921</div>
+          <div class="dm" style="color: var(--down);">▼ 18</div>
+        </div>
+        <div class="rank-row">
+          <div class="rk">04</div>
+          <div class="who"><div class="av" style="background:#a9c4ec;">정</div><div class="nm">정민재<small>인천 · Lv.36</small></div></div>
+          <div class="sc">1,884</div>
+          <div class="dm" style="color: var(--up);">▲ 64</div>
+        </div>
+        <div class="rank-row">
+          <div class="rk">05</div>
+          <div class="who"><div class="av" style="background:#c9dbf5;">강</div><div class="nm">강서윤<small>대전 · Lv.39</small></div></div>
+          <div class="sc">1,876</div>
+          <div class="dm" style="color: var(--up);">▲ 12</div>
+        </div>
+        <div class="rank-row">
+          <div class="rk">06</div>
+          <div class="who"><div class="av" style="background:#e6d8b8;">윤</div><div class="nm">윤도현<small>수원 · Lv.35</small></div></div>
+          <div class="sc">1,842</div>
+          <div class="dm">— 0</div>
+        </div>
+        <div class="rank-row">
+          <div class="rk">07</div>
+          <div class="who"><div class="av" style="background:#9fd9c0;">한</div><div class="nm">한예린<small>광주 · Lv.34</small></div></div>
+          <div class="sc">1,821</div>
+          <div class="dm" style="color: var(--up);">▲ 24</div>
+        </div>
+        <div class="rank-row">
+          <div class="rk">08</div>
+          <div class="who"><div class="av" style="background:#e6a89a;">임</div><div class="nm">임현우<small>울산 · Lv.37</small></div></div>
+          <div class="sc">1,798</div>
+          <div class="dm" style="color: var(--down);">▼ 32</div>
+        </div>
+        <div class="rank-row">
+          <div class="rk">09</div>
+          <div class="who"><div class="av" style="background:#a9c4ec;">오</div><div class="nm">오세라<small>제주 · Lv.33</small></div></div>
+          <div class="sc">1,776</div>
+          <div class="dm" style="color: var(--up);">▲ 8</div>
+        </div>
+        <div class="rank-row">
+          <div class="rk">10</div>
+          <div class="who"><div class="av" style="background:#c9dbf5;">서</div><div class="nm">서지안<small>세종 · Lv.31</small></div></div>
+          <div class="sc">1,754</div>
+          <div class="dm" style="color: var(--up);">▲ 46</div>
+        </div>
+        <div class="rank-foot">
+          <div class="me"><span class="badge">나의 순위</span><span id="homeMyRankText">1,284위 · 1,142점</span></div>
+          <a href="#">전체 랭킹 보기 →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOGOS ============ -->
+<section class="logos">
+  <div class="container">
+    <div class="logos-h">— 함께하는 파트너</div>
+    <div class="logos-grid">
+      <div>서울대학교</div>
+      <div>KAIST 뇌과학</div>
+      <div>삼성서울병원</div>
+      <div>연세대 심리학과</div>
+      <div>보건복지부</div>
+      <div>한국뇌연구원</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DOMAINS ============ -->
+<section class="domains">
+  <div class="container">
+    <div class="sect-head">
+      <div>
+        <span class="label">§01 — 훈련 영역</span>
+        <h2>4개의 <span class="accent">인지 영역</span>,<br>매일 균형 있게.</h2>
+      </div>
+      <p>인지 신경과학이 정의한 네 가지 핵심 영역을 매일 조금씩 훈련하도록 설계되었습니다.</p>
+    </div>
+
+    <div class="domains-grid">
+      <div class="domain a">
+        <div class="n"><span class="dot"></span>§01.1 / MEMORY</div>
+        <div class="icon-box">
+          <svg viewBox="0 0 56 56" fill="none">
+            <path d="M28 6C16.4 6 7 15.4 7 27c0 8 4.6 15 11.4 18.4V50h19.2v-4.6C44.4 42 49 35 49 27 49 15.4 39.6 6 28 6z" stroke="currentColor" stroke-width="2"/>
+            <path d="M18 26c0-5 4-9 10-9M38 26c0-5-4-9-10-9M22 34c2 2 4 3 6 3s4-1 6-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>기억력</h3>
+        <div class="kor-sub">MEMORY · 작업기억 · 회상</div>
+        <p>숫자, 단어, 위치, 패턴을 짧은 시간 안에 기억하고 정확하게 재현하는 능력.</p>
+        <div class="games"><span>숫자 기억력</span><span>카드 짝 맞추기</span><span>카드 순서 암기</span></div>
+        <div class="stat"><div class="v">4종</div><div class="l">기억력 게임 허브</div></div>
+      </div>
+      <div class="domain b">
+        <div class="n"><span class="dot"></span>§01.2 / MATH</div>
+        <div class="icon-box">
+          <svg viewBox="0 0 56 56" fill="none"><rect x="8" y="8" width="40" height="40" rx="4" stroke="currentColor" stroke-width="2"/></svg>
+        </div>
+        <h3>수리력</h3>
+        <div class="kor-sub">MATH · 계산 · 추론</div>
+        <p>숫자 관계를 빠르게 파악하고 계산·추정·비교하는 능력.</p>
+        <div class="games"><span>암산 스프린트</span><span>수열 찾기</span></div>
+        <div class="stat"><div class="v">10종</div><div class="l">수리력 훈련 게임</div></div>
+      </div>
+      <div class="domain c">
+        <div class="n"><span class="dot"></span>§01.3 / COGNITION</div>
+        <div class="icon-box">
+          <svg viewBox="0 0 56 56" fill="none"><path d="M28 8L48 20v16L28 48 8 36V20L28 8z" stroke="currentColor" stroke-width="2"/></svg>
+        </div>
+        <h3>인지력</h3>
+        <div class="kor-sub">COGNITION · 공간 · 추론</div>
+        <p>공간을 회전·변환하며 관계 파악하고 규칙을 발견하는 능력.</p>
+        <div class="games"><span>도형 회전</span><span>미로 탈출</span></div>
+        <div class="stat"><div class="v">11종</div><div class="l">인지력 훈련 게임</div></div>
+      </div>
+      <div class="domain d">
+        <div class="n"><span class="dot"></span>§01.4 / FOCUS</div>
+        <div class="icon-box">
+          <svg viewBox="0 0 56 56" fill="none"><circle cx="28" cy="28" r="20" stroke="currentColor" stroke-width="2"/></svg>
+        </div>
+        <h3>집중력</h3>
+        <div class="kor-sub">FOCUS · 주의 · 반응</div>
+        <p>주의를 지속하고 불필요한 자극을 억제하며 정확히 반응하는 능력.</p>
+        <div class="games"><span>반응 속도</span><span>스트룹 테스트</span></div>
+        <div class="stat"><div class="v">9종</div><div class="l">집중력 훈련 게임</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BOARD ============ -->
+<section class="board">
+  <div class="container">
+    <div class="board-grid">
+      <div class="board-text">
+        <h2>실시간 <span class="accent">랭킹 보드</span></h2>
+        <p>다른 응시자들과 점수를 비교하며 훈련 동기를 부여하세요. 꾸준히 참여하는 것만으로도 상위권에 도달할 수 있습니다.</p>
+        <div class="note">순위는 매일 자정(KST 00:00)을 기준으로 갱신됩니다.</div>
+      </div>
+      
+      <!-- 반응형 테이블 래퍼 -->
+      <div class="board-table-wrap">
+        <div class="board-table">
+          <div class="bt-head">
+            <div>RK</div>
+            <div>USER</div>
+            <div>DOMAIN</div>
+            <div>SCORE</div>
+            <div>DELTA</div>
+            <div>STREAK</div>
+          </div>
+          <div class="bt-row gold">
+            <div class="rk">01</div>
+            <div class="n"><div class="av" style="background:#c9dbf5;">김</div><div class="info">김수현<small>SEOUL · LV.84</small></div></div>
+            <div class="dm"><span class="pill">기억력</span></div>
+            <div class="v">9,420</div>
+            <div class="v up">+120</div>
+            <div class="v">🔥 42</div>
+          </div>
+          <div class="bt-row">
+            <div class="rk">02</div>
+            <div class="n"><div class="av" style="background:#e6a89a;">최</div><div class="info">최진우<small>BUSAN · LV.79</small></div></div>
+            <div class="dm"><span class="pill">수리력</span></div>
+            <div class="v">9,114</div>
+            <div class="v up">+45</div>
+            <div class="v">🔥 38</div>
+          </div>
+          <div class="bt-row">
+            <div class="rk">03</div>
+            <div class="n"><div class="av" style="background:#9fd9c0;">박</div><div class="info">박소윤<small>DAEGU · LV.72</small></div></div>
+            <div class="dm"><span class="pill">종합</span></div>
+            <div class="v">8,992</div>
+            <div class="v">—</div>
+            <div class="v">🔥 30</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUOTE ============ -->
+<section class="quote-band">
+  <div class="quote-inner">
+    <div class="container">
+      <div class="quote-row">
+        <div class="quote-text">
+          "뇌는 근육과 같아서, 규칙적으로 훈련할수록 더 <span class="accent">유연하고 강해집니다.</span> 하루 15분이면 충분합니다."
+        </div>
+        <div class="quote-attr">— 김도윤 교수<br>두뇌훈련센터 연구소실</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-wrap">
+      <span class="label">§04 — 지금 시작하세요</span>
+      <h2>오늘의 컨디션,<br><span class="accent">3분</span>만에 측정해보세요.</h2>
+      <p>가입 없이 바로 응시할 수 있습니다.</p>
+      <div class="cta-actions">
+        <a class="btn btn-primary" href="#" data-go="games">무료로 응시 시작 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GAMES MENU ============ -->
+<section class="games-menu">
+  <div class="container">
+    <a class="games-back" data-go="home">← 홈으로</a>
+    <div class="games-head">
+      <span class="label">§00 — 응시 선택</span>
+      <h2>어떤 훈련을 <span class="accent">시작</span>하시겠어요?</h2>
+      <p>가입 없이 바로 시작할 수 있습니다. 아래 메뉴 중 하나를 선택하세요.</p>
+    </div>
+    <div class="games-grid">
+      <!-- 기억력 게임 (여기를 누르면 4가지 방식의 훈련 게임 허브로 이동) -->
+      <div class="game-card m" data-go="memory-hub">
+        <div class="icon-box">
+          <svg viewBox="0 0 56 56" fill="none">
+            <path d="M28 6C16.4 6 7 15.4 7 27c0 8 4.6 15 11.4 18.4V50h19.2v-4.6C44.4 42 49 35 49 27 49 15.4 39.6 6 28 6z" stroke="currentColor" stroke-width="2"/>
+            <path d="M18 26c0-5 4-9 10-9M38 26c0-5-4-9-10-9M22 34c2 2 4 3 6 3s4-1 6-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>기억력 게임</h3>
+        <div class="kor-sub">Memory Game · 4가지 방식 훈련</div>
+        <p>숫자 기억력, 52개 카드 짝 맞추기, 순간 수량 인지, 카드 순서 암기까지 다양한 방식으로 기억력을 훈련합니다.</p>
+        <div class="start"><span class="tag">약 3분</span><span class="go">훈련 시작하기 →</span></div>
+      </div>
+
+      <div class="game-card a">
+        <div class="icon-box">
+          <svg viewBox="0 0 56 56" fill="none"><rect x="8" y="8" width="40" height="40" rx="4" stroke="currentColor" stroke-width="2"/></svg>
+        </div>
+        <h3>암산 게임</h3>
+        <div class="kor-sub">Mental Math · 계산</div>
+        <p>제한 시간 안에 빠르고 정확하게 계산하세요.</p>
+        <div class="start"><span class="tag">약 3분</span><span class="go">준비중 →</span></div>
+      </div>
+
+      <div class="game-card v">
+        <div class="icon-box">
+          <svg viewBox="0 0 56 56" fill="none"><rect x="6" y="14" width="34" height="28" rx="4" stroke="currentColor" stroke-width="2"/></svg>
+        </div>
+        <h3>해설 영상</h3>
+        <div class="kor-sub">Brain Test · 해설</div>
+        <p>두뇌테스트 결과와 영역별 해설을 전문가 영상으로 살펴보세요.</p>
+        <div class="start"><span class="tag">시청하기</span><span class="go">재생 →</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- MEMORY HUB: 기억력 게임, 4가지 방식의 훈련    -->
+<!-- ============================================ -->
+<section class="memory-hub-view">
+  <div class="container">
+    <a class="games-back" data-go="games">← 게임 메뉴로</a>
+    <div class="games-head">
+      <span class="label">§01.1 — MEMORY HUB</span>
+      <h2>기억력 게임, <span class="accent">4가지 방식</span>으로 훈련하세요.</h2>
+      <p>단순한 암기력부터 작업 기억력, 수량 인지 능력까지 다각도로 두뇌를 자극하는 게임들이 준비되어 있습니다.</p>
+    </div>
+
+    <div class="type-grid">
+      <!-- 1) 숫자 기억력 -->
+      <div class="type-card">
+        <span class="type-badge new">NEW</span>
+        <div class="type-icon">
+          <svg viewBox="0 0 56 56" fill="none">
+            <rect x="10" y="14" width="36" height="28" rx="4" stroke="currentColor" stroke-width="2"/>
+            <text x="28" y="34" font-family="monospace" font-size="16" font-weight="bold" fill="currentColor" text-anchor="middle">7492</text>
+          </svg>
+        </div>
+        <div class="type-title">숫자 기억력</div>
+        <div class="type-sub">Number Memory · 작업 기억력</div>
+        <p class="type-desc">화면에 나타난 숫자를 기억하고 그대로 입력하세요. 정답을 맞힐 때마다 자릿수가 점점 늘어납니다.</p>
+        <div class="type-meta"><span>⏱ 2분 시간 제한</span><span>·</span><span>난이도 상승형</span></div>
+        <button class="type-cta primary" data-go="number">지금 도전하기 →</button>
+      </div>
+
+      <!-- 2) 52개 카드 짝 맞추기 -->
+      <div class="type-card">
+        <div class="type-icon">
+          <svg viewBox="0 0 56 56" fill="none">
+            <rect x="9" y="15" width="24" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+            <rect x="22" y="9" width="24" height="32" rx="4" fill="#2f3746" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="type-title">52개 카드 짝 맞추기</div>
+        <div class="type-sub">Memory Match · 단계별 확장형</div>
+        <p class="type-desc">단계별로 카드가 16장부터 최종 52장까지 점진적으로 늘어납니다. 위치를 기억해 모든 짝을 맞혀보세요.</p>
+        <div class="type-meta"><span>⏱ 기록 측정</span><span>·</span><span>5단계 (16~52장)</span></div>
+        <button class="type-cta outline" data-go="match">지금 도전하기 →</button>
+      </div>
+
+      <!-- 3) 순간 수량 인지 -->
+      <div class="type-card">
+        <div class="type-icon">
+          <svg viewBox="0 0 56 56" fill="none">
+            <circle cx="14" cy="17" r="4" fill="currentColor"/><circle cx="31" cy="11" r="4" fill="currentColor"/>
+            <circle cx="45" cy="21" r="4" fill="currentColor"/><circle cx="19" cy="34" r="4" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="type-title">순간 수량 인지</div>
+        <div class="type-sub">Subitizing · 서비타이징</div>
+        <p class="type-desc">점들이 번쩍이고 사라집니다. 세지 말고 직관으로 개수를 맞춰보세요. 레벨이 오를수록 점은 늘고 시간은 짧아집니다.</p>
+        <div class="type-meta"><span>⏱ 무제한 (생명제)</span><span>·</span><span>난이도 상승형</span></div>
+        <button class="type-cta outline" data-go="dotcount">지금 도전하기 →</button>
+      </div>
+
+      <!-- 4) 카드 순서 암기 (NEW - 60초 타임어택 & 점수 랭킹 연동) -->
+      <div class="type-card">
+        <span class="type-badge new">HOT</span>
+        <div class="type-icon">
+          <svg viewBox="0 0 56 56" fill="none">
+            <rect x="6" y="16" width="16" height="24" rx="2" stroke="currentColor" stroke-width="2"/>
+            <rect x="20" y="16" width="16" height="24" rx="2" stroke="currentColor" stroke-width="2"/>
+            <rect x="34" y="16" width="16" height="24" rx="2" stroke="currentColor" stroke-width="2"/>
+            <text x="14" y="32" font-family="sans-serif" font-size="12" fill="currentColor" text-anchor="middle">♠</text>
+            <text x="28" y="32" font-family="sans-serif" font-size="12" fill="currentColor" text-anchor="middle">♥</text>
+            <text x="42" y="32" font-family="sans-serif" font-size="12" fill="currentColor" text-anchor="middle">♣</text>
+          </svg>
+        </div>
+        <div class="type-title">카드 순서 암기</div>
+        <div class="type-sub">Card Order · 60초 타임어택</div>
+        <p class="type-desc">제시되는 5장의 카드를 3초간 기억하고 다시 나열하세요. 60초 동안 많은 점수를 얻어 랭킹을 올리세요!</p>
+        <div class="type-meta"><span>⏱ 60초 랭킹 연동</span><span>·</span><span>순차 작업기억</span></div>
+        <button class="type-cta primary" data-go="cardorder">지금 도전하기 →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 1. 숫자 기억력 게임 뷰                        -->
+<!-- ============================================ -->
+<section class="number-game-view">
+  <div class="container">
+    <a class="games-back" data-go="memory-hub">← 기억력 게임 목록으로</a>
+    <div class="games-head">
+      <span class="label">§01.1 — MEMORY / NUMBER</span>
+      <h2>숫자 <span class="accent">기억력</span></h2>
+      <p>제한시간 2분 동안 숫자를 기억하고 입력하세요. 성공할 때마다 자릿수가 계속 늘어납니다.</p>
+    </div>
+
+    <div class="game-shell">
+      <div class="game-hud">
+        <div class="hud-item"><span class="l">현재 자릿수 (레벨)</span><span class="v" id="numLevel">3</span></div>
+        <div class="hud-item"><span class="l">남은 시간</span><span class="v" id="numTime">02:00</span></div>
+      </div>
+
+      <div class="num-play" id="numPlay">
+        <div class="num-display" id="numDisplay">준비...</div>
+        <div class="num-input-group" id="numInputGroup" style="display:none;">
+          <input type="number" class="num-input" id="numInput" placeholder="숫자 입력" autocomplete="off" />
+          <button class="btn btn-primary" id="numSubmitBtn">확인</button>
+        </div>
+        <p id="numMsg" style="margin-top: 18px; font-size: 14.5px; color: var(--fg-mute);">아래 버튼을 눌러 게임을 시작하세요.</p>
+        <button class="btn btn-primary" id="numStartBtn" style="margin-top:24px;">시작하기</button>
+      </div>
+
+      <div class="num-over" id="numOver">
+        <div class="emoji">🧠</div>
+        <div class="label">최종 암기 성공 자릿수</div>
+        <div class="final" id="numFinalLevel">0</div>
+        <div class="game-actions">
+          <button class="btn btn-primary" id="numRetryBtn">다시 도전</button>
+          <a class="btn btn-outline" data-go="memory-hub" href="#">목록으로</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 2. 52개 카드 짝 맞추기 게임 뷰                 -->
+<!-- ============================================ -->
+<section class="match-game-view">
+  <div class="container">
+    <a class="games-back" data-go="memory-hub">← 기억력 게임 목록으로</a>
+    <div class="games-head">
+      <span class="label">§01.2 — MEMORY / MATCH</span>
+      <h2>52개 카드 <span class="accent">짝 맞추기</span></h2>
+      <p>총 5단계로 진행되며, 마지막 5단계에는 가장 많은 52개(26쌍)의 카드가 등장합니다.</p>
+    </div>
+
+    <div class="game-shell">
+      <div class="game-hud">
+        <div class="hud-item"><span class="l">단계</span><span class="v" id="matchStageHUD">1 / 5 (16장)</span></div>
+        <div class="hud-item"><span class="l">이동 횟수</span><span class="v" id="matchMoves">0</span></div>
+        <div class="hud-item"><span class="l">남은 짝</span><span class="v" id="matchPairsLeft">8</span></div>
+        <div class="hud-item"><span class="l">경과 시간</span><span class="v" id="matchTime">00:00</span></div>
+      </div>
+
+      <div class="match-preview-note" id="matchPreviewNote">
+        🧠 카드 위치를 기억하세요 — 잠시 후 뒤집힙니다
+        <div class="bar"><div class="bar-fill"></div></div>
+      </div>
+
+      <div class="match-board" id="matchBoard"></div>
+
+      <div class="match-complete" id="matchComplete">
+        <div class="emoji">🎉</div>
+        <h3 id="matchCompleteTitle">모든 짝을 맞췄습니다!</h3>
+        <div class="stats">
+          <div><div class="v" id="matchFinalMoves">0</div><div class="l">총 이동 횟수</div></div>
+          <div><div class="v" id="matchFinalTime">00:00</div><div class="l">총 경과 시간</div></div>
+          <div><div class="v" id="matchFinalScore">0</div><div class="l">최종 점수</div></div>
+        </div>
+        <div class="game-actions">
+          <button class="btn btn-outline" id="matchRestartBtn">다음 단계</button>
+          <a class="btn btn-primary" data-go="memory-hub" href="#">목록으로</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 3. 순간 수량 인지 (서비타이징) 게임 뷰         -->
+<!-- ============================================ -->
+<section class="dotcount-game-view">
+  <div class="container">
+    <a class="games-back" data-go="memory-hub">← 기억력 게임 목록으로</a>
+    <div class="games-head">
+      <span class="label">§01.3 — MEMORY / SUBITIZING</span>
+      <h2>순간 <span class="accent">수량 인지</span></h2>
+      <p>점들이 번쩍이고 사라지면, 세지 말고 직관으로 개수를 맞혀보세요.</p>
+    </div>
+
+    <div class="game-shell">
+      <div class="dot-rules" id="dotRules">
+        <div class="emoji">🧠</div>
+        <h3>서비타이징 테스트</h3>
+        <p class="lede">점들이 순식간에 번쩍이고 사라집니다. 세지 말고 — 직관으로 맞혀보세요!</p>
+        <ol>
+          <li><b>①</b> 점이 번쩍 표시됐다 사라집니다.</li>
+          <li><b>②</b> 4개 보기 중 개수를 선택하세요.</li>
+          <li><b>③</b> 생명 3개, 오답 시 차감됩니다.</li>
+        </ol>
+        <div class="dot-tip">💡 <b>4개 이하</b>는 세지 않고 즉각 인식하는 능력을 <b>서비타이징</b>이라 합니다.</div>
+        <button class="btn btn-primary" id="dotStartBtn">도전하기 →</button>
+      </div>
+
+      <div class="dot-play" id="dotPlay">
+        <div class="game-hud">
+          <div class="hud-item"><span class="l">레벨</span><span class="v" id="dotLevel">1</span></div>
+          <div class="hud-item"><span class="l">생명</span><span class="v hearts" id="dotHearts">❤️❤️❤️</span></div>
+          <div class="hud-item"><span class="l">연속</span><span class="v" id="dotStreak">0</span></div>
+        </div>
+        <div class="dot-stage-wrap">
+          <div class="dot-stage" id="dotStage">
+            <div class="dot-ready-overlay" id="dotReadyOverlay">준비… 잘 보세요!</div>
+          </div>
+        </div>
+        <div class="dot-choices" id="dotChoices"></div>
+      </div>
+
+      <div class="dot-over" id="dotOver">
+        <div class="emoji">🧠</div>
+        <div class="label">최종 레벨</div>
+        <div class="final" id="dotFinalLevel">0</div>
+        <div class="game-actions">
+          <button class="btn btn-primary" id="dotRetryBtn">다시 도전</button>
+          <a class="btn btn-outline" data-go="memory-hub" href="#">목록으로</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 4. 카드 순서 암기 (Card Order Memory) 게임 뷰 (60초 타임어택 & 점수 연동) -->
+<!-- ============================================ -->
+<section class="cardorder-game-view">
+  <div class="container">
+    <a class="games-back" data-go="memory-hub">← 기억력 게임 목록으로</a>
+    <div class="games-head">
+      <span class="label">§01.4 — MEMORY / CARD ORDER</span>
+      <h2>카드 순서 <span class="accent">암기</span></h2>
+      <p>제한 시간 60초! 제시되는 5장의 트럼프 카드의 무늬와 숫자를 순서대로 기억하고 나열하세요.<br>
+      카드 1장당 15점, 한 라운드를 모두 맞추면 50점 보너스가 지급되며 최종 점수는 메인 랭킹에 합산됩니다.</p>
+    </div>
+
+    <div class="game-shell">
+      <div class="game-hud" id="coHud" style="display:none;">
+        <div class="hud-item"><span class="l">현재 점수</span><span class="v" id="coScoreTotal" style="color:var(--c-memory);">0</span></div>
+        <div class="hud-item"><span class="l">맞춘 횟수</span><span class="v" id="coScore">0</span></div>
+        <div class="hud-item"><span class="l">남은 시간</span><span class="v" id="coTime">01:00</span></div>
+      </div>
+
+      <div class="cardorder-stage" id="coStage">
+        <div class="co-msg" id="coMsg">아래 시작하기 버튼을 누르세요.</div>
+        <div class="cardorder-slots" id="coSlots">
+          <div class="co-slot" data-index="0"></div>
+          <div class="co-slot" data-index="1"></div>
+          <div class="co-slot" data-index="2"></div>
+          <div class="co-slot" data-index="3"></div>
+          <div class="co-slot" data-index="4"></div>
+        </div>
+        <button class="btn btn-primary" id="coStartBtn">게임 시작 (60초)</button>
+        
+        <!-- 사용자가 선택할 덱 -->
+        <div class="co-deck" id="coDeck">
+          <!-- JS로 동적 생성됨 -->
+        </div>
+      </div>
+
+      <div class="co-over" id="coOver">
+        <div class="emoji" id="coOverEmoji">⏱️</div>
+        <div class="label">최종 획득 점수</div>
+        <div class="final" id="coFinalTotal">0점</div>
+        <div class="sub-score" id="coFinalScore">0회 성공</div>
+        <div class="game-actions">
+          <button class="btn btn-primary" id="coRetryBtn">다시 도전</button>
+          <a class="btn btn-outline" data-go="home" href="#" id="coGoHomeBtn">목록으로 (홈 랭킹 확인)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="ft-grid">
+      <div>
+        <a class="brand" href="#" data-go="home"><span class="mark"></span> 두뇌훈련센터<sup>BRAIN TRAINING CENTER</sup></a>
+        <p class="ft-brand-blurb">인지 신경과학에 기반한 두뇌 훈련 플랫폼.</p>
+      </div>
+      <div><h5>훈련 영역</h5><ul><li><a href="#">기억력</a></li><li><a href="#">수리력</a></li><li><a href="#">인지력</a></li><li><a href="#">집중력</a></li></ul></div>
+      <div><h5>커뮤니티</h5><ul><li><a href="#">주간 랭킹</a></li><li><a href="#">오늘의 도전</a></li></ul></div>
+      <div><h5>회사</h5><ul><li><a href="#">센터 소개</a></li><li><a href="#">연구팀</a></li></ul></div>
+      <div><h5>고객</h5><ul><li><a href="#">회원가입</a></li><li><a href="#">문의하기</a></li></ul></div>
+    </div>
+    <div class="ft-disc">
+      본 서비스는 두뇌 훈련 및 자기 계발을 위한 콘텐츠를 제공합니다.
+    </div>
+    <div class="ft-bot">
+      <span>© 2026 두뇌훈련센터 · ALL RIGHTS RESERVED</span>
+      <span>개인정보보호 · 이용약관</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// 유저의 기본 점수 설정 (메인 랭킹 패널에 노출되는 기준 점수)
+let myTotalRankScore = 1142;
+
+(function(){
+  /* 뷰 전환 라우터 */
+  function show(view){
+    document.body.className = ''; 
+    if(view && view !== 'home') {
+      document.body.classList.add('view-' + view);
+    }
+    if(view==='match'){ window.initMatchGame && window.initMatchGame(); }
+    try { window.scrollTo({top:0, behavior:'instant'}); } catch(e){ window.scrollTo(0,0); }
+  }
+
+  document.querySelectorAll('[data-go]').forEach(function(el){
+    el.addEventListener('click', function(e){
+      e.preventDefault();
+      const target = el.dataset.go;
+      show(target);
+    });
+  });
+})();
+
+/* 1. 숫자 기억력 게임 로직 */
+(function(){
+  const startBtn = document.getElementById('numStartBtn');
+  const submitBtn = document.getElementById('numSubmitBtn');
+  const retryBtn = document.getElementById('numRetryBtn');
+  const inputEl = document.getElementById('numInput');
+  const displayEl = document.getElementById('numDisplay');
+  const inputGroup = document.getElementById('numInputGroup');
+  const playPanel = document.getElementById('numPlay');
+  const overPanel = document.getElementById('numOver');
+  const levelEl = document.getElementById('numLevel');
+  const finalLevelEl = document.getElementById('numFinalLevel');
+  const msgEl = document.getElementById('numMsg');
+  const timeEl = document.getElementById('numTime');
+
+  let currentLevel = 3, currentNumber = "", timer = null, timeLeft = 120;
+
+  function updateTimerDisplay(){
+    const m = String(Math.floor(timeLeft / 60)).padStart(2, '0');
+    const s = String(timeLeft % 60).padStart(2, '0');
+    if(timeEl) timeEl.textContent = `${m}:${s}`;
+  }
+
+  function startGame(){
+    currentLevel = 3; timeLeft = 120;
+    clearInterval(timer);
+    updateTimerDisplay();
+    overPanel.classList.remove('show');
+    startBtn.style.display = 'none';
+    timer = setInterval(() => {
+      timeLeft--;
+      updateTimerDisplay();
+      if(timeLeft <= 0){ clearInterval(timer); gameOver(); }
+    }, 1000);
+    nextRound();
+  }
+
+  function nextRound(){
+    if(timeLeft <= 0) return;
+    levelEl.textContent = currentLevel;
+    inputGroup.style.display = 'none';
+    inputEl.value = '';
+    msgEl.textContent = '숫자를 기억하세요...';
+    const min = Math.pow(10, currentLevel - 1);
+    const max = Math.pow(10, currentLevel) - 1;
+    currentNumber = Math.floor(min + Math.random() * (max - min + 1)).toString();
+    displayEl.textContent = currentNumber;
+    displayEl.style.display = 'flex';
+    const showTime = Math.max(1000, currentLevel * 750);
+    setTimeout(() => {
+      if(timeLeft <= 0) return;
+      displayEl.style.display = 'none';
+      inputGroup.style.display = 'flex';
+      msgEl.textContent = '기억한 숫자를 입력하세요.';
+      inputEl.focus();
+    }, showTime);
+  }
+
+  function checkAnswer(){
+    if(timeLeft <= 0) return;
+    const val = inputEl.value.trim();
+    if(!val) return;
+    if(val === currentNumber){
+      currentLevel++;
+      msgEl.textContent = '정답입니다! 다음 레벨...';
+      inputGroup.style.display = 'none';
+      setTimeout(nextRound, 1200);
+    } else { gameOver(); }
+  }
+
+  function gameOver(){
+    clearInterval(timer);
+    playPanel.style.display = 'block';
+    inputGroup.style.display = 'none';
+    displayEl.textContent = "준비...";
+    displayEl.style.display = 'flex';
+    msgEl.textContent = '시작하려면 아래 버튼을 누르세요.';
+    startBtn.style.display = 'inline-flex';
+    finalLevelEl.textContent = (currentLevel - 1) + '자리';
+    overPanel.classList.add('show');
+  }
+
+  startBtn.addEventListener('click', startGame);
+  retryBtn.addEventListener('click', () => { overPanel.classList.remove('show'); startGame(); });
+  submitBtn.addEventListener('click', checkAnswer);
+  inputEl.addEventListener('keypress', function(e){ if(e.key === 'Enter') checkAnswer(); });
+})();
+
+/* 2. 52개 카드 짝 맞추기 게임 로직 */
+(function(){
+  const board = document.getElementById('matchBoard');
+  const movesEl = document.getElementById('matchMoves');
+  const pairsEl = document.getElementById('matchPairsLeft');
+  const timeEl = document.getElementById('matchTime');
+  const completePanel = document.getElementById('matchComplete');
+  const completeTitle = document.getElementById('matchCompleteTitle');
+  const restartBtn = document.getElementById('matchRestartBtn');
+  const stageEl = document.getElementById('matchStageHUD');
+  const previewNote = document.getElementById('matchPreviewNote');
+  
+  const symbolsPool = ['🍎','🎵','🌙','⭐','🔑','🎯','🐝','🍀','🍓','🎈','💎','🚀','🐶','🐱','🌺','🍉','🍇','🍕','🍩','⚽','🚗','✈️','💡','🎁','🌈','🔥'];
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  let deck = [], flipped = [], matchedCount = 0, moves = 0, timer = null, seconds = 0, locked = false;
+  let currentStage = 1;
+  const stagePairs = [8, 12, 16, 20, 26];
+
+  function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+
+  function buildDeck(){
+    const pairsCount = stagePairs[currentStage - 1];
+    const stageSymbols = symbolsPool.slice(0, pairsCount);
+    deck = shuffle(stageSymbols.concat(stageSymbols).map(function(s,i){ return {id:i, sym:s}; }));
+  }
+
+  function render(){
+    const cardsCount = deck.length;
+    let cols = 4;
+    const isMobile = window.innerWidth <= 640;
+    
+    if (isMobile) {
+      if (cardsCount <= 24) cols = 4;
+      else if (cardsCount <= 32) cols = 4;
+      else if (cardsCount <= 40) cols = 5;
+      else cols = 6; 
+    } else {
+      if (cardsCount === 24) cols = 6;
+      else if (cardsCount === 32) cols = 8;
+      else if (cardsCount === 40) cols = 8;
+      else if (cardsCount === 52) cols = 13;
+    }
+
+    board.style.setProperty('--cols', cols);
+    const frontFontSize = cardsCount > 32 ? '14px' : (cardsCount > 24 ? '18px' : '26px');
+    const backFontSize = cardsCount > 32 ? '10px' : (cardsCount > 24 ? '14px' : '20px');
+
+    board.innerHTML = deck.map(function(c){
+      return '<div class="match-card" data-sym="'+c.sym+'"><div class="card-inner">'+
+        '<div class="card-face front" style="font-size:'+frontFontSize+';">'+c.sym+'</div>'+
+        '<div class="card-face back" style="font-size:'+backFontSize+';">◆</div>'+
+      '</div></div>';
+    }).join('');
+  }
+
+  function startPreview(){
+    previewNote.style.display = 'block';
+    document.querySelectorAll('.match-card').forEach(function(c){ c.classList.add('flipped'); });
+    setTimeout(function(){
+      document.querySelectorAll('.match-card').forEach(function(c){ c.classList.remove('flipped'); });
+      previewNote.style.display = 'none';
+    }, reduce ? 300 : (currentStage === 5 ? 4000 : 2400));
+  }
+
+  function startTimer(){
+    if (seconds === 0 && currentStage === 1) timeEl.textContent = '00:00';
+    timer = setInterval(function(){
+      seconds++;
+      const m = String(Math.floor(seconds/60)).padStart(2,'0');
+      const s = String(seconds%60).padStart(2,'0');
+      timeEl.textContent = m+':'+s;
+    }, 1000);
+  }
+
+  board.addEventListener('click', function(e){
+    const card = e.target.closest('.match-card');
+    if(!card || locked) return;
+    if(card.classList.contains('flipped') || card.classList.contains('matched')) return;
+    if(!timer) startTimer();
+
+    card.classList.add('flipped');
+    flipped.push(card);
+
+    if(flipped.length === 2){
+      moves++; movesEl.textContent = moves;
+      locked = true;
+      const a = flipped[0], b = flipped[1];
+      if(a.dataset.sym === b.dataset.sym){
+        a.classList.add('matched'); b.classList.add('matched');
+        matchedCount++;
+        pairsEl.textContent = stagePairs[currentStage - 1] - matchedCount;
+        flipped = []; locked = false;
+        if(matchedCount === stagePairs[currentStage - 1]) setTimeout(finishStage, 300);
+      } else {
+        a.classList.add('mismatch'); b.classList.add('mismatch');
+        setTimeout(function(){
+          a.classList.remove('flipped','mismatch');
+          b.classList.remove('flipped','mismatch');
+          flipped = []; locked = false;
+        }, reduce ? 200 : 750);
+      }
+    }
+  });
+
+  function finishStage(){
+    clearInterval(timer); timer = null;
+    if (currentStage < 5) {
+      completeTitle.textContent = currentStage + '단계 클리어!';
+      restartBtn.textContent = '다음 단계 진행';
+    } else {
+      completeTitle.textContent = '52개 카드 마스터 완료!';
+      restartBtn.textContent = '처음부터 다시하기';
+    }
+    const score = Math.max(100, (currentStage * 1000) - moves*10 - seconds*2);
+    document.getElementById('matchFinalMoves').textContent = moves;
+    document.getElementById('matchFinalTime').textContent = timeEl.textContent;
+    document.getElementById('matchFinalScore').textContent = score;
+    completePanel.classList.add('show');
+  }
+
+  function initGame(isNext = false){
+    if(!isNext){ currentStage = 1; moves = 0; seconds = 0; timeEl.textContent = '00:00'; }
+    matchedCount = 0; flipped = []; locked = false;
+    clearInterval(timer); timer = null;
+    const totalCards = stagePairs[currentStage - 1] * 2;
+    stageEl.textContent = currentStage + ' / 5 (' + totalCards + '장)';
+    movesEl.textContent = moves; 
+    pairsEl.textContent = stagePairs[currentStage - 1]; 
+    completePanel.classList.remove('show');
+    buildDeck(); render();
+    setTimeout(startPreview, 120);
+  }
+
+  restartBtn.addEventListener('click', function(){
+    if (currentStage < 5) { currentStage++; initGame(true); }
+    else { initGame(false); }
+  });
+  
+  window.initMatchGame = function() { initGame(false); };
+  window.addEventListener('resize', function(){
+     if(document.body.classList.contains('view-match')) {
+         board.style.setProperty('--cols', window.innerWidth <= 640 ? (deck.length <= 40 ? (deck.length <= 32 ? 4 : 5) : 6) : (deck.length <= 40 ? (deck.length === 24 ? 6 : 8) : 13));
+     }
+  });
+})();
+
+/* 3. 순간 수량 인지(서비타이징) 게임 로직 */
+(function(){
+  const startBtn = document.getElementById('dotStartBtn');
+  const retryBtn = document.getElementById('dotRetryBtn');
+  const rulesPanel = document.getElementById('dotRules');
+  const playPanel = document.getElementById('dotPlay');
+  const overPanel = document.getElementById('dotOver');
+  const stage = document.getElementById('dotStage');
+  const readyOverlay = document.getElementById('dotReadyOverlay');
+  const choicesWrap = document.getElementById('dotChoices');
+  const levelEl = document.getElementById('dotLevel');
+  const heartsEl = document.getElementById('dotHearts');
+  const streakEl = document.getElementById('dotStreak');
+  const finalLevelEl = document.getElementById('dotFinalLevel');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  let level = 1, lives = 3, streak = 0, currentAnswer = 0, answering = false;
+
+  function updateHUD(){
+    levelEl.textContent = level;
+    heartsEl.textContent = '❤️'.repeat(Math.max(0,lives)) + '🤍'.repeat(Math.max(0,3-lives));
+    streakEl.textContent = streak;
+  }
+
+  function randInt(min,max){ return Math.floor(Math.random()*(max-min+1))+min; }
+
+  function placeDots(count){
+    stage.querySelectorAll('.dot').forEach(function(d){ d.remove(); });
+    const w = stage.clientWidth || 500, h = stage.clientHeight || 260;
+    const placed = []; let tries = 0;
+    while(placed.length < count && tries < 800){
+      tries++;
+      const x = randInt(18, w-34), y = randInt(18, h-34);
+      let ok = true;
+      for(let i=0;i<placed.length;i++){
+        if(Math.hypot(placed[i].x-x, placed[i].y-y) < 32){ ok = false; break; }
+      }
+      if(ok) placed.push({x:x,y:y});
+    }
+    placed.forEach(function(p){
+      const d = document.createElement('div');
+      d.className = 'dot';
+      d.style.left = p.x+'px'; d.style.top = p.y+'px';
+      stage.appendChild(d);
+    });
+    return placed.length;
+  }
+
+  function buildChoices(correct){
+    const set = new Set([correct]);
+    let guard = 0;
+    while(set.size < 4 && guard < 50){
+      guard++;
+      const delta = randInt(-3,3) || 1;
+      const v = correct + delta;
+      if(v > 0) set.add(v);
+    }
+    const arr = Array.from(set).sort(function(){ return Math.random()-0.5; });
+    choicesWrap.innerHTML = arr.map(function(v){
+      return '<button class="dot-choice-btn" data-v="'+v+'">'+v+'</button>';
+    }).join('');
+  }
+
+  function round(){
+    answering = false;
+    readyOverlay.textContent = '준비… 잘 보세요!';
+    readyOverlay.style.display = 'flex';
+    choicesWrap.innerHTML = '';
+    const count = Math.min(3 + Math.floor((level-1)*0.8), 14);
+    const flashMs = reduce ? 900 : Math.max(320, 900 - level*35);
+    setTimeout(function(){
+      readyOverlay.style.display = 'none';
+      currentAnswer = placeDots(count);
+      setTimeout(function(){
+        stage.querySelectorAll('.dot').forEach(function(d){ d.remove(); });
+        buildChoices(currentAnswer);
+        answering = true;
+      }, flashMs);
+    }, 650);
+  }
+
+  choicesWrap.addEventListener('click', function(e){
+    if(!answering) return;
+    const btn = e.target.closest('.dot-choice-btn');
+    if(!btn) return;
+    answering = false;
+    const chosen = parseInt(btn.dataset.v, 10);
+    choicesWrap.querySelectorAll('.dot-choice-btn').forEach(function(b){
+      b.disabled = true;
+      if(parseInt(b.dataset.v,10) === currentAnswer) b.classList.add('correct');
+    });
+
+    if(chosen === currentAnswer){
+      level++; streak++;
+      updateHUD();
+      setTimeout(round, 700);
+    } else {
+      btn.classList.add('wrong');
+      lives--; streak = 0;
+      updateHUD();
+      if(lives <= 0) setTimeout(gameOver, 800);
+      else setTimeout(round, 900);
+    }
+  });
+
+  function gameOver(){
+    playPanel.classList.remove('show');
+    finalLevelEl.textContent = level;
+    overPanel.classList.add('show');
+  }
+
+  function startGame(){
+    level = 1; lives = 3; streak = 0;
+    rulesPanel.style.display = 'none';
+    overPanel.classList.remove('show');
+    playPanel.classList.add('show');
+    updateHUD();
+    round();
+  }
+
+  startBtn.addEventListener('click', startGame);
+  retryBtn.addEventListener('click', startGame);
+})();
+
+/* 4. 카드 순서 암기 (Card Order Memory) - 60초 타임어택 & 점수 랭킹 연동 모드 */
+(function(){
+  const startBtn = document.getElementById('coStartBtn');
+  const msgEl = document.getElementById('coMsg');
+  const slots = document.querySelectorAll('.co-slot');
+  const deckWrap = document.getElementById('coDeck');
+  const overPanel = document.getElementById('coOver');
+  const retryBtn = document.getElementById('coRetryBtn');
+  const coHud = document.getElementById('coHud');
+  const coScoreEl = document.getElementById('coScore');
+  const coTimeEl = document.getElementById('coTime');
+  const coFinalScoreEl = document.getElementById('coFinalScore');
+  const coScoreTotalEl = document.getElementById('coScoreTotal');
+  const coFinalTotalEl = document.getElementById('coFinalTotal');
+
+  // 트럼프 카드 풀
+  const allCards = [
+    {id:'sA', mark:'♠', num:'A', color:'black'}, {id:'sJ', mark:'♠', num:'J', color:'black'}, {id:'sQ', mark:'♠', num:'Q', color:'black'}, {id:'sK', mark:'♠', num:'K', color:'black'},
+    {id:'hA', mark:'♥', num:'A', color:'red'}, {id:'hJ', mark:'♥', num:'J', color:'red'}, {id:'hQ', mark:'♥', num:'Q', color:'red'}, {id:'hK', mark:'♥', num:'K', color:'red'},
+    {id:'cA', mark:'♣', num:'A', color:'black'}, {id:'cJ', mark:'♣', num:'J', color:'black'}, {id:'cQ', mark:'♣', num:'Q', color:'black'}, {id:'cK', mark:'♣', num:'K', color:'black'},
+    {id:'dA', mark:'♦', num:'A', color:'red'}, {id:'dJ', mark:'♦', num:'J', color:'red'}, {id:'dQ', mark:'♦', num:'Q', color:'red'}, {id:'dK', mark:'♦', num:'K', color:'red'}
+  ];
+
+  let targetSequence = []; // 기억해야 할 정답 순서 5장
+  let currentSelection = []; // 유저가 선택한 순서
+  let isMemorizing = false;
+  let isPlaying = false;
+  
+  let coRoundsCleared = 0; // 맞춘 횟수
+  let coTotalPoints = 0; // 합산 점수
+  let coTimeLeft = 60;
+  let coGameTimer = null;
+  let coMemoTimer = null;
+
+  function shuffle(arr){ 
+    let res = [...arr];
+    for(let i=res.length-1;i>0;i--){ 
+      const j=Math.floor(Math.random()*(i+1)); 
+      [res[i],res[j]]=[res[j],res[i]]; 
+    } 
+    return res; 
+  }
+
+  function updateCoTime() {
+    const m = String(Math.floor(coTimeLeft / 60)).padStart(2, '0');
+    const s = String(coTimeLeft % 60).padStart(2, '0');
+    coTimeEl.textContent = `${m}:${s}`;
+  }
+
+  function startCardOrderGame() {
+    coRoundsCleared = 0;
+    coTotalPoints = 0;
+    coTimeLeft = 60;
+    
+    coScoreEl.textContent = coRoundsCleared + '회';
+    coScoreTotalEl.textContent = coTotalPoints;
+    updateCoTime();
+    
+    coHud.style.display = 'flex';
+    overPanel.classList.remove('show');
+    startBtn.style.display = 'none';
+    isPlaying = true;
+
+    clearInterval(coGameTimer);
+    coGameTimer = setInterval(() => {
+      coTimeLeft--;
+      updateCoTime();
+      if(coTimeLeft <= 0) {
+        endCoGame();
+      }
+    }, 1000);
+
+    nextCoRound();
+  }
+
+  function nextCoRound() {
+    if(!isPlaying) return;
+    deckWrap.classList.remove('show');
+    deckWrap.innerHTML = '';
+    currentSelection = [];
+    isMemorizing = true;
+    
+    slots.forEach(slot => {
+      slot.innerHTML = '';
+      slot.className = 'co-slot'; 
+    });
+
+    targetSequence = shuffle(allCards).slice(0, 5);
+    
+    targetSequence.forEach((c, idx) => {
+      slots[idx].innerHTML = `${c.mark}<br>${c.num}`;
+      slots[idx].classList.add('filled', c.color);
+    });
+
+    let memoTime = 3; // 3초간 암기
+    msgEl.innerHTML = `카드의 순서를 외워주세요. <b>${memoTime}</b>초`;
+    
+    clearInterval(coMemoTimer);
+    coMemoTimer = setInterval(() => {
+      if(!isPlaying) { clearInterval(coMemoTimer); return; }
+      memoTime--;
+      if(memoTime > 0) {
+        msgEl.innerHTML = `카드의 순서를 외워주세요. <b>${memoTime}</b>초`;
+      } else {
+        clearInterval(coMemoTimer);
+        hideCardsAndShowDeck();
+      }
+    }, 1000);
+  }
+
+  function hideCardsAndShowDeck() {
+    if(!isPlaying) return;
+    isMemorizing = false;
+    msgEl.innerHTML = "방금 본 카드들을 순서대로 선택하세요. (정답 +15점, 오답 -5점)";
+    
+    slots.forEach(slot => {
+      slot.innerHTML = '';
+      slot.className = 'co-slot';
+    });
+
+    // 정답 5개 + 오답 5개를 섞어서 10장 덱 노출
+    const others = allCards.filter(c => !targetSequence.includes(c));
+    const deckCards = shuffle([...targetSequence, ...shuffle(others).slice(0, 5)]);
+
+    deckWrap.innerHTML = deckCards.map(c => `
+      <button class="co-card-btn ${c.color}" data-id="${c.id}">${c.mark}${c.num}</button>
+    `).join('');
+    
+    deckWrap.classList.add('show');
+  }
+
+  deckWrap.addEventListener('click', function(e) {
+    if(isMemorizing || !isPlaying) return;
+    const btn = e.target.closest('.co-card-btn');
+    if(!btn || btn.disabled) return;
+
+    btn.disabled = true;
+    const cardId = btn.dataset.id;
+    const cardData = allCards.find(c => c.id === cardId);
+    
+    currentSelection.push(cardData);
+    const currIdx = currentSelection.length - 1;
+    
+    slots[currIdx].innerHTML = `${cardData.mark}<br>${cardData.num}`;
+    slots[currIdx].classList.add('filled', cardData.color);
+
+    if(targetSequence[currIdx].id !== cardId) {
+      // 오답: -5점 (0점 밑으로는 안 내려가게 설정)
+      slots[currIdx].classList.add('wrong');
+      coTotalPoints = Math.max(0, coTotalPoints - 5);
+      coScoreTotalEl.textContent = coTotalPoints;
+      
+      isMemorizing = true; 
+      deckWrap.querySelectorAll('.co-card-btn').forEach(b => b.disabled = true);
+      setTimeout(() => {
+        if(isPlaying) nextCoRound();
+      }, 800);
+    } else {
+      // 정답: +15점
+      slots[currIdx].classList.add('correct');
+      coTotalPoints += 15;
+      coScoreTotalEl.textContent = coTotalPoints;
+      
+      if(currentSelection.length === 5) {
+        // 완수 보너스: +50점
+        coRoundsCleared++;
+        coTotalPoints += 50; 
+        coScoreTotalEl.textContent = coTotalPoints;
+        coScoreEl.textContent = coRoundsCleared + '회';
+        
+        isMemorizing = true;
+        deckWrap.querySelectorAll('.co-card-btn').forEach(b => b.disabled = true);
+        setTimeout(() => {
+          if(isPlaying) nextCoRound();
+        }, 500);
+      }
+    }
+  });
+
+  function endCoGame() {
+    isPlaying = false;
+    clearInterval(coGameTimer);
+    clearInterval(coMemoTimer);
+    coHud.style.display = 'none';
+    deckWrap.classList.remove('show');
+    slots.forEach(slot => { slot.innerHTML = ''; slot.className = 'co-slot'; });
+    msgEl.innerHTML = "제한 시간이 종료되었습니다!";
+
+    coFinalScoreEl.textContent = coRoundsCleared + '회 성공';
+    coFinalTotalEl.textContent = coTotalPoints + '점';
+    overPanel.classList.add('show');
+    
+    // 점수 랭킹 연동 (가상 점수에 반영)
+    if(coTotalPoints > 0) {
+      myTotalRankScore += coTotalPoints;
+      document.getElementById('homeMyRankText').innerHTML = `1,284위 · <b><span style="color:var(--up);">${myTotalRankScore.toLocaleString()}점</span></b>`;
+    }
+  }
+
+  startBtn.addEventListener('click', startCardOrderGame);
+  retryBtn.addEventListener('click', () => {
+    overPanel.classList.remove('show');
+    startCardOrderGame();
+  });
+
+})();
+</script>
+</body>
+</html>

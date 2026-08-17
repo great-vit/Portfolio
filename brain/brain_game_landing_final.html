@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>두뇌 게임 허브 - 논리력과 창의력을 단련하는 프리미엄 플랫폼</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet" />
+    <style>
+        :root {
+          --primary: #1E40AF;
+          --primary-dark: #1E3A8A;
+          --primary-light: #EFF4FF;
+          --secondary: #0F172A;
+          --accent: #3B82F6;
+          --text-primary: #0F172A;
+          --text-secondary: #475569;
+          --text-tertiary: #94A3B8;
+          --border: #E2E8F0;
+          --bg-light: #F8FAFC;
+          --bg-white: #FFFFFF;
+          --radius-sm: 6px;
+          --radius-md: 8px;
+          --radius-lg: 12px;
+          --radius-xl: 16px;
+          --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+          --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+          --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05);
+          --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+          --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-white);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* ============================================ */
+        /* 헤더 스타일링                                  */
+        /* ============================================ */
+        header {
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .logo svg {
+            width: 28px;
+            height: 28px;
+            color: var(--accent);
+        }
+
+        .nav-menu {
+            display: none;
+            gap: 32px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu.active {
+            display: flex;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 500;
+            transition: color var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn-login {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 500;
+            transition: color var(--transition);
+        }
+
+        .btn-login:hover {
+            color: var(--primary);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition);
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* ============================================ */
+        /* 히어로 섹션                                    */
+        /* ============================================ */
+        .hero {
+            background: linear-gradient(135deg, #F8FAFC 0%, #EFF4FF 100%);
+            position: relative;
+            overflow: hidden;
+            min-height: 680px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+
+        .hero-shape-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--primary);
+            right: -100px;
+            top: -50px;
+        }
+
+        .hero-shape-2 {
+            width: 300px;
+            height: 300px;
+            background: var(--accent);
+            left: -80px;
+            bottom: 100px;
+        }
+
+        .hero-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 60px 24px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+            letter-spacing: -1px;
+        }
+
+        .hero-content h1 .highlight {
+            color: var(--primary);
+        }
+
+        .hero-content p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 32px;
+            max-width: 480px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-large {
+            padding: 14px 32px;
+            border-radius: var(--radius-lg);
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-large.primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-large.primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-large.secondary {
+            background: white;
+            color: var(--text-primary);
+            border: 2px solid var(--border);
+        }
+
+        .btn-large.secondary:hover {
+            border-color: var(--text-primary);
+            background: var(--bg-light);
+        }
+
+        /* ============================================ */
+        /* 실시간 랭킹 카드                                */
+        /* ============================================ */
+        .ranking-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: 32px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .ranking-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .ranking-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 6px 12px;
+            border-radius: var(--radius-md);
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #10B981;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .ranking-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .ranking-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 14px;
+            background: var(--bg-light);
+            border-radius: var(--radius-lg);
+            transition: all var(--transition);
+        }
+
+        .ranking-item:hover {
+            background: #E0E7FF;
+            transform: translateX(4px);
+        }
+
+        .rank-badge {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            flex-shrink: 0;
+            background: var(--bg-light);
+            color: var(--text-secondary);
+        }
+
+        .rank-badge.first {
+            background: #FEF3C7;
+            color: #D97706;
+        }
+
+        .rank-badge.second {
+            background: #E5E7EB;
+            color: #6B7280;
+        }
+
+        .rank-badge.third {
+            background: #FECACA;
+            color: #DC2626;
+        }
+
+        .ranking-info {
+            flex: 1;
+        }
+
+        .ranking-name {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 13px;
+            margin-bottom: 2px;
+        }
+
+        .ranking-category {
+            font-size: 11px;
+            color: var(--text-tertiary);
+        }
+
+        .ranking-score {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* ============================================ */
+        /* 미니게임 섹션                                  */
+        /* ============================================ */
+        .games-section {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .section-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 40px;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-description {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        @media (max-width: 1024px) {
+            .games-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .game-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 32px;
+            transition: all var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .game-icon-box {
+            width: 64px;
+            height: 64px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 32px;
+        }
+
+        .game-card.type-a .game-icon-box {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .game-card.type-b .game-icon-box {
+            background: #FEF3C7;
+            color: #D97706;
+        }
+
+        .game-card.type-c .game-icon-box {
+            background: var(--bg-light);
+            color: var(--text-secondary);
+        }
+
+        .game-badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--primary);
+            background: var(--primary-light);
+            padding: 6px 12px;
+            border-radius: var(--radius-md);
+            margin-bottom: 12px;
+            width: fit-content;
+        }
+
+        .game-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            letter-spacing: -0.3px;
+        }
+
+        .game-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 24px;
+            flex: 1;
+        }
+
+        .game-specs {
+            display: flex;
+            gap: 16px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            margin-bottom: 24px;
+            font-size: 13px;
+            color: var(--text-tertiary);
+            font-weight: 500;
+        }
+
+        .game-specs span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .btn-game {
+            background: var(--text-primary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all var(--transition);
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-game:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .game-card.type-c .btn-game {
+            background: white;
+            color: var(--text-primary);
+            border: 1.5px solid var(--border);
+        }
+
+        .game-card.type-c .btn-game:hover {
+            border-color: var(--text-primary);
+            background: var(--bg-light);
+        }
+
+        /* ============================================ */
+        /* 4개 인지 도메인 섹션                            */
+        /* ============================================ */
+        .domains-section {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 80px 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .domains-header {
+            margin-bottom: 56px;
+        }
+
+        .domains-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .domains-title {
+            font-size: 40px;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .domains-subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 700px;
+        }
+
+        .domains-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        .domain-card {
+            padding: 40px;
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            background: white;
+            transition: all var(--transition);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .domain-card:nth-child(2n) {
+            border-right: none;
+        }
+
+        .domain-card:nth-last-child(-n+2) {
+            border-bottom: none;
+        }
+
+        .domain-card:hover {
+            background: var(--bg-light);
+        }
+
+        .domain-num {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-tertiary);
+            letter-spacing: 1px;
+        }
+
+        .domain-icon {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .domain-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            letter-spacing: -0.3px;
+        }
+
+        .domain-subtitle {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            margin-bottom: 12px;
+        }
+
+        .domain-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .domain-games {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .domain-game-tag {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            padding: 4px 10px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            color: var(--text-secondary);
+            background: white;
+        }
+
+        .domain-stat {
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .domain-stat-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+        }
+
+        .domain-stat-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* ============================================ */
+        /* 반응형 디자인                                  */
+        /* ============================================ */
+        @media (max-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                padding: 40px 24px;
+            }
+
+            .hero-content h1 {
+                font-size: 32px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .nav-menu {
+                display: none !important;
+            }
+
+            .games-grid {
+                gap: 20px;
+            }
+
+            .game-card {
+                padding: 24px;
+            }
+
+            .domains-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .domain-card {
+                border-right: none !important;
+                border-bottom: 1px solid var(--border) !important;
+            }
+
+            .domain-card:last-child {
+                border-bottom: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 헤더 -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                두뇌 게임 허브
+            </a>
+            <nav class="nav-menu">
+                <li><a href="#" class="nav-link">게임 탐색</a></li>
+                <li><a href="#" class="nav-link">학습 자료</a></li>
+                <li><a href="#" class="nav-link">실시간 랭킹</a></li>
+                <li><a href="#" class="nav-link">프리미엄</a></li>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn-login">로그인</a>
+                <a href="#" class="btn-primary">시작하기</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 히어로 섹션 -->
+    <section class="hero">
+        <div class="hero-shape hero-shape-1"></div>
+        <div class="hero-shape hero-shape-2"></div>
+        
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>
+                    논리력과 창의력을<br>
+                    <span class="highlight">한 단계 업그레이드</span>하세요
+                </h1>
+                <p>
+                    매일 업데이트되는 정교한 퍼즐과 게임으로 두뇌를 단련하고, 전 세계 사용자들과 실시간으로 경쟁하며 당신의 실력을 증명해보세요.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn-large primary">지금 시작하기</button>
+                    <button class="btn-large secondary">자세히 알아보기</button>
+                </div>
+            </div>
+
+            <div class="ranking-card">
+                <div class="ranking-header">
+                    <h2 class="ranking-title">
+                        <span class="status-dot"></span>
+                        실시간 TOP 10
+                    </h2>
+                    <span class="status-badge">
+                        <span class="status-dot"></span>
+                        실시간 연동 중
+                    </span>
+                </div>
+                <div id="ranking-list" class="ranking-list">
+                    <!-- JavaScript로 렌더링됨 -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 미니게임 섹션 -->
+    <section class="games-section">
+        <div class="section-header">
+            <span class="section-label">게임 라이브러리</span>
+            <h2 class="section-title">세 가지 게임으로<br>두뇌를 깨워보세요</h2>
+            <p class="section-description">
+                각 게임의 점수는 실시간으로 전체 랭킹에 반영됩니다. 다양한 난이도에서 당신의 실력을 시험해보세요.
+            </p>
+        </div>
+
+        <div class="games-grid">
+            <!-- 게임 1: 수학 챌린지 -->
+            <div class="game-card type-a">
+                <div class="game-icon-box">∑</div>
+                <span class="game-badge">게임</span>
+                <h3 class="game-title">수학 챌린지</h3>
+                <p class="game-description">
+                    제한된 시간 내에 사칙연산 문제를 정확하고 빠르게 풀어보세요. 난이도가 올라갈수록 더 높은 점수를 획득할 수 있습니다.
+                </p>
+                <div class="game-specs">
+                    <span>⏱ 60초</span>
+                    <span>난이도: 중</span>
+                </div>
+                <a href="#" class="btn-game">게임 시작</a>
+            </div>
+
+            <!-- 게임 2: 메모리 마스터 -->
+            <div class="game-card type-b">
+                <div class="game-icon-box">◊</div>
+                <span class="game-badge">게임</span>
+                <h3 class="game-title">메모리 마스터</h3>
+                <p class="game-description">
+                    화면에 나타나는 숫자와 카드 배열을 정확히 기억했다가 순서대로 맞춰보세요. 라운드가 진행될수록 난이도가 상승합니다.
+                </p>
+                <div class="game-specs">
+                    <span>⏱ 90초</span>
+                    <span>난이도: 상</span>
+                </div>
+                <a href="#" class="btn-game">게임 시작</a>
+            </div>
+
+            <!-- 게임 3: 튜토리얼 영상 -->
+            <div class="game-card type-c">
+                <div class="game-icon-box">▶</div>
+                <span class="game-badge">학습</span>
+                <h3 class="game-title">풀이 및 전략</h3>
+                <p class="game-description">
+                    게임의 최적 풀이 방법과 두뇌 단련 전략을 담은 전문가 강의 영상을 시청하세요. 점수 반영 없이 자유롭게 학습할 수 있습니다.
+                </p>
+                <div class="game-specs">
+                    <span>총 24개 강의</span>
+                    <span>시청 전용</span>
+                </div>
+                <a href="#" class="btn-game">강의 보기</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4개 인지 도메인 섹션 -->
+    <section class="domains-section">
+        <div class="domains-header">
+            <span class="domains-label">02 · 도메인</span>
+            <h2 class="domains-title">4개 인지 도메인 · 32개 프로토콜</h2>
+            <p class="domains-subtitle">기억력, 수리력, 반응속도, 패턴 인식 — 각 도메인마다 여러 개의 검증된 프로토콜을 순환 배치합니다.</p>
+        </div>
+
+        <div class="domains-grid">
+            <!-- 도메인 1: 기억력 -->
+            <div class="domain-card">
+                <div class="domain-num">01 · Memory</div>
+                <div class="domain-icon">🧠</div>
+                <h3 class="domain-title">기억력</h3>
+                <div class="domain-subtitle">Working & Episodic Memory</div>
+                <p class="domain-description">
+                    작업 기억 용량, 장기 인출 정확도, 얼굴·숫자·공간 위치의 회상 정밀도를 측정합니다.
+                </p>
+                <div class="domain-games">
+                    <span class="domain-game-tag">숫자 스팬</span>
+                    <span class="domain-game-tag">Corsi Block</span>
+                    <span class="domain-game-tag">얼굴 회상</span>
+                    <span class="domain-game-tag">n-back</span>
+                </div>
+                <div class="domain-stat">
+                    <span class="domain-stat-label">회원 평균 · Percentile</span>
+                    <span class="domain-stat-value">P68</span>
+                </div>
+            </div>
+
+            <!-- 도메인 2: 수리력 -->
+            <div class="domain-card">
+                <div class="domain-num">02 · Numerical</div>
+                <div class="domain-icon">🔢</div>
+                <h3 class="domain-title">수리력</h3>
+                <div class="domain-subtitle">Numerical Reasoning</div>
+                <p class="domain-description">
+                    암산 속도, 수열 규칙 인식, 확률·비례 판단, 그래프 해독 능력을 정량화합니다.
+                </p>
+                <div class="domain-games">
+                    <span class="domain-game-tag">수열 완성</span>
+                    <span class="domain-game-tag">암산 정확도</span>
+                    <span class="domain-game-tag">확률 추정</span>
+                    <span class="domain-game-tag">그래프 해독</span>
+                </div>
+                <div class="domain-stat">
+                    <span class="domain-stat-label">회원 평균 · Percentile</span>
+                    <span class="domain-stat-value">P72</span>
+                </div>
+            </div>
+
+            <!-- 도메인 3: 반응속도 -->
+            <div class="domain-card">
+                <div class="domain-num">03 · Attention</div>
+                <div class="domain-icon">🎯</div>
+                <h3 class="domain-title">반응속도 · 집중력</h3>
+                <div class="domain-subtitle">Attention & Response</div>
+                <p class="domain-description">
+                    선택 반응시간, Stroop 간섭, 지속 집중 유지 시간 — 인지 처리 속도의 세 축을 측정합니다.
+                </p>
+                <div class="domain-games">
+                    <span class="domain-game-tag">Simple RT</span>
+                    <span class="domain-game-tag">Stroop</span>
+                    <span class="domain-game-tag">Flanker</span>
+                    <span class="domain-game-tag">지속 주의</span>
+                </div>
+                <div class="domain-stat">
+                    <span class="domain-stat-label">회원 평균 · Reaction</span>
+                    <span class="domain-stat-value">0.48s</span>
+                </div>
+            </div>
+
+            <!-- 도메인 4: 패턴 인식 -->
+            <div class="domain-card">
+                <div class="domain-num">04 · Pattern</div>
+                <div class="domain-icon">◊</div>
+                <h3 class="domain-title">패턴 인식</h3>
+                <div class="domain-subtitle">Pattern Recognition</div>
+                <p class="domain-description">
+                    추상적 규칙 발견, 도형 회전, Raven 매트릭스류의 유동 지능을 평가합니다.
+                </p>
+                <div class="domain-games">
+                    <span class="domain-game-tag">Raven</span>
+                    <span class="domain-game-tag">도형 회전</span>
+                    <span class="domain-game-tag">규칙 추론</span>
+                    <span class="domain-game-tag">유추</span>
+                </div>
+                <div class="domain-stat">
+                    <span class="domain-stat-label">회원 평균 · Percentile</span>
+                    <span class="domain-stat-value">P70</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript: 실시간 랭킹 렌더링 (TOP 10) -->
+    <script>
+        const candidates = [
+            { id: 1, name: "이준호", score: 9850, category: "논리 퍼즐" },
+            { id: 2, name: "김지현", score: 9632, category: "수학 챌린지" },
+            { id: 3, name: "박민준", score: 9515, category: "메모리 마스터" },
+            { id: 4, name: "최수진", score: 9200, category: "공간 인지" },
+            { id: 5, name: "정하늘", score: 8950, category: "속도 정렬" },
+            { id: 6, name: "이서연", score: 8720, category: "논리 퍼즐" },
+            { id: 7, name: "김태호", score: 8580, category: "수학 챌린지" },
+            { id: 8, name: "박소영", score: 8420, category: "메모리 마스터" },
+            { id: 9, name: "최준영", score: 8150, category: "공간 인지" },
+            { id: 10, name: "정민철", score: 7890, category: "속도 정렬" }
+        ];
+
+        function renderRankingList() {
+            const rankingList = document.getElementById('ranking-list');
+            rankingList.innerHTML = '';
+
+            candidates.forEach((user, index) => {
+                const rank = index + 1;
+                let rankClass = '';
+                if (rank === 1) rankClass = 'first';
+                else if (rank === 2) rankClass = 'second';
+                else if (rank === 3) rankClass = 'third';
+
+                const item = document.createElement('div');
+                item.className = 'ranking-item';
+                item.innerHTML = `
+                    <div class="rank-badge ${rankClass}">${rank}</div>
+                    <div class="ranking-info">
+                        <div class="ranking-name">${user.name}</div>
+                        <div class="ranking-category">${user.category}</div>
+                    </div>
+                    <div class="ranking-score">${user.score.toLocaleString()}</div>
+                `;
+                rankingList.appendChild(item);
+            });
+        }
+
+        // 페이지 로드 시 랭킹 렌더링
+        document.addEventListener('DOMContentLoaded', renderRankingList);
+
+        // 실시간 업데이트 시뮬레이션 (선택사항)
+        setInterval(() => {
+            // 점수를 약간 변경하여 실시간 업데이트 효과 제공
+            candidates.forEach(user => {
+                user.score += Math.floor(Math.random() * 50) - 25;
+            });
+            renderRankingList();
+        }, 5000);
+    </script>
+</body>
+</html>

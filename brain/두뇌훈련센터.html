@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>한국두뇌평가연구원</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f7f1e3;
+      --bg-2: #efe6d6;
+      --panel: #f3eadb;
+      --fg: #2f2a24;
+      --fg-dim: #7a6f63;
+      --line: #d9ccb9;
+      --amber: #b38a3a;
+      --green: #4a8b68;
+      --red: #b96a5c;
+      --violet: #8f7bc0;
+      --sky: #6b9ecf;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Noto Sans KR', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1320px; margin: 0 auto; padding: 0 32px; }
+    .serif { font-family: 'Noto Serif KR', serif; }
+    .mono { font-family: 'IBM Plex Mono', monospace; }
+    ::selection { background: var(--amber); color: var(--bg); }
+
+    .ticker-bar {
+      background: var(--bg-2);
+      border-bottom: 1px solid var(--line);
+      padding: 10px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .ticker-track { display: inline-block; animation: scroll 60s linear infinite; font-family: 'IBM Plex Mono'; font-size: 12px; }
+    .ticker-track .item { margin: 0 24px; display: inline-flex; gap: 8px; }
+    .ticker-track .sym { color: var(--fg); }
+    .ticker-track .price { color: var(--fg-dim); }
+    .ticker-track .delta.up { color: var(--green); }
+    .ticker-track .delta.down { color: var(--red); }
+    @keyframes scroll { to { transform: translateX(-50%); } }
+
+    nav.top {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      background: rgba(247,241,227,0.95);
+      backdrop-filter: blur(20px);
+      z-index: 50;
+    }
+    nav.top .row { display: flex; align-items: center; justify-content: space-between; }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Noto Serif KR';
+      font-weight: 500;
+      font-size: 22px;
+      letter-spacing: -0.02em;
+    }
+    .brand .mark {
+      width: 32px;
+      height: 32px;
+      background: var(--amber);
+      clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+    }
+
+    .hero { padding: 90px 0 70px; }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 80px; align-items: center; }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'IBM Plex Mono';
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--amber);
+      margin-bottom: 28px;
+      text-transform: uppercase;
+    }
+    .hero-eyebrow::before { content: ""; width: 24px; height: 1px; background: var(--amber); }
+    .hero h1 {
+      font-family: 'Noto Serif KR', serif;
+      font-weight: 500;
+      font-size: clamp(40px, 5.2vw, 76px);
+      line-height: 1.15;
+      letter-spacing: -0.035em;
+      margin-bottom: 28px;
+    }
+    .hero h1 .accent { color: var(--amber); font-weight: 600; }
+    .hero p.lede {
+      font-size: 18px;
+      line-height: 1.65;
+      color: var(--fg-dim);
+      max-width: 540px;
+      margin-bottom: 36px;
+    }
+    .btn {
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: 4px;
+      border: 1px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-primary { background: var(--amber); color: var(--bg); }
+    .btn-outline { border-color: var(--line); color: var(--fg); }
+    .hero-cta { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+
+    .rank-panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: 0 30px 80px rgba(120,102,76,0.12);
+    }
+
+    .domains {
+      padding: 130px 0;
+    }
+    .sect-head { margin-bottom: 70px; display: grid; grid-template-columns: 1fr 1.4fr; gap: 60px; align-items: end; }
+    .sect-head .label { font-family: 'IBM Plex Mono'; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber); }
+    .sect-head h2 { font-family: 'Noto Serif KR'; font-weight: 500; font-size: clamp(36px, 4.6vw, 64px); line-height: 1.15; letter-spacing: -0.03em; margin-top: 16px; }
+    .sect-head h2 .accent { color: var(--amber); }
+    .sect-head p { font-size: 16px; color: var(--fg-dim); line-height: 1.65; max-width: 540px; }
+
+    .domain {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      padding: 32px 26px;
+      border-radius: 8px;
+    }
+    .domain h3 { font-family: 'Noto Serif KR'; font-weight: 600; font-size: 24px; margin-bottom: 10px; }
+    .domain p { color: var(--fg-dim); font-size: 14px; line-height: 1.7; }
+    .domain .stat .v { font-family: 'Noto Serif KR'; font-size: 26px; font-weight: 600; }
+
+    .board {
+      padding: 100px 0;
+      background: var(--bg-2);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .board-text h2 { font-family: 'Noto Serif KR'; font-weight: 500; font-size: 48px; line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 24px; }
+    .board-text h2 .accent { color: var(--amber); }
+
+    .cta-section { padding: 140px 0; }
+    .cta-wrap { text-align: center; max-width: 800px; margin: 0 auto; }
+    .cta-wrap .label { font-family: 'IBM Plex Mono'; font-size: 11px; letter-spacing: 0.14em; color: var(--amber); margin-bottom: 24px; display: block; text-transform: uppercase; }
+    .cta-wrap h2 { font-family: 'Noto Serif KR'; font-weight: 500; font-size: clamp(40px, 5.5vw, 76px); line-height: 1.2; letter-spacing: -0.03em; margin-bottom: 24px; }
+    .cta-wrap h2 .accent { color: var(--amber); }
+
+    footer {
+      padding: 60px 0 32px;
+      border-top: 1px solid var(--line);
+    }
+    .ft-brand-blurb { font-family: 'Noto Serif KR'; font-size: 14px; line-height: 1.65; color: var(--fg-dim); margin-top: 16px; max-width: 320px; }
+    .ft-disc {
+      padding: 24px 0;
+      border-top: 1px solid var(--line);
+      font-size: 11px;
+      color: var(--fg-dim);
+      line-height: 1.7;
+      max-width: 1100px;
+    }
+    .ft-bot {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 16px;
+      font-family: 'IBM Plex Mono';
+      font-size: 11px;
+      color: var(--fg-dim);
+      letter-spacing: 0.06em;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid, .sect-head { grid-template-columns: 1fr; gap: 40px; }
+    }
+    @media (max-width: 640px) {
+      .container { padding: 0 20px; }
+      .hero { padding: 50px 0 40px; }
+      .hero h1 { font-size: clamp(30px, 8vw, 44px); }
+      .hero p.lede { font-size: 16px; }
+      .cta-section { padding: 80px 0; }
+      .cta-wrap h2 { font-size: 34px; }
+      .ft-bot { flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="ticker-bar">
+    <div class="ticker-track">
+      <span class="item"><span class="sym">K-BRAIN</span><span class="price">782</span><span class="delta up">+1.2</span></span>
+      <span class="item"><span class="sym">COGNITION</span><span class="price">694</span><span class="delta up">+0.8</span></span>
+      <span class="item"><span class="sym">MEMORY</span><span class="price">811</span><span class="delta down">-0.3</span></span>
+      <span class="item"><span class="sym">FOCUS</span><span class="price">728</span><span class="delta up">+2.1</span></span>
+    </div>
+  </div>
+
+  <nav class="top">
+    <div class="container row">
+      <a class="brand" href="#"><span class="mark"></span><sup>한국두뇌평가연구원</sup></a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-eyebrow">BRAIN ASSESSMENT</div>
+          <h1>기억력, 수리력, 인지력, <span class="accent">집중력</span></h1>
+          <p class="lede">인지 심리학자들이 설계한 40여 종의 두뇌 훈련 게임으로 매일의 컨디션을 측정하고, 전 세계 응시자들과 실력을 겨뤄보세요.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#">무료로 시작하기</a>
+            <a class="btn btn-outline" href="#">평가 방식 보기</a>
+          </div>
+        </div>
+
+        <div class="rank-panel">
+          <div class="serif" style="font-size:17px;font-weight:600;margin-bottom:12px;">주간 랭킹</div>
+          <div style="border-top:1px solid var(--line); padding-top:16px; color:var(--fg-dim); font-size:14px; line-height:1.8;">
+            이번 주 한국두뇌평가연구원에서 가장 뛰어난 성과를 낸 응시자들입니다.<br />
+            각 영역별 상위 응시자의 점수·정답률·평균 반응 시간을 함께 확인할 수 있습니다.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="domains">
+    <div class="container">
+      <div class="sect-head">
+        <div>
+          <div class="label">Core Domains</div>
+          <h2>두뇌 기능을 <span class="accent">4개 영역</span>으로 체계적으로 확인합니다.</h2>
+        </div>
+        <p>숫자, 단어, 위치, 패턴을 짧은 시간 안에 기억하고 정확하게 재현하는 능력부터, 주의 지속과 반응 제어까지 균형 있게 살펴봅니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="board">
+    <div class="container">
+      <div class="board-text">
+        <h2><span class="accent">상위 성과</span>를 한눈에 확인합니다.</h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-wrap">
+        <span class="label">Start Assessment</span>
+        <h2>가입 없이 바로 <span class="accent">응시</span>할 수 있습니다.</h2>
+        <p style="color:var(--fg-dim); font-size:17px; line-height:1.65; margin-bottom:36px;">결과가 마음에 든다면 그때 계정을 만들어 나만의 훈련 리포트를 받아보세요.</p>
+        <div class="hero-cta" style="justify-content:center;">
+          <a class="btn btn-primary" href="#">지금 시작</a>
+          <a class="btn btn-outline" href="#">자세히 보기</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <a class="brand" href="#"><span class="mark"></span><sup>한국두뇌평가연구원</sup></a>
+      <p class="ft-brand-blurb">매일의 두뇌 컨디션을 정밀하게 측정하고, 교육과 연구에 활용할 수 있는 평가 경험을 제공합니다.</p>
+      <div class="ft-disc">이 프로토타입은 아이보리 기반의 전문적인 톤으로 조정된 예시입니다.</div>
+      <div class="ft-bot">
+        <span>2026 KOREA BRAIN ASSESSMENT INSTITUTE</span>
+        <span>ALL RIGHTS RESERVED</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<title>LEE Hanvit PM Workspace — 프로젝트 대시보드</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F6F4EF; --panel:#FFFFFF; --ink:#1C2321; --ink-soft:#5B6560;
+    --line:#DEDACD; --accent:#2F6F5E; --accent-soft:#E4EEE9;
+    --amber:#C98A2C; --amber-soft:#F5E9D4;
+    --slate:#5D6B78; --slate-soft:#E7ECEF;
+    --plum:#7A4E9C; --plum-soft:#EFE7F4;
+    --radius:10px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans KR',sans-serif;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1080px;margin:0 auto;padding:56px 24px 96px;}
+
+  header.site{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid var(--ink);padding-bottom:22px;margin-bottom:36px;flex-wrap:wrap;gap:16px;}
+  .brand-mark{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;color:var(--accent);text-transform:uppercase;margin-bottom:6px;}
+  h1{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:34px;margin:0;letter-spacing:-.01em;}
+  .subtitle{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--ink-soft);text-align:right;line-height:1.6;}
+
+  .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:40px;border-radius:var(--radius);overflow:hidden;}
+  .stat{background:var(--panel);padding:20px 22px;}
+  .stat .n{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;}
+  .stat .l{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.08em;margin-top:4px;}
+
+  .controls{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;margin-bottom:28px;}
+  .tabs{display:flex;gap:6px;flex-wrap:wrap;}
+  .tab{font-family:'IBM Plex Mono',monospace;font-size:12.5px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:var(--panel);color:var(--ink-soft);cursor:pointer;transition:all .15s ease;}
+  .tab:hover{border-color:var(--accent);color:var(--accent);}
+  .tab.active{background:var(--ink);color:var(--bg);border-color:var(--ink);}
+
+  .search-box{position:relative;}
+  .search-box input{font-family:'Noto Sans KR',sans-serif;font-size:13px;padding:9px 14px 9px 32px;border:1px solid var(--line);border-radius:999px;width:220px;background:var(--panel);color:var(--ink);}
+  .search-box input:focus{outline:2px solid var(--accent);outline-offset:1px;}
+  .search-box::before{content:"";position:absolute;left:13px;top:50%;width:10px;height:10px;transform:translateY(-50%);border:1.5px solid var(--ink-soft);border-radius:50%;}
+  .search-box::after{content:"";position:absolute;left:21px;top:63%;width:6px;height:1.5px;background:var(--ink-soft);transform:rotate(45deg);}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:14px;transition:border-color .15s ease,transform .15s ease;cursor:pointer;text-align:left;font:inherit;color:inherit;}
+  .card:hover{border-color:var(--ink);transform:translateY(-2px);}
+  .card:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+  .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+  .badge{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.05em;padding:4px 9px;border-radius:999px;white-space:nowrap;}
+  .badge.done{background:var(--accent-soft);color:var(--accent);}
+  .badge.dev{background:var(--slate-soft);color:var(--slate);}
+  .badge.plan{background:var(--plum-soft);color:var(--plum);}
+
+  .card h3{font-family:'Space Grotesk',sans-serif;font-size:17px;margin:0;line-height:1.35;}
+  .card p{font-size:13px;color:var(--ink-soft);line-height:1.6;margin:0;}
+  .card-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-soft);border-top:1px dashed var(--line);padding-top:12px;margin-top:auto;}
+  .meta{display:flex;gap:12px;flex-wrap:wrap;}
+  .meta span{white-space:nowrap;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:-4px;}
+  .tag{background:var(--bg);border:1px solid var(--line);padding:2px 8px;border-radius:5px;font-size:11px;color:var(--ink-soft);}
+
+  .empty{text-align:center;padding:64px 20px;color:var(--ink-soft);font-family:'IBM Plex Mono',monospace;font-size:13px;}
+  footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-soft);text-align:center;line-height:1.7;}
+
+  /* ---- 상세 모달 ---- */
+  #overlay{position:fixed;inset:0;background:rgba(28,35,33,.42);display:none;align-items:center;justify-content:center;padding:24px;z-index:200;}
+  #overlay.open{display:flex;}
+  .modal{background:var(--panel);border-radius:var(--radius);max-width:600px;width:100%;max-height:86vh;overflow-y:auto;padding:32px;position:relative;}
+  .modal-close{position:absolute;top:16px;right:16px;background:none;border:1px solid var(--line);border-radius:6px;width:30px;height:30px;cursor:pointer;font-size:16px;color:var(--ink-soft);line-height:1;}
+  .modal-close:hover{border-color:var(--ink);color:var(--ink);}
+  .modal h2{font-family:'Space Grotesk',sans-serif;font-size:22px;margin:0 0 6px;padding-right:40px;line-height:1.3;}
+  .modal .m-status{margin-bottom:18px;}
+  .modal .m-desc{font-size:14px;line-height:1.75;color:var(--ink-soft);margin:0 0 22px;}
+  .m-section{border-top:1px solid var(--line);padding-top:18px;margin-top:18px;}
+  .m-section h4{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 12px;}
+  .m-row{display:flex;justify-content:space-between;font-size:13px;padding:6px 0;border-bottom:1px dashed var(--line);}
+  .m-row:last-child{border-bottom:none;}
+  .m-row .k{color:var(--ink-soft);}
+  .link-list{display:flex;flex-direction:column;gap:8px;}
+  .link-item{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 14px;border:1px solid var(--line);border-radius:7px;text-decoration:none;color:var(--ink);font-size:13px;transition:all .15s ease;}
+  .link-item:hover{border-color:var(--accent);background:var(--accent-soft);}
+  .link-item .arrow{font-family:'IBM Plex Mono',monospace;color:var(--accent);font-size:12px;}
+  .no-link{font-size:13px;color:var(--ink-soft);line-height:1.6;}
+
+  @media (max-width:640px){
+    .stat-row{grid-template-columns:repeat(2,1fr);}
+    header.site{flex-direction:column;align-items:flex-start;}
+    .subtitle{text-align:left;}
+    .search-box input{width:100%;}
+    .controls{flex-direction:column;align-items:stretch;}
+    .modal{padding:24px 20px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="site">
+    <div>
+      <div class="brand-mark">Project Dashboard</div>
+      <h1>LEE Hanvit PM Workspace</h1>
+    </div>
+    <div class="subtitle">IT 서비스 기획 · PM<br>업데이트 2026.08</div>
+  </header>
+
+  <div class="stat-row" id="statRow"></div>
+
+  <div class="controls">
+    <div class="tabs" id="tabs"></div>
+    <div class="search-box"><input type="text" id="searchInput" placeholder="프로젝트 검색"></div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="emptyState" style="display:none;">검색 결과가 없습니다.</div>
+
+  <footer>
+    © LEE Hanvit · IT 서비스 기획 및 PM 포트폴리오<br>
+    프로토타입은 실제 서비스가 아닌 기획 단계 화면 설계 결과물입니다
+  </footer>
+</div>
+
+<div id="overlay">
+  <div class="modal" role="dialog" aria-modal="true">
+    <button class="modal-close" id="modalClose" aria-label="닫기">×</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+const PROJECTS = [
+  {
+    id:"wins",
+    name:"WINS 보험대리점 웹사이트 구축",
+    desc:"보험업계 클라이언트 웹사이트 신규 구축. 기획, 디자인, 개발, 배포 전 과정 PM 수행.",
+    detail:"요구사항 정의부터 화면설계, 개발 관리, 배포까지 전 과정을 담당했습니다. 오픈 이후에는 네이버 검색 노출 문제를 진단해 서치어드바이저 색인 이슈와 서버 리다이렉트 구조를 원인별로 분리 분석하고, 스마트플레이스 연동까지 완료해 검색 노출을 정상화했습니다.",
+    status:"완료", updated:"2026.06", protoCount:0,
+    tags:["PM","웹기획","SEO"],
+    links:[{label:"실제 서비스 사이트",url:"https://winsure.kr"}]
+  },
+  {
+    id:"mensa",
+    name:"Mensa Academy LMS 운영 매뉴얼",
+    desc:"교육 플랫폼 LMS 사용자, 관리자, 교수자 운영 매뉴얼 제작 및 정책 정비.",
+    detail:"소스코드, 화면 기획서, 고객 QA 이력이라는 서로 다른 형식의 자료가 흩어져 있어 담당자마다 참고하는 정보가 달랐습니다. 자료를 하나씩 대조해 실제 반영이 확인된 내용만 추려내고, 크레딧 적립과 정산, 강의 등록 등 핵심 정책을 하나의 신뢰 가능한 매뉴얼로 재구성했습니다.",
+    status:"완료", updated:"2026.08", protoCount:0,
+    tags:["매뉴얼","정책 정비"],
+    links:[{label:"실제 서비스 사이트",url:"https://edu.mensakorea.kr"}]
+  },
+  {
+    id:"anytour",
+    name:"Anytour 웹사이트 구축",
+    desc:"여행업계 클라이언트 웹사이트 신규 구축. 사용자, 관리자 화면 전체 설계.",
+    detail:"사용자 화면과 관리자 화면을 모두 설계했습니다. 사용자 영역은 상품 목록과 상세, 인바운드, 반려동물 동반 여행, 리뷰, 문의 등으로 구성했고, 관리자 영역은 상품 관리, 공지사항, FAQ, 문의 관리, 관리자 계정 관리 등을 포함합니다. 도메인 연결 전 단계로 프로토타입으로 확인하실 수 있습니다.",
+    status:"완료", updated:"2026.07", protoCount:23,
+    tags:["PM","웹기획","관리자 설계"],
+    links:[
+      {label:"프로토타입 · 사용자 화면",url:"prototypes/anytour/user/main.html"},
+      {label:"프로토타입 · 관리자 화면",url:"prototypes/anytour/admin/index.html"}
+    ]
+  },
+  {
+    id:"ksfarm",
+    name:"KS팜 농사친구 영문 랜딩페이지",
+    desc:"농업 스타트업 영문 랜딩페이지 기획 및 구축.",
+    detail:"해외 대상 영문 랜딩페이지로, 서비스 소개와 제품, 회사 소개, 문의 페이지로 구성했습니다. 공통 컴포넌트와 페이지별 스타일을 분리한 모듈 구조로 작성해 이후 개발 단계에서 그대로 재활용할 수 있도록 설계했습니다.",
+    status:"완료", updated:"2026.08", protoCount:4,
+    tags:["웹기획","랜딩페이지","영문"],
+    links:[{label:"프로토타입 보기",url:"prototypes/ksfarm/index.html"}]
+  },
+  {
+    id:"brain",
+    name:"BN 두뇌훈련 서비스 UI/UX",
+    desc:"두뇌 트레이닝 서비스 UI/UX 설계 및 게임 화면 프로토타입 제작.",
+    detail:"인지 영역별 두뇌 트레이닝 서비스의 메인 화면과 훈련센터 화면을 설계했습니다. 훈련센터는 기억력, 수리력, 인지력, 집중력 4개 영역으로 구성했고, 영역별 게임 진입 구조와 난이도 구성, 랭킹 산정 규칙을 정리했습니다. 디자인 시스템을 별도로 정리해 화면 간 톤앤매너를 일관되게 유지했습니다.",
+    status:"개발중", updated:"2026.08", protoCount:3,
+    tags:["UX","게임 기획","디자인 시스템"],
+    links:[
+      {label:"프로토타입 · 메인 화면",url:"prototypes/brain/index.html"},
+      {label:"프로토타입 · 두뇌훈련센터",url:"prototypes/brain/training-center.html"}
+    ]
+  },
+  {
+    id:"itda",
+    name:"잇다 앱 서비스 기획",
+    desc:"커뮤니티 소셜 앱 서비스 기획. 사용자 조사 기반 UX 개선 수행.",
+    detail:"사용자 조사를 통해 니즈와 이탈 지점을 파악하고 UX 개선안을 도출했습니다. 모임 개설 시 핵심 기능에 도달하는 접근 단계를 3단계에서 1단계로 줄이고 버튼형 인터페이스를 새로 설계했으며, 베타 테스트 참여자의 의견을 수집해 리뉴얼 사항을 문서화하고 후속 기획에 반영했습니다.",
+    status:"완료", updated:"2026.05", protoCount:0,
+    tags:["서비스기획","UX 리서치","앱 기획"],
+    links:[{label:"App Store에서 보기",url:"https://apps.apple.com/kr/app/id6780876614"}],
+    stats:[
+      {k:"모임 개설 접근 단계",v:"3단계 → 1단계"},
+      {k:"프로세스 단축",v:"67%"},
+      {k:"베타 테스트 참여",v:"100명"}
+    ]
+  }
+];
+
+const STATUS_CLS = {"기획중":"plan","개발중":"dev","완료":"done"};
+const TABS = ["전체","기획중","개발중","완료"];
+let activeTab="전체", query="";
+
+function renderStats(){
+  const counts={"전체":PROJECTS.length};
+  TABS.slice(1).forEach(t=>counts[t]=PROJECTS.filter(p=>p.status===t).length);
+  document.getElementById("statRow").innerHTML=["전체","완료","개발중","기획중"]
+    .map(k=>`<div class="stat"><div class="n">${counts[k]||0}</div><div class="l">${k}</div></div>`).join("");
+}
+
+function renderTabs(){
+  const el=document.getElementById("tabs");
+  el.innerHTML=TABS.map(t=>`<button class="tab ${t===activeTab?'active':''}" data-tab="${t}">${t}</button>`).join("");
+  el.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>{activeTab=b.dataset.tab;renderTabs();renderGrid();}));
+}
+
+function renderGrid(){
+  const q=query.trim().toLowerCase();
+  const filtered=PROJECTS.filter(p=>{
+    const tabOk=activeTab==="전체"||p.status===activeTab;
+    const qOk=!q||p.name.toLowerCase().includes(q)||p.desc.toLowerCase().includes(q)||p.tags.some(t=>t.toLowerCase().includes(q));
+    return tabOk&&qOk;
+  });
+  const grid=document.getElementById("grid"), empty=document.getElementById("emptyState");
+  if(!filtered.length){grid.style.display="none";empty.style.display="block";return;}
+  grid.style.display="grid";empty.style.display="none";
+  grid.innerHTML=filtered.map(p=>`
+    <button class="card" data-id="${p.id}">
+      <div class="card-top">
+        <h3>${p.name}</h3>
+        <span class="badge ${STATUS_CLS[p.status]}">${p.status}</span>
+      </div>
+      <p>${p.desc}</p>
+      <div class="tags">${p.tags.map(t=>`<span class="tag">${t}</span>`).join("")}</div>
+      <div class="card-foot">
+        <div class="meta">
+          <span>업데이트 ${p.updated}</span>
+          <span>${p.protoCount>0?`프로토타입 ${p.protoCount}종`:"산출물 문서"}</span>
+        </div>
+      </div>
+    </button>`).join("");
+  grid.querySelectorAll(".card").forEach(c=>c.addEventListener("click",()=>openModal(c.dataset.id)));
+}
+
+function openModal(id){
+  const p=PROJECTS.find(x=>x.id===id);
+  if(!p) return;
+  let html=`
+    <h2>${p.name}</h2>
+    <div class="m-status"><span class="badge ${STATUS_CLS[p.status]}">${p.status}</span></div>
+    <p class="m-desc">${p.detail}</p>
+    <div class="m-section">
+      <h4>프로젝트 정보</h4>
+      <div class="m-row"><span class="k">업데이트</span><span>${p.updated}</span></div>
+      ${p.protoCount>0?`<div class="m-row"><span class="k">프로토타입</span><span>${p.protoCount}종</span></div>`:""}
+      <div class="m-row"><span class="k">담당 역할</span><span>${p.tags.join(", ")}</span></div>
+    </div>`;
+  if(p.stats&&p.stats.length){
+    html+=`<div class="m-section"><h4>주요 성과</h4>${p.stats.map(s=>`<div class="m-row"><span class="k">${s.k}</span><span>${s.v}</span></div>`).join("")}</div>`;
+  }
+  html+=`<div class="m-section"><h4>바로가기</h4>`;
+  if(p.links.length){
+    html+=`<div class="link-list">${p.links.map(l=>{
+      const ext=l.url.startsWith("http");
+      return `<a class="link-item" href="${l.url}"${ext?' target="_blank" rel="noopener"':' target="_blank"'}>
+        <span>${l.label}</span><span class="arrow">${ext?"열기 ↗":"보기 →"}</span></a>`;
+    }).join("")}</div>`;
+  } else {
+    html+=`<p class="no-link">공개 가능한 링크가 없는 프로젝트입니다. 상세 산출물은 면접 시 별도로 안내드립니다.</p>`;
+  }
+  html+=`</div>`;
+  document.getElementById("modalBody").innerHTML=html;
+  document.getElementById("overlay").classList.add("open");
+}
+
+function closeModal(){document.getElementById("overlay").classList.remove("open");}
+document.getElementById("modalClose").addEventListener("click",closeModal);
+document.getElementById("overlay").addEventListener("click",e=>{if(e.target.id==="overlay")closeModal();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal();});
+document.getElementById("searchInput").addEventListener("input",e=>{query=e.target.value;renderGrid();});
+
+renderStats();renderTabs();renderGrid();
+
+</script>
+</body>
+</html>

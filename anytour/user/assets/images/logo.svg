@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 74" role="img" aria-labelledby="logoTitle">
+  <title id="logoTitle">애니투어 ANY TOUR CO., LTD.</title>
+  <defs>
+    <linearGradient id="aGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1B4F9C"/>
+      <stop offset="100%" stop-color="#3FA9E0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- swoosh -->
+  <path d="M2 45 C 30 20, 55 14, 78 8" fill="none" stroke="#7FC7EE" stroke-width="2.5" stroke-linecap="round" opacity="0.85"/>
+
+  <!-- A mark -->
+  <path d="M26 47 L38 15 L46 15 L58 47 L49.5 47 L47.3 40.5 L36.4 40.5 L34.2 47 Z M38.7 33.5 L44.9 33.5 L41.8 24.2 Z" fill="url(#aGradient)"/>
+
+  <!-- little plane accent through the A -->
+  <g transform="translate(44,10) rotate(28)">
+    <path d="M0 3.2 L14 3.2 L18 0 L20.4 0 L18.4 3.2 L21 3.2 L21 4.6 L18.4 4.6 L20.4 7.8 L18 7.8 L14 4.6 L0 4.6 Z" fill="#2C7FCB"/>
+  </g>
+
+  <!-- wordmark -->
+  <text x="88" y="34" font-family="'Pretendard','Malgun Gothic',sans-serif" font-size="24" font-weight="700" fill="#1B4F9C">(주)애니투어</text>
+  <text x="26" y="58" font-family="Arial,'Malgun Gothic',sans-serif" font-size="12" letter-spacing="0.5" font-weight="600" fill="#3B3B3B">ANY TOUR CO., LTD.</text>
+</svg>

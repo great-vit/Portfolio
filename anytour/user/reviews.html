@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>여행후기 | 애니투어</title>
+<meta name="description" content="애니투어와 함께한 고객님들의 반려동물 동반여행, 인바운드, 효도여행 후기를 확인하세요.">
+<link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/common.css">
+</head>
+<body>
+
+<div data-include="header"></div>
+
+<main>
+
+  <section class="page-hero page-hero-reviews">
+    <div class="container">
+      <span class="eyebrow">REVIEW</span>
+      <h1>먼저 다녀온 고객님들의 이야기</h1>
+      <p class="subtitle">반려동물 동반여행부터 인바운드, 효도여행까지 애니투어와 함께한 여행 후기입니다.</p>
+    </div>
+  </section>
+
+  <section class="section u-pt-xl">
+    <div class="container">
+      <div class="review-list-head">
+        <h2>리뷰</h2>
+        <span class="count" id="reviewCount">0</span>
+        <button type="button" class="btn btn-primary review-write-btn" id="reviewWriteBtn">리뷰 등록</button>
+      </div>
+
+      <div class="review-controls">
+        <div class="filter-chips">
+          <div class="search-expand" id="reviewSearchExpand">
+            <button type="button" class="filter-chip icon-only" id="reviewSearchToggle" aria-label="검색 열기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+            </button>
+            <input type="text" class="review-search-input" id="reviewSearchInput" placeholder="후기 검색" aria-label="후기 검색">
+          </div>
+          <select class="filter-chip" id="reviewTypeFilter" aria-label="리뷰 종류">
+            <option value="all">리뷰 종류</option>
+            <option value="photo">포토 리뷰</option>
+          </select>
+          <select class="filter-chip" id="reviewCategoryFilter" aria-label="여행 종류">
+            <option value="all">전체 여행종류</option>
+            <option value="pet">반려동물 동반여행</option>
+            <option value="inbound">인바운드</option>
+            <option value="golf">골프·테마</option>
+            <option value="group">단체·효도</option>
+            <option value="airhotel">항공·호텔</option>
+          </select>
+          <select class="filter-chip" id="reviewRatingFilter" aria-label="별점">
+            <option value="0">전체 별점</option>
+            <option value="5">5점</option>
+            <option value="4">4점</option>
+            <option value="3">3점</option>
+            <option value="2">2점</option>
+            <option value="1">1점</option>
+          </select>
+        </div>
+        <select class="sort-select" id="reviewSort" aria-label="정렬">
+          <option value="latest">최신순</option>
+          <option value="rating">평점 높은순</option>
+        </select>
+      </div>
+
+      <div class="review-photo-grid" id="reviewGrid"></div>
+
+      <div class="review-pagination">
+        <button type="button" id="reviewPagePrev" aria-label="이전 페이지">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <span class="page-info" id="reviewPageInfo">1 / 1</span>
+        <button type="button" id="reviewPageNext" aria-label="다음 페이지">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+
+      <a href="#top" class="review-back-to-top" id="backToTop">맨 위로 이동 ↑</a>
+
+      <p class="disclaimer-note u-mt-lg u-text-center">
+        * 후기는 서비스 방향을 보여드리기 위한 예시이며, 정식 오픈 이후 실제 고객 후기로 채워질 예정입니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section-bg-soft">
+    <div class="container">
+      <div class="cta-band">
+        <div>
+          <h3>다음 후기의 주인공이 되어보세요</h3>
+          <p>애니투어와 함께하는 첫 여행, 지금 상담 신청해 보세요.</p>
+        </div>
+        <div class="actions">
+          <a href="contact.html" class="btn btn-on-dark">문의·예약하기</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <dialog class="review-modal" id="reviewModal">
+    <button type="button" class="modal-close" id="reviewModalClose" aria-label="닫기">✕</button>
+    <div class="modal-photo"><img id="modalPhoto" src="" alt=""></div>
+    <div class="modal-body">
+      <div class="stars" id="modalStars"></div>
+      <h3 id="modalTitle"></h3>
+      <div class="date" id="modalDate"></div>
+      <div class="category-tag" id="modalCategory"></div>
+      <button type="button" class="btn btn-secondary review-edit-btn" id="reviewEditBtn">수정</button>
+    </div>
+  </dialog>
+
+  <dialog class="review-modal review-write-modal" id="reviewWriteModal">
+    <button type="button" class="modal-close" id="reviewWriteModalClose" aria-label="닫기">✕</button>
+    <form id="reviewWriteForm">
+      <h3 id="rwModalTitle">리뷰 작성</h3>
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="rwCategory">여행 종류 *</label>
+          <select id="rwCategory" required>
+            <option value="">선택해 주세요</option>
+            <option value="pet">반려동물 동반여행</option>
+            <option value="inbound">인바운드</option>
+            <option value="golf">골프·테마</option>
+            <option value="group">단체·효도</option>
+            <option value="airhotel">항공·호텔</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>별점 *</label>
+          <div class="star-picker" id="rwStarPicker">
+            <button type="button" data-star="1" aria-label="1점">★</button>
+            <button type="button" data-star="2" aria-label="2점">★</button>
+            <button type="button" data-star="3" aria-label="3점">★</button>
+            <button type="button" data-star="4" aria-label="4점">★</button>
+            <button type="button" data-star="5" aria-label="5점">★</button>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="rwName">작성자 이름 *</label>
+          <input class="text-input" type="text" id="rwName" required>
+        </div>
+        <div class="form-field">
+          <label for="rwPassword">비밀번호 *</label>
+          <input class="text-input" type="password" id="rwPassword" required placeholder="수정·삭제 시 필요">
+        </div>
+        <div class="form-field span-2">
+          <label for="rwTitle">제목 *</label>
+          <input class="text-input" type="text" id="rwTitle" required>
+        </div>
+        <div class="form-field span-2">
+          <label for="rwContent">내용 *</label>
+          <textarea id="rwContent" required placeholder="여행 후기를 자유롭게 남겨주세요."></textarea>
+        </div>
+        <div class="form-field span-2">
+          <label for="rwPhotos">사진 첨부 (최대 4장)</label>
+          <input type="file" id="rwPhotos" accept="image/*" multiple>
+          <div class="rw-photo-preview" id="rwPhotoPreview"></div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary u-mt-xl" id="rwSubmitBtn">리뷰 등록</button>
+      <p class="form-note">* 비회원도 작성·수정할 수 있는 데모 화면이며, 실제 등록·저장 기능은 정식 오픈 시 연동될 예정입니다.</p>
+      <div class="form-success" id="rwSuccess">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+        <span id="rwSuccessText">소중한 후기가 등록되었습니다. 감사합니다!</span>
+      </div>
+    </form>
+  </dialog>
+
+</main>
+
+<div data-include="footer"></div>
+
+
+<script src="assets/js/include.js"></script>
+</body>
+</html>

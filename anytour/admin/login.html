@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관리자 로그인 | 애니투어 ADMIN</title>
+<link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+
+<div class="a-login-wrap">
+  <div class="a-login-card">
+    <span class="logo">ADMINISTRATOR</span>
+    <p class="a-login-sub">애니투어 관리자 페이지</p>
+
+    <div class="a-login-error" id="loginError">아이디와 비밀번호를 입력해 주세요.</div>
+
+    <form id="loginForm">
+      <div class="a-form-row">
+        <label for="loginId">아이디</label>
+        <input class="a-input a-w-full" type="text" id="loginId" name="id" placeholder="admin" autocomplete="username">
+      </div>
+      <div class="a-form-row">
+        <label for="loginPw">비밀번호</label>
+        <input class="a-input a-w-full" type="password" id="loginPw" name="pw" placeholder="••••••••" autocomplete="current-password">
+      </div>
+      <button type="submit" class="a-btn a-btn-primary">로그인</button>
+      <p class="a-hint" style="text-align:center;">* 데모 페이지로 아이디/비밀번호를 입력하면 바로 입장됩니다.</p>
+    </form>
+  </div>
+</div>
+
+<script src="assets/js/pages/login.js"></script>
+</body>
+</html>

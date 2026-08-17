@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관리자 계정 관리 | 애니투어 ADMIN</title>
+<link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body data-page-script="assets/js/pages/admins.js">
+
+<div data-include="header"></div>
+
+<nav class="a-topnav">
+  <a href="products.html">상품관리</a>
+  <a href="notices.html">사이트관리</a>
+  <a href="inquiries.html">문의관리</a>
+  <a href="admins.html" class="is-active">계정관리</a>
+</nav>
+
+<div class="a-body">
+  <aside class="a-sidebar">
+    <div class="a-sidebar-head">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+      계정관리
+    </div>
+    <ul>
+      <li><a href="admins.html" class="is-active">관리자 정보 수정<span>›</span></a></li>
+    </ul>
+  </aside>
+
+  <main class="a-main">
+    <div class="a-breadcrumb">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10l9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>
+      HOME <span>›</span> 계정관리
+    </div>
+
+    <div class="a-card">
+      <div class="a-card-head">
+        <span>관리자 정보 수정</span>
+      </div>
+
+      <form id="adminEditForm">
+        <div class="a-modal-body">
+          <div class="a-form-row">
+            <label for="fLoginId">아이디 <span class="a-req">*</span></label>
+            <input class="a-input a-w-full" type="text" id="fLoginId" required>
+          </div>
+          <div class="a-form-grid-2">
+            <div class="a-form-row">
+              <label for="fName">이름 <span class="a-req">*</span></label>
+              <input class="a-input a-w-full" type="text" id="fName" required>
+            </div>
+            <div class="a-form-row">
+              <label for="fPhone">연락처 <span class="a-req">*</span></label>
+              <input class="a-input a-w-full" type="text" id="fPhone" required placeholder="010-0000-0000">
+            </div>
+          </div>
+          <div class="a-form-grid-2">
+            <div class="a-form-row">
+              <label for="fEmail">이메일 <span class="a-req">*</span></label>
+              <input class="a-input a-w-full" type="email" id="fEmail" required>
+            </div>
+            <div class="a-form-row">
+              <label for="fPw">비밀번호</label>
+              <input class="a-input a-w-full" type="password" id="fPw" placeholder="변경 시에만 입력">
+            </div>
+          </div>
+        </div>
+        <div class="a-modal-foot">
+          <button type="submit" class="a-btn a-btn-primary">수정하기</button>
+        </div>
+      </form>
+    </div>
+  </main>
+</div>
+
+<script src="assets/js/seed-data.js"></script>
+<script src="assets/js/admin-include.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관리자 홈 | 애니투어 ADMIN</title>
+<link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body data-page-script="assets/js/pages/dashboard.js">
+
+<div data-include="header"></div>
+
+<nav class="a-topnav">
+  <a href="products.html">상품관리</a>
+  <a href="notices.html">사이트관리</a>
+  <a href="inquiries.html">문의관리</a>
+  <a href="admins.html">계정관리</a>
+</nav>
+
+<div class="a-body">
+  <main class="a-main" style="width:100%;">
+    <div class="a-breadcrumb">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10l9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>
+      HOME
+    </div>
+    <h1 class="a-page-title">관리자 홈</h1>
+
+    <div class="a-stat-grid" id="statGrid"></div>
+
+    <div class="a-card">
+      <div class="a-card-head">빠른 메뉴</div>
+      <div class="a-card-body" style="display:flex; gap:10px; flex-wrap:wrap;">
+        <a class="a-btn a-btn-primary" href="products.html">+ 상품 등록</a>
+        <a class="a-btn" href="notices.html">+ 공지사항 등록</a>
+        <a class="a-btn" href="faq.html">+ FAQ 등록</a>
+        <a class="a-btn" href="inquiries.html">문의·예약 확인</a>
+        <a class="a-btn" href="reviews.html">리뷰 확인</a>
+        <a class="a-btn" href="admins.html">관리자 정보 수정</a>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="assets/js/seed-data.js"></script>
+<script src="assets/js/admin-include.js"></script>
+</body>
+</html>

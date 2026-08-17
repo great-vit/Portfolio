@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>상품 등록 | 애니투어 ADMIN</title>
+<link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body data-page-script="assets/js/pages/product-form.js">
+
+<div data-include="header"></div>
+
+<nav class="a-topnav">
+  <a href="products.html" class="is-active">상품관리</a>
+  <a href="notices.html">사이트관리</a>
+  <a href="inquiries.html">문의관리</a>
+  <a href="admins.html">계정관리</a>
+</nav>
+
+<div class="a-body">
+  <aside class="a-sidebar">
+    <div class="a-sidebar-head">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7 12 3 4 7v10l8 4 8-4z"/><path d="M4 7l8 4 8-4M12 11v10"/></svg>
+      상품관리
+    </div>
+    <ul>
+      <li><a href="products.html">상품 목록<span>›</span></a></li>
+    </ul>
+  </aside>
+
+  <main class="a-main">
+    <div class="a-breadcrumb">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10l9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>
+      HOME <span>›</span> <a href="products.html">상품관리</a> <span>›</span> <span id="formModeLabel">상품 등록</span>
+    </div>
+
+    <div class="a-card">
+      <div class="a-card-head">
+        <span id="formTitle">상품 등록</span>
+      </div>
+
+      <form id="productForm">
+        <div class="a-modal-body">
+          <input type="hidden" id="productId">
+          <div class="a-form-row">
+            <label for="fCategory">카테고리 <span class="a-req">*</span></label>
+            <select class="a-select a-w-full" id="fCategory" required>
+              <option value="pet">반려동물 동반여행</option>
+              <option value="inbound">인바운드</option>
+              <option value="package">패키지</option>
+              <option value="golf">골프·테마</option>
+              <option value="airhotel">항공·호텔</option>
+              <option value="group">단체·효도여행</option>
+            </select>
+          </div>
+          <div class="a-form-row">
+            <label for="fTitle">상품명 <span class="a-req">*</span></label>
+            <input class="a-input a-w-full" type="text" id="fTitle" required>
+          </div>
+          <div class="a-form-grid-2">
+            <div class="a-form-row">
+              <label for="fRegion">지역 <span class="a-req">*</span></label>
+              <input class="a-input a-w-full" type="text" id="fRegion" required placeholder="예: 국내 제주">
+            </div>
+            <div class="a-form-row">
+              <label for="fPrice">가격(원) <span class="a-req">*</span></label>
+              <input class="a-input a-w-full" type="text" id="fPrice" required placeholder="예: 289,000">
+            </div>
+          </div>
+          <div class="a-form-row">
+            <label for="fTags">해시태그</label>
+            <input class="a-input a-w-full" type="text" id="fTags" placeholder="쉼표로 구분 (예: 제주,독채마당,소형중형견)">
+          </div>
+        </div>
+
+        <div class="a-form-section-title">핵심 방문지</div>
+        <div class="a-modal-body">
+          <div class="a-form-row">
+            <div id="destList"></div>
+            <button type="button" class="a-btn a-btn-sm" id="addDestBtn">+ 방문지 추가</button>
+          </div>
+        </div>
+
+        <div class="a-modal-body">
+          <div class="a-form-row">
+            <label for="fDetail">상세설명</label>
+            <textarea class="a-textarea a-w-full" id="fDetail" placeholder="상품 상세 설명을 입력하세요."></textarea>
+          </div>
+          <div class="a-form-row">
+            <label for="fPhotos">사진 첨부</label>
+            <input type="file" id="fPhotos" accept="image/*" multiple>
+          </div>
+        </div>
+
+        <div class="a-form-section-title">일정 안내</div>
+        <div class="a-modal-body">
+          <div class="a-form-row">
+            <div id="itineraryList"></div>
+            <button type="button" class="a-btn a-btn-sm" id="addDayBtn">+ 일차 추가</button>
+          </div>
+        </div>
+
+        <div class="a-modal-foot">
+          <a class="a-btn" href="products.html">취소</a>
+          <button type="submit" class="a-btn a-btn-primary" id="submitBtn">저장</button>
+        </div>
+      </form>
+    </div>
+  </main>
+</div>
+
+<script src="assets/js/seed-data.js"></script>
+<script src="assets/js/admin-include.js"></script>
+</body>
+</html>

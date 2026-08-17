@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>상품 관리 | 애니투어 ADMIN</title>
+<link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body data-page-script="assets/js/pages/products.js">
+
+<div data-include="header"></div>
+
+<nav class="a-topnav">
+  <a href="products.html" class="is-active">상품관리</a>
+  <a href="notices.html">사이트관리</a>
+  <a href="inquiries.html">문의관리</a>
+  <a href="admins.html">계정관리</a>
+</nav>
+
+<div class="a-body">
+  <aside class="a-sidebar">
+    <div class="a-sidebar-head">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7 12 3 4 7v10l8 4 8-4z"/><path d="M4 7l8 4 8-4M12 11v10"/></svg>
+      상품관리
+    </div>
+    <ul>
+      <li><a href="products.html" class="is-active">상품 목록<span>›</span></a></li>
+    </ul>
+  </aside>
+
+  <main class="a-main">
+    <div class="a-breadcrumb">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10l9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>
+      HOME <span>›</span> 상품관리
+    </div>
+
+    <div class="a-card">
+      <div class="a-card-head">
+        <span>상품 목록</span>
+        <a class="a-btn a-btn-primary a-btn-sm" href="product-form.html">+ 등록하기</a>
+      </div>
+
+      <div class="a-filter-row">
+        <span class="a-filter-label">조건검색</span>
+        <div class="a-filter-field">
+          <input class="a-input a-w-full" type="text" id="searchKeyword" placeholder="상품명, 지역 검색">
+        </div>
+      </div>
+      <div class="a-filter-row">
+        <span class="a-filter-label">카테고리</span>
+        <div class="a-filter-field">
+          <select class="a-select" id="searchCategory">
+            <option value="">전체</option>
+            <option value="pet">반려동물 동반여행</option>
+            <option value="inbound">인바운드</option>
+            <option value="package">패키지</option>
+            <option value="golf">골프·테마</option>
+            <option value="airhotel">항공·호텔</option>
+            <option value="group">단체·효도여행</option>
+          </select>
+        </div>
+      </div>
+      <div class="a-filter-row">
+        <span class="a-filter-label">등록기간</span>
+        <div class="a-filter-field">
+          <input class="a-input a-w-date" type="date" id="searchDateFrom">
+          <span>~</span>
+          <input class="a-input a-w-date" type="date" id="searchDateTo">
+        </div>
+      </div>
+      <div class="a-filter-actions">
+        <button type="button" class="a-btn" id="resetBtn">초기화</button>
+        <button type="button" class="a-btn a-btn-dark" id="searchBtn">검색</button>
+      </div>
+
+      <div class="a-table-toolbar">
+        <span>검색결과 총 <strong id="resultCount">0</strong>건</span>
+      </div>
+      <div class="a-table-wrap">
+        <table class="a-table">
+          <thead>
+            <tr>
+              <th style="width:40px;"><input type="checkbox" id="checkAll"></th>
+              <th style="width:60px;">번호</th>
+              <th style="width:150px;">카테고리</th>
+              <th>상품명</th>
+              <th style="width:140px;">지역</th>
+              <th style="width:110px;">가격</th>
+              <th style="width:130px;">등록일</th>
+              <th style="width:110px;">관리</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+      <div class="a-pagination" id="productsPagination"></div>
+      <div class="a-table-footer">
+        <button type="button" class="a-btn a-btn-danger a-btn-sm" id="bulkDeleteBtn">선택삭제</button>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="assets/js/seed-data.js"></script>
+<script src="assets/js/admin-include.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>여행상품 | 애니투어</title>
+<meta name="description" content="반려동물 동반여행, 인바운드, 패키지, 골프·테마, 항공·호텔, 단체·효도여행까지 애니투어의 모든 여행상품을 확인하세요.">
+<link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/common.css">
+</head>
+<body class="products-page">
+
+<div data-include="header"></div>
+
+<main>
+
+  <section class="page-hero page-hero-products">
+    <div class="container">
+      <span class="eyebrow">TRAVEL CATALOG · 2026</span>
+      <h1>네 갈래 여정,<br><em>당신의 순서로</em></h1>
+      <p class="subtitle">패키지 → 골프·테마 → 항공·호텔 → 단체여행, 애니투어가 우선순위 순서로 안내하는 여행상품입니다.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">PRIORITY ORDER</span>
+          <h2>원하는 여정을 선택하세요</h2>
+        </div>
+      </div>
+
+      <div class="tabbar" id="productTabs" data-hash-sync="true" data-categories="package,golf,airhotel,group">
+        <button class="active" data-tab="all">전체보기</button>
+        <button data-tab="package">패키지</button>
+        <button data-tab="golf">골프·테마</button>
+        <button data-tab="airhotel">항공·호텔</button>
+        <button data-tab="group">단체·효도여행</button>
+      </div>
+
+      <div class="catalog-list-head">
+        <span class="catalog-count">총 <strong id="productGridCount">0</strong>개</span>
+        <div class="sort-toggle" id="productGridSortToggle">
+          <button type="button" class="sort-toggle-btn is-active" data-sort="sold">인기순</button>
+          <button type="button" class="sort-toggle-btn" data-sort="latest">최신순</button>
+        </div>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+      <div class="pagination" id="productGridPagination"></div>
+
+      <p class="disclaimer-note">
+        * 위 상품 구성은 서비스 방향을 보여드리기 위한 예시이며, 정식 오픈 시 실제 상품 정보로 안내드립니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section-bg-soft">
+    <div class="container">
+      <div class="cta-band">
+        <div>
+          <h3>원하시는 상품이 없으신가요?</h3>
+          <p>여행 목적과 일정을 알려주시면 애니투어가 맞춤 일정을 제안해 드립니다.</p>
+        </div>
+        <div class="actions">
+          <a href="contact.html" class="btn btn-on-dark">맞춤 상담 요청하기</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div data-include="footer"></div>
+
+
+<script src="assets/js/include.js"></script>
+</body>
+</html>

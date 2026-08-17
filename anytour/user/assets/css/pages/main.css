@@ -1,0 +1,151 @@
+/* ==========================================================================
+   main.html (home page) — page-specific styles only.
+   Shared header/footer/logo/reset/.container/.fab-consult/.home-hero tokens
+   etc. come from assets/css/common.css (loaded before this file).
+   ========================================================================== */
+
+:root {
+  --accent-green: #10b981;
+}
+
+body { font-family: 'Noto Sans KR', sans-serif; line-height: 1.5; }
+
+/* Section Common */
+.section-title { text-align: center; margin-bottom: 40px; }
+.section-title h2 { font-size: 28px; font-weight: 700; margin-bottom: 15px; }
+.image-gallery-section .section-title h2 { color: #fff; }
+.section-muted { background: #fcfcfc; }
+
+.filter-chips { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; }
+.chip {
+  padding: 8px 18px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  background: #fff;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.chip:hover { border-color: #999; transform: translateY(-2px); }
+.chip.active { background: #333; color: #fff; border-color: #333; }
+
+/* Product Cards (legacy static demo grid — distinct from the shared,
+   JS-rendered .product-card used on products.html/pet-travel.html/etc.
+   Loaded after common.css so this intentionally overrides it on this page.) */
+.product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.product-card { display: block; border-radius: 10px; overflow: hidden; color: inherit; text-decoration: none; transition: box-shadow 0.18s ease, transform 0.18s ease; }
+.product-card:hover { box-shadow: 0 8px 20px rgba(0,0,0,0.12); transform: translateY(-4px); }
+.product-img { height: 200px; position: relative; border-radius: 10px; overflow: hidden; }
+.product-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
+.product-card:hover .product-img img { transform: scale(1.06); }
+.product-grid .product-card:nth-child(1) .product-img img { object-position: 20% 50%; }
+.product-grid .product-card:nth-child(2) .product-img img { object-position: 50% 30%; }
+.product-grid .product-card:nth-child(3) .product-img img { object-position: 80% 60%; }
+.product-grid .product-card:nth-child(4) .product-img img { object-position: 40% 70%; }
+.product-info { padding: 15px 5px; }
+.product-info .tags { font-size: 12px; color: var(--accent-green); margin-bottom: 5px; }
+.product-info h4 { font-size: 15px; font-weight: 500; margin-bottom: 8px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.product-info .price { font-size: 18px; font-weight: 700; color: #111; }
+.product-info .price span { font-size: 13px; color: #999; text-decoration: line-through; margin-right: 5px; font-weight: 400; }
+
+/* Ranking Cards */
+.ranking-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.rank-card {
+  display: block;
+  height: 220px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+  background: linear-gradient(rgba(10,20,15,0.15), rgba(10,20,15,0.55)) center / cover no-repeat;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.rank-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+.rank-card-1 { background-image: linear-gradient(rgba(10,20,15,0.15), rgba(10,20,15,0.55)), url("../../images/business/inbound.jpg"); }
+.rank-card-2 { background-image: linear-gradient(rgba(10,20,15,0.15), rgba(10,20,15,0.55)), url("../../images/business/seoul-evening.jpg"); }
+.rank-card-3 { background-image: linear-gradient(rgba(10,20,15,0.15), rgba(10,20,15,0.55)), url("../../images/business/jeju-coast.jpg"); }
+.rank-card .rank-num {
+  position: absolute;
+  top: 0; left: 15px;
+  background: #e53e3e;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: 700;
+  font-size: 14px;
+}
+.rank-card .info-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 20px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  color: #fff;
+}
+
+/* Image Gallery Section */
+.image-gallery-section { background: #1a1a1a; color: #fff; padding-bottom: 40px; }
+.image-gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+.gallery-card {
+  display: block;
+  height: 400px;
+  border-radius: 15px;
+  background: #333;
+  position: relative;
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+}
+.gallery-card-bg {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.75);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.gallery-card:hover .gallery-card-bg {
+  transform: scale(1.06);
+  filter: brightness(0.85);
+}
+.gallery-card-1 .gallery-card-bg { background-image: url("https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=600"); }
+.gallery-card-2 .gallery-card-bg { background-image: url("../../images/forest.jpg"); }
+.gallery-card-3 .gallery-card-bg { background-image: url("../../images/business/seoul-evening.jpg"); }
+.gallery-card-4 .gallery-card-bg { background-image: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600"); }
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+.gallery-card .bottom-info {
+  position: absolute;
+  bottom: 15px; left: 15px; right: 15px;
+  background: rgba(255,255,255,0.9);
+  padding: 12px;
+  border-radius: 8px;
+  color: #000;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Responsive: 4/3-up grids squeeze into unreadable columns on phones —
+   step down to 2-up, then 1-up, instead of forcing every column to fit. */
+@media (max-width: 767px) {
+  .filter-chips { flex-wrap: wrap; }
+  .product-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .ranking-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .image-gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .gallery-card { height: 260px; }
+}
+
+@media (max-width: 479px) {
+  .product-grid { grid-template-columns: 1fr; }
+  .ranking-grid { grid-template-columns: 1fr; }
+  .image-gallery-grid { grid-template-columns: 1fr; }
+  .gallery-card { height: 220px; }
+}

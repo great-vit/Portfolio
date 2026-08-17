@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>반려동물 동반여행 | 애니투어</title>
+<meta name="description" content="동반 가능 숙소·항공 안내부터 준비사항, 견종별 유의사항까지. 애니투어와 함께 반려동물과 떠나는 특별한 여행.">
+<link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/common.css">
+</head>
+<body>
+
+<div data-include="header"></div>
+
+<main>
+
+  <!-- ============ page-hero ============ -->
+  <section class="page-hero page-hero-pet">
+    <div class="container">
+      <span class="eyebrow"><span class="dot"></span>애니투어의 시그니처 서비스</span>
+      <h1>반려동물과 함께,<br>더 특별한 여행</h1>
+      <p class="subtitle">동반 가능한 숙소·항공편 확인부터 준비사항, 견종별 유의사항까지
+        여행 전 과정을 애니투어가 함께 안내해 드립니다.</p>
+    </div>
+  </section>
+
+  <!-- ============ Checklist ============ -->
+  <section class="section section-bg-soft">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">CHECKLIST</span>
+          <h2>출발 전 준비사항 체크리스트</h2>
+        </div>
+      </div>
+      <div class="card-base u-max-640">
+        <ul class="checklist">
+          <li><span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>동물등록증 및 예방접종 증명서 지참</li>
+          <li><span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>이동장(켄넬) 규격 사전 확인</li>
+          <li><span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>목적지 국가·항공사별 검역 조건 확인</li>
+          <li><span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>동반 가능 숙소·식당 사전 예약</li>
+          <li><span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>사료·간식·배변용품 등 필수용품 준비</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Recommended products ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">RECOMMENDED</span>
+          <h2>반려동반 추천 여행</h2>
+        </div>
+      </div>
+      <div class="catalog-list-head">
+        <span class="catalog-count">총 <strong id="petProductGridCount">0</strong>개</span>
+        <div class="sort-toggle" id="petProductGridSortToggle">
+          <button type="button" class="sort-toggle-btn is-active" data-sort="sold">인기순</button>
+          <button type="button" class="sort-toggle-btn" data-sort="latest">최신순</button>
+        </div>
+      </div>
+      <div class="product-grid" data-category="pet" data-limit="8" id="petProductGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ Detailed guide ============ -->
+  <section class="section section-bg-soft" id="guide">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">GUIDE</span>
+          <h2>숙소·항공·준비사항 자세히 안내</h2>
+        </div>
+      </div>
+      <div class="faq-list u-max-760">
+        <details class="faq-accordion-item" open>
+          <summary>동반 가능 숙소 안내
+            <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <p class="faq-answer">반려동물 동반이 가능한 펜션·풀빌라·글램핑·호텔을 엄선해 안내해 드립니다. 숙소별로 동반 가능한 견종·마리 수·체중 제한이 다르며, 일부 숙소는 추가 청소비나 보증금이 발생할 수 있습니다. 상담 시 반려동물의 견종과 크기를 알려주시면 조건에 맞는 숙소만 골라 안내해 드립니다.</p>
+        </details>
+        <details class="faq-accordion-item">
+          <summary>항공사별 반려동물 동반 규정
+            <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <p class="faq-answer">항공사와 노선에 따라 기내 동반(캐리어 탑승) 또는 화물칸 위탁 여부, 이동장 규격, 왕복 요금이 다르게 적용됩니다. 대형견은 대부분 화물칸 위탁이 필요하며, 일부 항공사는 견종 자체를 제한하기도 합니다. 예약 전 항공사별 최신 규정을 확인해 안내해 드립니다.</p>
+        </details>
+        <details class="faq-accordion-item">
+          <summary>준비사항 체크리스트 상세
+            <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <p class="faq-answer">동물등록증, 예방접종 증명서, 광견병 항체가 검사(국가별 상이), 검역증명서 등 목적지에 따라 요구되는 서류가 다릅니다. 이동장은 항공사 규격에 맞는 제품을 사전에 준비하시고, 장거리 이동 시 사료·물·배변패드 등 필수용품도 함께 챙기시길 권장드립니다.</p>
+        </details>
+        <details class="faq-accordion-item">
+          <summary>견종·크기별 유의사항
+            <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <p class="faq-answer">체중 7~10kg 이상은 대부분 기내 동반이 불가능해 화물 위탁이 필요하며, 일부 국가·항공사는 맹견이나 특정 견종의 반입을 제한합니다. 단두종(불도그·퍼그 등)은 항공 이동 시 호흡기 리스크로 별도 확인이 필요합니다. 상담 시 견종과 체중을 알려주시면 이용 가능 여부를 확인해 드립니다.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <div>
+          <h3>우리 아이와 함께 떠날 준비, 지금 시작하세요</h3>
+          <p>동반 가능 숙소·항공부터 준비사항까지, 애니투어가 꼼꼼히 안내해 드립니다.</p>
+        </div>
+        <div class="actions">
+          <a href="contact.html" class="btn btn-on-dark">반려동반 여행 문의하기</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div data-include="footer"></div>
+
+
+<script src="assets/js/include.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>통합검색 | 애니투어</title>
+<link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/common.css">
+</head>
+<body data-page-script="assets/js/pages/search.js">
+
+<div data-include="header"></div>
+
+<main>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2 id="searchTitle">검색결과</h2>
+          <p id="searchCount">총 0개</p>
+        </div>
+      </div>
+
+      <div class="product-grid" id="searchGrid"></div>
+      <div class="pagination" id="searchPagination"></div>
+      <p class="disclaimer-note" id="searchEmpty" hidden>
+        검색 결과가 없습니다. 다른 키워드로 다시 검색해보세요.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<div data-include="footer"></div>
+
+
+<script src="assets/js/include.js"></script>
+</body>
+</html>
