@@ -143,20 +143,25 @@ const PROJECTS = [
     name:"Mensa Academy LMS 운영 매뉴얼",
     desc:"교육 플랫폼 LMS 사용자, 관리자, 교수자 운영 매뉴얼 제작 및 정책 정비.",
     detail:"소스코드, 화면 기획서, 고객 QA 이력이라는 서로 다른 형식의 자료가 흩어져 있어 담당자마다 참고하는 정보가 달랐습니다. 자료를 하나씩 대조해 실제 반영이 확인된 내용만 추려내고, 크레딧 적립과 정산, 강의 등록 등 핵심 정책을 하나의 신뢰 가능한 매뉴얼로 재구성했습니다.",
-    status:"완료", updated:"2026.08", protoCount:0,
+    status:"완료", updated:"2026.08", protoCount:0, docCount:2,
     tags:["매뉴얼","정책 정비"],
-    links:[{label:"실제 서비스 사이트",url:"https://edu.mensakorea.kr"}]
+    links:[
+      {label:"실제 서비스 사이트",url:"https://edu.mensakorea.kr"},
+      {label:"운영 매뉴얼 (PDF)",url:"mensa/mensa-manual.pdf"},
+      {label:"FAQ 문서 (Word)",url:"mensa/mensa-faq.docx"}
+    ]
   },
   {
     id:"anytour",
     name:"Anytour 웹사이트 구축",
     desc:"여행업계 클라이언트 웹사이트 신규 구축. 사용자, 관리자 화면 전체 설계.",
-    detail:"사용자 화면과 관리자 화면을 모두 설계했습니다. 사용자 영역은 상품 목록과 상세, 인바운드, 반려동물 동반 여행, 리뷰, 문의 등으로 구성했고, 관리자 영역은 상품 관리, 공지사항, FAQ, 문의 관리, 관리자 계정 관리 등을 포함합니다. 도메인 연결 전 단계로 프로토타입으로 확인하실 수 있습니다.",
-    status:"완료", updated:"2026.07", protoCount:23,
+    detail:"사용자 화면과 관리자 화면을 모두 설계했습니다. 사용자 영역은 상품 목록과 상세, 인바운드, 반려동물 동반 여행, 리뷰, 문의 등으로 구성했고, 관리자 영역은 상품 관리, 공지사항, FAQ, 문의 관리, 관리자 계정 관리 등을 포함합니다. 도메인 연결 전 단계로, 실제 동작하는 프로토타입과 화면별 상세 설계를 담은 화면정의서를 함께 확인하실 수 있습니다.",
+    status:"완료", updated:"2026.07", protoCount:53,
     tags:["PM","웹기획","관리자 설계"],
     links:[
       {label:"프로토타입 · 사용자 화면",url:"anytour/user/main.html"},
-      {label:"프로토타입 · 관리자 화면",url:"anytour/admin/index.html"}
+      {label:"프로토타입 · 관리자 화면",url:"anytour/admin/index.html"},
+      {label:"화면정의서 · 전체 화면 설계",url:"anytour-desc/index.html"}
     ]
   },
   {
@@ -172,12 +177,13 @@ const PROJECTS = [
     id:"brain",
     name:"BN 두뇌훈련 서비스 UI/UX",
     desc:"두뇌 트레이닝 서비스 UI/UX 설계 및 게임 화면 프로토타입 제작.",
-    detail:"인지 영역별 두뇌 트레이닝 서비스의 메인 화면과 훈련센터 화면을 설계했습니다. 훈련센터는 기억력, 수리력, 인지력, 집중력 4개 영역으로 구성했고, 영역별 게임 진입 구조와 난이도 구성, 랭킹 산정 규칙을 정리했습니다. 디자인 시스템을 별도로 정리해 화면 간 톤앤매너를 일관되게 유지했습니다.",
-    status:"개발중", updated:"2026.08", protoCount:3,
+    detail:"인지 영역별 두뇌 트레이닝 서비스의 메인 화면과 훈련센터 화면을 설계했습니다. 훈련센터는 기억력, 수리력, 인지력, 집중력 4개 영역으로 구성했고, 영역별 게임 진입 구조와 난이도 구성, 랭킹 산정 규칙을 정리했으며, 기억력 영역은 숫자 기억력과 카드 짝맞추기, 순간 수량 인지 등 4가지 훈련 방식으로 세분화했습니다. 디자인 시스템을 별도로 정리해 화면 간 톤앤매너를 일관되게 유지했습니다.",
+    status:"개발중", updated:"2026.08", protoCount:5,
     tags:["UX","게임 기획","디자인 시스템"],
     links:[
       {label:"프로토타입 · 메인 화면",url:"brain/index.html"},
-      {label:"프로토타입 · 두뇌훈련센터",url:"brain/training-center.html"}
+      {label:"프로토타입 · 두뇌훈련센터",url:"brain/training-center.html"},
+      {label:"프로토타입 · 기억력 게임 허브",url:"brain/memory-hub.html"}
     ]
   },
   {
@@ -234,7 +240,7 @@ function renderGrid(){
       <div class="card-foot">
         <div class="meta">
           <span>업데이트 ${p.updated}</span>
-          <span>${p.protoCount>0?`프로토타입 ${p.protoCount}종`:"산출물 문서"}</span>
+          <span>${p.protoCount>0?`프로토타입 ${p.protoCount}종`:(p.docCount?`산출물 문서 ${p.docCount}종`:"산출물 문서")}</span>
         </div>
       </div>
     </button>`).join("");
@@ -252,6 +258,7 @@ function openModal(id){
       <h4>프로젝트 정보</h4>
       <div class="m-row"><span class="k">업데이트</span><span>${p.updated}</span></div>
       ${p.protoCount>0?`<div class="m-row"><span class="k">프로토타입</span><span>${p.protoCount}종</span></div>`:""}
+      ${p.docCount?`<div class="m-row"><span class="k">산출물 문서</span><span>${p.docCount}종</span></div>`:""}
       <div class="m-row"><span class="k">담당 역할</span><span>${p.tags.join(", ")}</span></div>
     </div>`;
   if(p.stats&&p.stats.length){
