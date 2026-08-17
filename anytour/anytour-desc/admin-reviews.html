@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SB · 리뷰 관리 | 애니투어 스토리보드</title>
+<link rel="stylesheet" href="assets/sb.css">
+</head>
+<body>
+
+<div class="sb-topbar">
+  <a href="index.html">SB 목록</a>
+  <span class="sep">/</span>
+  <a href="ia.html">IA</a>
+  <span class="sep">·</span>
+  <a href="admin-login.html">관리자 로그인</a>
+  <span class="sep">·</span>
+  <a href="admin-dashboard.html">관리자 홈</a>
+  <span class="sep">·</span>
+  <a href="admin-products.html">상품관리</a>
+  <span class="sep">·</span>
+  <a href="admin-product-form.html">상품 등록/수정</a>
+  <span class="sep">·</span>
+  <a href="admin-admins.html">계정관리</a>
+  <span class="sep">·</span>
+  <a href="admin-notices.html">공지사항 관리</a>
+  <span class="sep">·</span>
+  <a href="admin-notice-register.html">공지사항 등록</a>
+  <span class="sep">·</span>
+  <a href="admin-notice-edit.html">공지사항 수정</a>
+  <span class="sep">·</span>
+  <a href="admin-faq.html">FAQ 관리</a>
+  <span class="sep">·</span>
+  <a href="admin-faq-register.html">FAQ 등록</a>
+  <span class="sep">·</span>
+  <a href="admin-faq-edit.html">FAQ 수정</a>
+  <span class="sep">·</span>
+  <span class="current">리뷰 관리</span>
+  <span class="sep">·</span>
+  <a href="admin-review-detail.html">리뷰 상세보기</a>
+  <span class="sep">·</span>
+  <a href="admin-inquiries.html">문의·예약 관리</a>
+</div>
+
+<div class="sb-wrap">
+  <div class="sb-page">
+
+    <div class="sb-meta">
+      <table class="sb-meta-table">
+        <tr>
+          <th>버전(ver)</th><td>1.1</td>
+          <th>화면명</th><td>리뷰 관리</td>
+          <th>Screen ID</th><td>UI-AdminReviews-01</td>
+          <th>이용자</th><td>PC (관리자 전용)</td>
+        </tr>
+        <tr>
+          <th>작성인</th><td>이한빛</td>
+          <th>작성일</th><td>2026.08.05</td>
+          <th>페이지 경로</th><td colspan="3">/admin/reviews.html (상단 메뉴 &gt; 사이트관리 &gt; 리뷰 관리)</td>
+        </tr>
+      </table>
+      <div class="sb-meta-desc-title">Description</div>
+    </div>
+
+    <div class="sb-content">
+      <div class="sb-screen-col">
+        <div class="sb-screen-inner" style="width:960px; height:591px;">
+          <div class="sb-screen-clip" style="width:960px; height:591px;">
+            <div class="sb-scaled-frame" style="width:1745px; height:1074px; transform:scale(0.55);">
+              <iframe src="../anytour/admin/reviews.html" width="1745" height="1074" scrolling="no" title="리뷰 관리 미리보기"></iframe>
+            </div>
+          </div>
+          <div class="sb-markers">
+            <div class="sb-callout" style="top:0px;">
+              <span class="num">1</span><span class="dash"></span><span class="tag">Header</span>
+            </div>
+            <div class="sb-callout" style="top:31px;">
+              <span class="num">2</span><span class="dash"></span><span class="tag">내비게이션</span>
+            </div>
+            <div class="sb-callout" style="top:71px;">
+              <span class="num">3</span><span class="dash"></span><span class="tag">검색·필터</span>
+            </div>
+            <div class="sb-callout" style="top:254px;">
+              <span class="num">4</span><span class="dash"></span><span class="tag">목록 테이블</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sb-desc-col">
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">1</span><span class="sb-desc-title">Header (공통)</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            관리자 공통 헤더. 상세는 <a href="admin-dashboard.html">SB · 관리자 홈 ①</a> 참조.
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">2</span><span class="sb-desc-title">내비게이션(상단 메뉴 + 사이드바)</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            상단 메뉴에서 "사이트관리" 탭이 활성화되고, 좌측 사이드바에 공지사항 관리·FAQ 관리·리뷰 관리 하위 메뉴가 노출된다.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            상단 메뉴 4탭(사이트관리 활성), 사이드바 타이틀 "사이트관리", 하위 메뉴 "공지사항 관리"·"FAQ 관리"·"리뷰 관리"(활성)
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">인터랙션</span>
+            사이드바 "공지사항 관리"/"FAQ 관리" 클릭 → <a href="admin-notices.html">SB · 공지사항 관리</a> / <a href="admin-faq.html">SB · FAQ 관리</a> 이동
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">3</span><span class="sb-desc-title">검색·필터</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            브레드크럼과 리뷰 목록 카드 헤더, 조건검색 폼을 포함하는 영역. 사용자 화면(여행후기)에서 등록된 리뷰를 확인·삭제하는 화면이므로 별도의 "등록하기" 버튼은 없다.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            브레드크럼(HOME &gt; 사이트관리 &gt; 리뷰 관리), 카드 헤더("리뷰 목록"), 조건검색 입력창(제목), 여행종류 셀렉트, 별점 셀렉트(전체/5점~1점), 초기화·검색 버튼
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">인터랙션</span>
+            <ul>
+              <li>검색어·여행종류·별점 조건으로 Enter 또는 "검색" 클릭 → 4번 목록 테이블 필터링</li>
+              <li>"초기화" 클릭 → 검색 조건 초기화 후 전체 목록 재노출</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">4</span><span class="sb-desc-title">목록 테이블</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            등록된 리뷰를 최신순으로 나열하는 테이블.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            검색결과 건수, 전체선택 체크박스, 번호·평점·제목·여행종류·등록일·관리("상세보기") 컬럼, 하단 "선택삭제" 버튼, 상세 모달(평점·여행종류·제목·내용·등록일·첨부 사진, 조회 및 수정 가능 — 상세는 <a href="admin-review-detail.html">SB · 리뷰 상세보기</a> 참조)
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">인터랙션</span>
+            <ul>
+              <li>"상세보기" 클릭 → 상세 모달 오픈(기본은 조회 모드), 평점·제목·내용·등록일·첨부 사진 확인</li>
+              <li>모달 내 "수정" 클릭 → 평점·여행종류·제목·내용 편집 가능 상태로 전환, "저장" 클릭 시 반영 후 목록 재조회</li>
+              <li>"선택삭제" 클릭 → 체크된 리뷰 일괄 삭제(선택 항목 없으면 안내)</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <p class="sb-note">
+    ※ 좌측 화면은 실제 프로토타입(<code>04_storyboard/prototype/admin/reviews.html</code>)을 iframe으로 축소(55%) 표시한 라이브 미리보기입니다.
+    프로토타입 수정 시 이 화면도 자동으로 최신 상태를 반영합니다. 로컬 서버(<code>serve.ps1</code>)로 열어야 정상 렌더링됩니다.
+    데이터는 데모 시드값(브라우저 메모리)이며 새로고침하면 초기 상태로 돌아갑니다. 실제 서비스에서는 사용자 화면(여행후기) 등록 데이터와 연동됩니다.
+  </p>
+</div>
+
+</body>
+</html>

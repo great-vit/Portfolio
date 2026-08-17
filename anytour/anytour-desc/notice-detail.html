@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SB · 공지사항 상세 | 애니투어 스토리보드</title>
+<link rel="stylesheet" href="assets/sb.css">
+</head>
+<body>
+
+<div class="sb-topbar">
+  <a href="index.html">SB 목록</a>
+  <span class="sep">/</span>
+  <a href="ia.html">IA</a>
+  <span class="sep">·</span>
+  <a href="admin-dashboard.html">관리자 홈</a>
+  <span class="sep">·</span>
+  <a href="main.html">메인화면</a>
+  <span class="sep">·</span>
+  <a href="about.html">회사소개</a>
+  <span class="sep">·</span>
+  <a href="products.html">여행상품</a>
+  <span class="sep">·</span>
+  <a href="pet-travel.html">반려동물 동반여행</a>
+  <span class="sep">·</span>
+  <a href="inbound.html">인바운드</a>
+  <span class="sep">·</span>
+  <a href="reviews.html">여행후기</a>
+  <span class="sep">·</span>
+  <a href="support.html">고객센터</a>
+  <span class="sep">·</span>
+  <a href="contact.html">문의·예약</a>
+  <span class="sep">·</span>
+  <a href="search.html">통합검색</a>
+  <span class="sep">·</span>
+  <a href="product-detail.html">상품 상세(패키지)</a>
+  <span class="sep">·</span>
+  <a href="pet-detail.html">상품 상세(반려동물)</a>
+  <span class="sep">·</span>
+  <a href="inbound-detail.html">상품 상세(인바운드)</a>
+  <span class="sep">·</span>
+  <span class="current">공지사항 상세</span>
+</div>
+
+<div class="sb-wrap">
+  <div class="sb-page">
+
+    <div class="sb-meta">
+      <table class="sb-meta-table">
+        <tr>
+          <th>버전(ver)</th><td>1.0</td>
+          <th>화면명</th><td>공지사항 상세</td>
+          <th>Screen ID</th><td>UI-NoticeDetail-01</td>
+          <th>이용자</th><td>PC / Mobile</td>
+        </tr>
+        <tr>
+          <th>작성인</th><td>이한빛</td>
+          <th>작성일</th><td>2026.07.30</td>
+          <th>페이지 경로</th><td colspan="3">/notice-detail.html (고객센터 &gt; 공지사항 행 클릭 시 진입)</td>
+        </tr>
+      </table>
+      <div class="sb-meta-desc-title">Description</div>
+    </div>
+
+    <div class="sb-content">
+      <div class="sb-screen-col">
+        <div class="sb-screen-inner" style="width:960px; height:572px;">
+          <div class="sb-screen-clip" style="width:960px; height:572px;">
+            <div class="sb-scaled-frame" style="width:1745px; height:1040px; transform:scale(0.55);">
+              <iframe src="../anytour/user/notice-detail.html" width="1745" height="1040" scrolling="no" title="공지사항 상세 미리보기"></iframe>
+            </div>
+          </div>
+          <div class="sb-markers">
+            <div class="sb-callout" style="top:0px;">
+              <span class="num">1</span><span class="dash"></span><span class="tag">Header</span>
+            </div>
+            <div class="sb-callout" style="top:26px;">
+              <span class="num">2</span><span class="dash"></span><span class="tag">배너 바</span>
+            </div>
+            <div class="sb-callout" style="top:98px;">
+              <span class="num">3</span><span class="dash"></span><span class="tag">공지 상세</span>
+            </div>
+            <div class="sb-callout" style="top:277px;">
+              <span class="num">4</span><span class="dash"></span><span class="tag">목록 버튼</span>
+            </div>
+            <div class="sb-callout" style="top:333px;">
+              <span class="num">5</span><span class="dash"></span><span class="tag">Footer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sb-desc-col">
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">1</span><span class="sb-desc-title">Header UI (공통)</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            메인화면과 동일한 공통 헤더. 상세는 <a href="main.html">SB · 메인화면 ①</a> 참조.
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">2</span><span class="sb-desc-title">배너 바</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            공지 상세 페이지 상단의 얇은 컬러 바(.notice-banner). 다른 페이지들의 page-hero보다 훨씬 얇은 형태로, 공지 목록의 하위 상세 화면임을 표시.
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">3</span><span class="sb-desc-title">공지 상세 콘텐츠</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            공지 제목·작성자·날짜·조회수와 본문을 노출.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            제목(h2), 메타 정보(작성자/날짜/조회수), 본문 텍스트
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">인터랙션</span>
+            없음(정적 콘텐츠). 현재 고객센터의 공지 4건이 모두 이 동일한 페이지로 연결되며, 실 서비스 시 공지 ID별 상세 라우팅 및 조회수 증가 로직 필요.
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">4</span><span class="sb-desc-title">목록 버튼</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">인터랙션</span>
+            "목록으로" 클릭 → support.html#notice 이동
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">5</span><span class="sb-desc-title">Footer UI (공통)</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            메인화면과 동일한 공통 푸터. 상세는 <a href="main.html">SB · 메인화면 ⑥</a> 참조.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <p class="sb-note">
+    ※ 좌측 화면은 실제 프로토타입(<code>04_storyboard/prototype/user/notice-detail.html</code>)을 iframe으로 축소(55%) 표시한 라이브 미리보기입니다.
+    프로토타입 수정 시 이 화면도 자동으로 최신 상태를 반영합니다. 로컬 서버(<code>serve.ps1</code>)로 열어야 헤더/푸터 include가 정상 렌더링됩니다.
+    데이터 연동 항목은 개발 단계에서 정하는 것으로 하고 이 문서에는 생략했습니다.
+  </p>
+</div>
+
+</body>
+</html>

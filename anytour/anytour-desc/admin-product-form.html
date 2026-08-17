@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SB · 상품 등록/수정 | 애니투어 스토리보드</title>
+<link rel="stylesheet" href="assets/sb.css">
+</head>
+<body>
+
+<div class="sb-topbar">
+  <a href="index.html">SB 목록</a>
+  <span class="sep">/</span>
+  <a href="ia.html">IA</a>
+  <span class="sep">·</span>
+  <a href="admin-login.html">관리자 로그인</a>
+  <span class="sep">·</span>
+  <a href="admin-dashboard.html">관리자 홈</a>
+  <span class="sep">·</span>
+  <a href="admin-products.html">상품관리</a>
+  <span class="sep">·</span>
+  <span class="current">상품 등록/수정</span>
+  <span class="sep">·</span>
+  <a href="admin-admins.html">계정관리</a>
+  <span class="sep">·</span>
+  <a href="admin-notices.html">공지사항 관리</a>
+  <span class="sep">·</span>
+  <a href="admin-notice-register.html">공지사항 등록</a>
+  <span class="sep">·</span>
+  <a href="admin-notice-edit.html">공지사항 수정</a>
+  <span class="sep">·</span>
+  <a href="admin-faq.html">FAQ 관리</a>
+  <span class="sep">·</span>
+  <a href="admin-faq-register.html">FAQ 등록</a>
+  <span class="sep">·</span>
+  <a href="admin-faq-edit.html">FAQ 수정</a>
+  <span class="sep">·</span>
+  <a href="admin-reviews.html">리뷰 관리</a>
+  <span class="sep">·</span>
+  <a href="admin-review-detail.html">리뷰 상세보기</a>
+  <span class="sep">·</span>
+  <a href="admin-inquiries.html">문의·예약 관리</a>
+</div>
+
+<div class="sb-wrap">
+  <div class="sb-page">
+
+    <div class="sb-meta">
+      <table class="sb-meta-table">
+        <tr>
+          <th>버전(ver)</th><td>1.0</td>
+          <th>화면명</th><td>상품 등록/수정</td>
+          <th>Screen ID</th><td>UI-AdminProductForm-01</td>
+          <th>이용자</th><td>PC (관리자 전용)</td>
+        </tr>
+        <tr>
+          <th>작성인</th><td>이한빛</td>
+          <th>작성일</th><td>2026.07.31</td>
+          <th>페이지 경로</th><td colspan="3">/admin/product-form.html (상품관리 &gt; 상품 목록 &gt; 등록하기/수정, 수정 시 ?id= 파라미터)</td>
+        </tr>
+      </table>
+      <div class="sb-meta-desc-title">Description</div>
+    </div>
+
+    <div class="sb-content">
+      <div class="sb-screen-col">
+        <div class="sb-screen-inner" style="width:960px; height:750px;">
+          <div class="sb-screen-clip" style="width:960px; height:750px;">
+            <div class="sb-scaled-frame" style="width:1745px; height:1364px; transform:scale(0.55);">
+              <iframe src="../anytour/admin/product-form.html" width="1745" height="1364" scrolling="no" title="상품 등록/수정 미리보기"></iframe>
+            </div>
+          </div>
+          <div class="sb-markers">
+            <div class="sb-callout" style="top:0px;">
+              <span class="num">1</span><span class="dash"></span><span class="tag">Header</span>
+            </div>
+            <div class="sb-callout" style="top:31px;">
+              <span class="num">2</span><span class="dash"></span><span class="tag">내비게이션</span>
+            </div>
+            <div class="sb-callout" style="top:71px;">
+              <span class="num">3</span><span class="dash"></span><span class="tag">기본 정보</span>
+            </div>
+            <div class="sb-callout" style="top:298px;">
+              <span class="num">4</span><span class="dash"></span><span class="tag">핵심 방문지</span>
+            </div>
+            <div class="sb-callout" style="top:385px;">
+              <span class="num">5</span><span class="dash"></span><span class="tag">상세설명·사진첨부</span>
+            </div>
+            <div class="sb-callout" style="top:514px;">
+              <span class="num">6</span><span class="dash"></span><span class="tag">일정 안내</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sb-desc-col">
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">1</span><span class="sb-desc-title">Header (공통)</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            관리자 공통 헤더. 상세는 <a href="admin-dashboard.html">SB · 관리자 홈 ①</a> 참조.
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">2</span><span class="sb-desc-title">내비게이션(상단 메뉴 + 사이드바 + 브레드크럼)</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            상단 메뉴에서 "상품관리" 탭이 활성화되고, 브레드크럼 마지막 항목이 등록/수정 모드에 따라 "상품 등록" 또는 "상품 수정"으로 표시된다.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            상단 메뉴 4탭(상품관리 활성), 사이드바 하위 메뉴 "상품 목록", 브레드크럼(HOME &gt; 상품관리 &gt; 상품 등록/수정)
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">3</span><span class="sb-desc-title">기본 정보</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            <a href="admin-products.html">SB · 상품관리</a>의 목록에 그대로 노출되는 기본 항목이며, 기존 필드 구성은 그대로 유지했다.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            카테고리 셀렉트, 상품명 입력창, 지역·가격(원) 입력창, 해시태그 입력창(쉼표 구분)
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">4</span><span class="sb-desc-title">핵심 방문지</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            사용자 화면 상품 상세의 "핵심 방문지" 섹션에 들어갈 항목을 관리자가 직접 입력하는 반복형 폼. 이미지와 텍스트(설명·장소명)만 입력하면 되도록 구성했다.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            방문지 행(사진 첨부 버튼 + 설명 입력창 + 장소명 입력창 + 삭제 버튼) N개, "+ 방문지 추가" 버튼
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">인터랙션</span>
+            <ul>
+              <li>"+ 방문지 추가" 클릭 → 방문지 입력 행 1개 추가</li>
+              <li>행의 "삭제" 클릭 → 해당 방문지 행 제거</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">5</span><span class="sb-desc-title">상세설명·사진첨부</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            상품 상세 페이지 본문에 들어갈 설명 텍스트와 참고 사진을 입력하는 영역.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            상세설명 텍스트영역, 사진 첨부 버튼(다중 선택)
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">6</span><span class="sb-desc-title">일정 안내</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            사용자 화면 상품 상세의 "일정 안내"(1일차/2일차… 탭) 데이터를 입력하는 반복형 폼. 일차 단위로 소제목과 항목 목록만 입력하면 되도록 구성했다.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            일차 블록(N일차 라벨 + 일차 삭제 버튼 + 소제목 입력창 + 일정 항목 입력창 N개 + "+ 항목 추가" 버튼) N개, "+ 일차 추가" 버튼, 하단 "취소"·"저장(수정하기)" 버튼
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">인터랙션</span>
+            <ul>
+              <li>"+ 일차 추가" 클릭 → 새 일차 블록 추가(번호 자동 재계산)</li>
+              <li>"일차 삭제" 클릭 → 해당 일차 블록 제거(번호 자동 재계산)</li>
+              <li>"+ 항목 추가"/항목 행의 "삭제" 클릭 → 해당 일차 내 일정 항목 추가/제거</li>
+              <li>"저장"(등록) 또는 "수정하기"(수정) 클릭 → <a href="admin-products.html">SB · 상품관리</a> 목록으로 이동, 해당 세션 동안 목록에 반영</li>
+              <li>"취소" 클릭 → 입력 내용 저장 없이 <a href="admin-products.html">SB · 상품관리</a> 목록으로 이동</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <p class="sb-note">
+    ※ 좌측 화면은 실제 프로토타입(<code>04_storyboard/prototype/admin/product-form.html</code>)을 iframe으로 축소(55%) 표시한 라이브 미리보기입니다. 등록 모드 기준 화면이며, 목록에서 "수정" 클릭 시 같은 화면에 기존 값이 채워진 상태로 진입합니다.
+    프로토타입 수정 시 이 화면도 자동으로 최신 상태를 반영합니다. 로컬 서버(<code>serve.ps1</code>)로 열어야 정상 렌더링됩니다.
+    사진 첨부는 파일명만 저장하는 데모이며 실제 업로드·저장은 개발 단계에서 연동됩니다.
+  </p>
+</div>
+
+</body>
+</html>

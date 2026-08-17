@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SB · 여행상품 | 애니투어 스토리보드</title>
+<link rel="stylesheet" href="assets/sb.css">
+</head>
+<body>
+
+<div class="sb-topbar">
+  <a href="index.html">SB 목록</a>
+  <span class="sep">/</span>
+  <a href="ia.html">IA</a>
+  <span class="sep">·</span>
+  <a href="admin-dashboard.html">관리자 홈</a>
+  <span class="sep">·</span>
+  <a href="main.html">메인화면</a>
+  <span class="sep">·</span>
+  <a href="about.html">회사소개</a>
+  <span class="sep">·</span>
+  <span class="current">여행상품</span>
+  <span class="sep">·</span>
+  <a href="pet-travel.html">반려동물 동반여행</a>
+  <span class="sep">·</span>
+  <a href="inbound.html">인바운드</a>
+  <span class="sep">·</span>
+  <a href="reviews.html">여행후기</a>
+  <span class="sep">·</span>
+  <a href="support.html">고객센터</a>
+  <span class="sep">·</span>
+  <a href="contact.html">문의·예약</a>
+  <span class="sep">·</span>
+  <a href="search.html">통합검색</a>
+  <span class="sep">·</span>
+  <a href="product-detail.html">상품 상세(패키지)</a>
+  <span class="sep">·</span>
+  <a href="pet-detail.html">상품 상세(반려동물)</a>
+  <span class="sep">·</span>
+  <a href="inbound-detail.html">상품 상세(인바운드)</a>
+  <span class="sep">·</span>
+  <a href="notice-detail.html">공지사항 상세</a>
+</div>
+
+<div class="sb-wrap">
+  <div class="sb-page">
+
+    <div class="sb-meta">
+      <table class="sb-meta-table">
+        <tr>
+          <th>버전(ver)</th><td>1.1</td>
+          <th>화면명</th><td>여행상품</td>
+          <th>Screen ID</th><td>UI-Products-01</td>
+          <th>이용자</th><td>PC / Mobile</td>
+        </tr>
+        <tr>
+          <th>작성인</th><td>이한빛</td>
+          <th>작성일</th><td>2026.08.05</td>
+          <th>페이지 경로</th><td colspan="3">/products.html (GNB &gt; 여행상품, #package·#golf·#airhotel·#group 딥링크)</td>
+        </tr>
+      </table>
+      <div class="sb-meta-desc-title">Description</div>
+    </div>
+
+    <div class="sb-content">
+      <div class="sb-screen-col">
+        <div class="sb-screen-inner" style="width:960px; height:1482px;">
+          <div class="sb-screen-clip" style="width:960px; height:1482px;">
+            <div class="sb-scaled-frame" style="width:1745px; height:2695px; transform:scale(0.55);">
+              <iframe src="../anytour/user/products.html" width="1745" height="2695" scrolling="no" title="여행상품 미리보기"></iframe>
+            </div>
+          </div>
+          <div class="sb-markers">
+            <div class="sb-callout" style="top:0px;">
+              <span class="num">1</span><span class="dash"></span><span class="tag">Header</span>
+            </div>
+            <div class="sb-callout" style="top:36px;">
+              <span class="num">2</span><span class="dash"></span><span class="tag">페이지 배너</span>
+            </div>
+            <div class="sb-callout" style="top:229px;">
+              <span class="num">3</span><span class="dash"></span><span class="tag">탭 필터</span>
+            </div>
+            <div class="sb-callout" style="top:322px;">
+              <span class="num">4</span><span class="dash"></span><span class="tag">상품 리스트</span>
+            </div>
+            <div class="sb-callout" style="top:1100px;">
+              <span class="num">5</span><span class="dash"></span><span class="tag">상담 CTA</span>
+            </div>
+            <div class="sb-callout" style="top:1243px;">
+              <span class="num">6</span><span class="dash"></span><span class="tag">Footer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sb-desc-col">
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">1</span><span class="sb-desc-title">Header UI (공통)</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            메인화면과 동일한 공통 헤더. 상세는 <a href="main.html">SB · 메인화면 ①</a> 참조. "여행상품" 메뉴가 is-current로 강조된다.
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">2</span><span class="sb-desc-title">페이지 배너 UI</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            여행상품 목록 페이지 배너. "네 갈래 여정" 카피와 패키지 여행 이미지로 페이지 성격을 안내한다.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            eyebrow(TRAVEL CATALOG·2026), 헤드라인, 서브카피 — 텍스트 가운데 정렬
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">3</span><span class="sb-desc-title">탭 필터 UI (#productTabs)</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            상품을 카테고리별로 필터링하는 탭. URL 해시(#package 등)와 동기화되어 다른 페이지에서 특정 탭으로 직접 진입 가능하다.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            섹션 타이틀("원하는 여정을 선택하세요"), 탭 버튼 5개(전체보기/패키지/골프·테마/항공·호텔/단체·효도여행)
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">인터랙션</span>
+            <ul>
+              <li>탭 클릭 → 해당 카테고리 상품만 필터링해 하단 그리드 재렌더링, active 스타일 갱신, URL 해시 갱신</li>
+              <li>최초 진입 시 URL 해시가 있으면 해당 탭 자동 활성화</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">4</span><span class="sb-desc-title">상품 리스트 그리드 (#productGrid)</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            선택된 탭의 상품 개수와 정렬 토글을 상단에 노출하고, 상품을 카드형 그리드로 10개 단위 페이지네이션과 함께 제공한다. 인바운드 페이지(<a href="inbound.html">SB · 인바운드 ④</a>)와 동일한 정렬 토글 패턴을 재사용한다.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            총 상품 수 카운트(#productGridCount), 정렬 토글(#productGridSortToggle — 인기순 기본 활성 / 최신순), 상품 카드(썸네일/지역/카테고리 태그/제목/평점/가격/해시태그), 페이지네이션(이전·숫자·다음), 하단 예시 데이터 고지문
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">인터랙션</span>
+            <ul>
+              <li>탭 전환 시 해당 탭의 상품 수로 카운트 갱신, 정렬 기준은 유지된 채 재정렬</li>
+              <li>정렬 토글 클릭 → 인기순(판매량순) / 최신순으로 그리드 재정렬, 페이지 1로 리셋</li>
+              <li>카드 클릭 → 카테고리에 따라 product-detail.html 또는 inbound-detail.html 이동</li>
+              <li>페이지네이션 클릭 → 해당 페이지로 그리드 재렌더링, 그리드 상단으로 스무스 스크롤</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">5</span><span class="sb-desc-title">맞춤 상담 CTA 배너</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            원하는 상품이 없는 사용자를 상담 문의로 유도하는 배너(.cta-band).
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            안내 문구, "맞춤 상담 요청하기" 버튼
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">인터랙션</span>
+            버튼 클릭 → contact.html 이동
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">6</span><span class="sb-desc-title">Footer UI (공통)</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            메인화면과 동일한 공통 푸터. 상세는 <a href="main.html">SB · 메인화면 ⑥</a> 참조.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <p class="sb-note">
+    ※ 좌측 화면은 실제 프로토타입(<code>04_storyboard/prototype/user/products.html</code>)을 iframe으로 축소(50%) 표시한 라이브 미리보기이며 "전체보기" 탭 기준입니다.
+    프로토타입 수정 시 이 화면도 자동으로 최신 상태를 반영합니다. 로컬 서버(<code>serve.ps1</code>)로 열어야 헤더/푸터 include가 정상 렌더링됩니다.
+  </p>
+</div>
+
+</body>
+</html>

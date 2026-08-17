@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SB 목록 | 애니투어 스토리보드</title>
+<link rel="stylesheet" href="assets/sb.css">
+<style>
+  .idx-wrap { max-width: 720px; margin: 60px auto; padding: 0 24px; }
+  .idx-wrap h1 { font-size: 20px; margin-bottom: 6px; }
+  .idx-wrap p { color: #555; font-size: 13px; margin-bottom: 28px; }
+  .idx-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  .idx-list a {
+    display: flex; align-items: center; gap: 12px;
+    background: #fff; border: 1px solid #ccc; border-radius: 6px;
+    padding: 14px 18px; text-decoration: none; color: #222;
+  }
+  .idx-list a:hover { border-color: #e8384f; }
+  .idx-list .id { font-size: 11px; font-weight: 700; color: #fff; background: #e8384f; padding: 2px 8px; border-radius: 3px; }
+  .idx-list .name { font-weight: 700; font-size: 14px; }
+  .idx-list .path { margin-left: auto; font-size: 12px; color: #888; }
+  .idx-section-label { font-size: 13px; font-weight: 700; color: #888; letter-spacing: .04em; margin: 32px 0 12px; }
+  .idx-list .id.admin { background: #26282c; }
+</style>
+</head>
+<body>
+
+<div class="idx-wrap">
+  <h1>애니투어 스토리보드(SB) 목록</h1>
+  <p>포맷 기준: <code>04_storyboard/reference-captures/SB.png</code>. 좌측은 실제 프로토타입을 iframe으로 라이브 임베드, 우측은 번호별 Description 패널.</p>
+  <ul class="idx-list">
+    <li><a href="ia.html"><span class="id">IA-01</span><span class="name">IA (정보구조도)</span><span class="path">/ia.html</span></a></li>
+    <li><a href="admin-ia.html"><span class="id admin">IA-02</span><span class="name">관리자 IA (정보구조도)</span><span class="path">/admin-ia.html</span></a></li>
+  </ul>
+
+  <p class="idx-section-label">USER (사용자 화면)</p>
+  <ul class="idx-list">
+    <li><a href="main.html"><span class="id">UI-Main-01</span><span class="name">메인화면</span><span class="path">/main.html</span></a></li>
+    <li><a href="about.html"><span class="id">UI-About-01</span><span class="name">회사소개</span><span class="path">/about.html</span></a></li>
+    <li><a href="products.html"><span class="id">UI-Products-01</span><span class="name">여행상품</span><span class="path">/products.html</span></a></li>
+    <li><a href="pet-travel.html"><span class="id">UI-Pet-01</span><span class="name">반려동물 동반여행</span><span class="path">/pet-travel.html</span></a></li>
+    <li><a href="inbound.html"><span class="id">UI-Inbound-01</span><span class="name">인바운드</span><span class="path">/inbound.html</span></a></li>
+    <li><a href="reviews.html"><span class="id">UI-Reviews-01</span><span class="name">여행후기</span><span class="path">/reviews.html</span></a></li>
+    <li><a href="support.html"><span class="id">UI-Support-01</span><span class="name">고객센터</span><span class="path">/support.html</span></a></li>
+    <li><a href="contact.html"><span class="id">UI-Contact-01</span><span class="name">문의·예약</span><span class="path">/contact.html</span></a></li>
+    <li><a href="search.html"><span class="id">UI-Search-01</span><span class="name">통합검색</span><span class="path">/search.html?q=검색어</span></a></li>
+    <li><a href="product-detail.html"><span class="id">UI-ProductDetail-01</span><span class="name">상품 상세(패키지 등)</span><span class="path">/product-detail.html</span></a></li>
+    <li><a href="pet-detail.html"><span class="id">UI-PetDetail-01</span><span class="name">상품 상세(반려동물)</span><span class="path">/pet-detail.html</span></a></li>
+    <li><a href="inbound-detail.html"><span class="id">UI-InboundDetail-01</span><span class="name">상품 상세(인바운드)</span><span class="path">/inbound-detail.html</span></a></li>
+    <li><a href="notice-detail.html"><span class="id">UI-NoticeDetail-01</span><span class="name">공지사항 상세</span><span class="path">/notice-detail.html</span></a></li>
+  </ul>
+
+  <p class="idx-section-label">ADMIN (관리자 화면)</p>
+  <ul class="idx-list">
+    <li><a href="admin-login.html"><span class="id admin">ADM-Login-01</span><span class="name">관리자 로그인</span><span class="path">/admin/login.html</span></a></li>
+    <li><a href="admin-dashboard.html"><span class="id admin">ADM-Home-01</span><span class="name">관리자 홈</span><span class="path">/admin/index.html</span></a></li>
+    <li><a href="admin-products.html"><span class="id admin">ADM-Products-01</span><span class="name">상품관리</span><span class="path">/admin/products.html</span></a></li>
+    <li><a href="admin-product-form.html"><span class="id admin">ADM-ProductForm-01</span><span class="name">상품 등록/수정</span><span class="path">/admin/product-form.html</span></a></li>
+    <li><a href="admin-notices.html"><span class="id admin">ADM-Notices-01</span><span class="name">공지사항 관리</span><span class="path">/admin/notices.html</span></a></li>
+    <li><a href="admin-notice-register.html"><span class="id admin">ADM-NoticeRegister-01</span><span class="name">공지사항 등록</span><span class="path">/admin/notices.html?modal=register</span></a></li>
+    <li><a href="admin-notice-edit.html"><span class="id admin">ADM-NoticeEdit-01</span><span class="name">공지사항 수정</span><span class="path">/admin/notices.html?modal=edit</span></a></li>
+    <li><a href="admin-faq.html"><span class="id admin">ADM-Faq-01</span><span class="name">FAQ 관리</span><span class="path">/admin/faq.html</span></a></li>
+    <li><a href="admin-faq-register.html"><span class="id admin">ADM-FaqRegister-01</span><span class="name">FAQ 등록</span><span class="path">/admin/faq.html?modal=register</span></a></li>
+    <li><a href="admin-faq-edit.html"><span class="id admin">ADM-FaqEdit-01</span><span class="name">FAQ 수정</span><span class="path">/admin/faq.html?modal=edit</span></a></li>
+    <li><a href="admin-reviews.html"><span class="id admin">ADM-Reviews-01</span><span class="name">리뷰 관리</span><span class="path">/admin/reviews.html</span></a></li>
+    <li><a href="admin-review-detail.html"><span class="id admin">ADM-ReviewDetail-01</span><span class="name">리뷰 상세보기</span><span class="path">/admin/reviews.html?modal=detail</span></a></li>
+    <li><a href="admin-inquiries.html"><span class="id admin">ADM-Inquiries-01</span><span class="name">문의·예약 관리</span><span class="path">/admin/inquiries.html</span></a></li>
+    <li><a href="admin-admins.html"><span class="id admin">ADM-Accounts-01</span><span class="name">계정관리</span><span class="path">/admin/admins.html</span></a></li>
+  </ul>
+</div>
+
+</body>
+</html>

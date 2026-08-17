@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SB · 공지사항 등록 | 애니투어 스토리보드</title>
+<link rel="stylesheet" href="assets/sb.css">
+</head>
+<body>
+
+<div class="sb-topbar">
+  <a href="index.html">SB 목록</a>
+  <span class="sep">/</span>
+  <a href="ia.html">IA</a>
+  <span class="sep">·</span>
+  <a href="admin-login.html">관리자 로그인</a>
+  <span class="sep">·</span>
+  <a href="admin-dashboard.html">관리자 홈</a>
+  <span class="sep">·</span>
+  <a href="admin-products.html">상품관리</a>
+  <span class="sep">·</span>
+  <a href="admin-product-form.html">상품 등록/수정</a>
+  <span class="sep">·</span>
+  <a href="admin-admins.html">계정관리</a>
+  <span class="sep">·</span>
+  <a href="admin-notices.html">공지사항 관리</a>
+  <span class="sep">·</span>
+  <span class="current">공지사항 등록</span>
+  <span class="sep">·</span>
+  <a href="admin-notice-edit.html">공지사항 수정</a>
+  <span class="sep">·</span>
+  <a href="admin-faq.html">FAQ 관리</a>
+  <span class="sep">·</span>
+  <a href="admin-faq-register.html">FAQ 등록</a>
+  <span class="sep">·</span>
+  <a href="admin-faq-edit.html">FAQ 수정</a>
+  <span class="sep">·</span>
+  <a href="admin-reviews.html">리뷰 관리</a>
+  <span class="sep">·</span>
+  <a href="admin-review-detail.html">리뷰 상세보기</a>
+  <span class="sep">·</span>
+  <a href="admin-inquiries.html">문의·예약 관리</a>
+</div>
+
+<div class="sb-wrap">
+  <div class="sb-page">
+
+    <div class="sb-meta">
+      <table class="sb-meta-table">
+        <tr>
+          <th>버전(ver)</th><td>1.0</td>
+          <th>화면명</th><td>공지사항 등록</td>
+          <th>Screen ID</th><td>UI-AdminNoticeRegister-01</td>
+          <th>이용자</th><td>PC (관리자 전용)</td>
+        </tr>
+        <tr>
+          <th>작성인</th><td>이한빛</td>
+          <th>작성일</th><td>2026.07.31</td>
+          <th>페이지 경로</th><td colspan="3">/admin/notices.html (공지사항 관리 &gt; "등록하기" 클릭 시 모달)</td>
+        </tr>
+      </table>
+      <div class="sb-meta-desc-title">Description</div>
+    </div>
+
+    <div class="sb-content">
+      <div class="sb-screen-col">
+        <div class="sb-screen-inner" style="width:960px; height:275px;">
+          <div class="sb-screen-clip" style="width:960px; height:275px;">
+            <div class="sb-scaled-frame" style="width:1745px; height:500px; transform:scale(0.55);">
+              <iframe src="../anytour/admin/notices.html?modal=register" width="1745" height="500" scrolling="no" title="공지사항 등록 미리보기"></iframe>
+            </div>
+          </div>
+          <div class="sb-markers">
+            <div class="sb-callout" style="top:0px;">
+              <span class="num">1</span><span class="dash"></span><span class="tag">배경(목록 화면)</span>
+            </div>
+            <div class="sb-callout" style="top:14px;">
+              <span class="num">2</span><span class="dash"></span><span class="tag">공지사항 등록 폼</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sb-desc-col">
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">1</span><span class="sb-desc-title">배경(목록 화면)</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            모달 뒤로 어둡게 처리된 배경은 공지사항 목록 화면이다. 목록 상세는 <a href="admin-notices.html">SB · 공지사항 관리</a> 참조.
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">2</span><span class="sb-desc-title">공지사항 등록 폼</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            <a href="admin-notices.html">SB · 공지사항 관리</a>의 "등록하기" 클릭 시 뜨는 모달. 새 공지사항의 제목·내용·상단고정 여부·노출 여부를 입력한다.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            모달 타이틀("공지사항 등록"), 제목 입력창(필수), 내용 textarea(필수), 상단고정 체크박스, 노출여부 셀렉트(노출/숨김, 기본값 노출), 하단 "취소"·"저장" 버튼
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">인터랙션</span>
+            <ul>
+              <li>"저장" 클릭 → 유효성 확인 후 목록 최상단에 신규 공지사항 추가, <a href="admin-notices.html">SB · 공지사항 관리</a> 목록으로 복귀</li>
+              <li>"취소" 클릭 또는 배경(어둡게 처리된 영역) 클릭 → 입력 내용 저장 없이 모달 닫힘</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <p class="sb-note">
+    ※ 좌측 화면은 실제 프로토타입(<code>04_storyboard/prototype/admin/notices.html</code>)에 <code>?modal=register</code>를 붙여 등록 모달이 자동으로 열린 상태를 iframe으로 축소(55%) 표시한 라이브 미리보기입니다.
+    프로토타입 수정 시 이 화면도 자동으로 최신 상태를 반영합니다. 로컬 서버(<code>serve.ps1</code>)로 열어야 정상 렌더링됩니다.
+    데이터는 데모 시드값(브라우저 메모리)이며 새로고침하면 초기 상태로 돌아갑니다.
+  </p>
+</div>
+
+</body>
+</html>

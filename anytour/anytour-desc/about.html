@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SB · 회사소개 | 애니투어 스토리보드</title>
+<link rel="stylesheet" href="assets/sb.css">
+</head>
+<body>
+
+<div class="sb-topbar">
+  <a href="index.html">SB 목록</a>
+  <span class="sep">/</span>
+  <a href="ia.html">IA</a>
+  <span class="sep">·</span>
+  <a href="admin-dashboard.html">관리자 홈</a>
+  <span class="sep">·</span>
+  <a href="main.html">메인화면</a>
+  <span class="sep">·</span>
+  <span class="current">회사소개</span>
+  <span class="sep">·</span>
+  <a href="products.html">여행상품</a>
+  <span class="sep">·</span>
+  <a href="pet-travel.html">반려동물 동반여행</a>
+  <span class="sep">·</span>
+  <a href="inbound.html">인바운드</a>
+  <span class="sep">·</span>
+  <a href="reviews.html">여행후기</a>
+  <span class="sep">·</span>
+  <a href="support.html">고객센터</a>
+  <span class="sep">·</span>
+  <a href="contact.html">문의·예약</a>
+  <span class="sep">·</span>
+  <a href="search.html">통합검색</a>
+  <span class="sep">·</span>
+  <a href="product-detail.html">상품 상세(패키지)</a>
+  <span class="sep">·</span>
+  <a href="pet-detail.html">상품 상세(반려동물)</a>
+  <span class="sep">·</span>
+  <a href="inbound-detail.html">상품 상세(인바운드)</a>
+  <span class="sep">·</span>
+  <a href="notice-detail.html">공지사항 상세</a>
+</div>
+
+<div class="sb-wrap">
+  <div class="sb-page">
+
+    <div class="sb-meta">
+      <table class="sb-meta-table">
+        <tr>
+          <th>버전(ver)</th><td>1.0</td>
+          <th>화면명</th><td>회사소개</td>
+          <th>Screen ID</th><td>UI-About-01</td>
+          <th>이용자</th><td>PC / Mobile</td>
+        </tr>
+        <tr>
+          <th>작성인</th><td>이한빛</td>
+          <th>작성일</th><td>2026.07.30</td>
+          <th>페이지 경로</th><td colspan="3">/about.html (GNB &gt; 회사소개)</td>
+        </tr>
+      </table>
+      <div class="sb-meta-desc-title">Description</div>
+    </div>
+
+    <div class="sb-content">
+      <div class="sb-screen-col">
+        <div class="sb-screen-inner" style="width:960px; height:1192px;">
+          <div class="sb-screen-clip" style="width:960px; height:1192px;">
+            <div class="sb-scaled-frame" style="width:1745px; height:2168px; transform:scale(0.55);">
+              <iframe src="../anytour/user/about.html" width="1745" height="2168" scrolling="no" title="회사소개 미리보기"></iframe>
+            </div>
+          </div>
+          <div class="sb-markers">
+            <div class="sb-callout" style="top:0px;">
+              <span class="num">1</span><span class="dash"></span><span class="tag">Header</span>
+            </div>
+            <div class="sb-callout" style="top:36px;">
+              <span class="num">2</span><span class="dash"></span><span class="tag">페이지 배너</span>
+            </div>
+            <div class="sb-callout" style="top:229px;">
+              <span class="num">3</span><span class="dash"></span><span class="tag">사업 영역</span>
+            </div>
+            <div class="sb-callout" style="top:653px;">
+              <span class="num">4</span><span class="dash"></span><span class="tag">대표 인사말</span>
+            </div>
+            <div class="sb-callout" style="top:953px;">
+              <span class="num">5</span><span class="dash"></span><span class="tag">Footer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sb-desc-col">
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">1</span><span class="sb-desc-title">Header UI (공통)</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            메인화면과 동일한 공통 헤더. 상세는 <a href="main.html">SB · 메인화면 ①</a> 참조.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">인터랙션</span>
+            현재 페이지가 "회사소개"이므로 GNB의 회사소개 메뉴가 is-current로 밑줄 강조된다.
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">2</span><span class="sb-desc-title">페이지 배너 UI</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            서브페이지 공통 배너(.page-hero). 페이지 성격에 맞는 배경 사진과 타이틀/서브카피를 노출한다.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            eyebrow 태그(COMPANY), 헤드라인(h1), 서브카피 — 텍스트는 가운데 정렬
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">인터랙션</span>
+            정적 노출, 클릭 인터랙션 없음
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">3</span><span class="sb-desc-title">사업 영역(BUSINESS) 섹션</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            회사가 운영하는 6개 여행 사업 분야를 카드 그리드로 소개하고, 각 상품 카테고리 페이지로 연결하는 진입점 역할을 한다.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            섹션 타이틀/서브카피, 사업영역 카드 6개(순번 아이콘 ①~⑥, 아이콘, 명칭, "자세히 보기" 링크)
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">인터랙션</span>
+            <ul>
+              <li>① 반려동물 카드 클릭 → pet-travel.html</li>
+              <li>② 인바운드 카드 클릭 → inbound.html</li>
+              <li>③~⑥ 패키지/골프·테마/항공·호텔/단체 카드 클릭 → products.html#해시(예: #package)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">4</span><span class="sb-desc-title">대표 인사말(MESSAGE) 섹션</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            회사 소개 카피를 카드형으로 노출해 신뢰감을 전달하는 섹션.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            섹션 타이틀, 메시지 카드
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">인터랙션</span>
+            없음(정적 텍스트 섹션)
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">5</span><span class="sb-desc-title">Footer UI (공통)</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            메인화면과 동일한 공통 푸터. 상세는 <a href="main.html">SB · 메인화면 ⑥</a> 참조.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <p class="sb-note">
+    ※ 좌측 화면은 실제 프로토타입(<code>04_storyboard/prototype/user/about.html</code>)을 iframe으로 축소(50%) 표시한 라이브 미리보기입니다.
+    프로토타입 수정 시 이 화면도 자동으로 최신 상태를 반영합니다. 로컬 서버(<code>serve.ps1</code>)로 열어야 헤더/푸터 include가 정상 렌더링됩니다.
+  </p>
+</div>
+
+</body>
+</html>

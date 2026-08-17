@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SB · 상품 상세(인바운드) | 애니투어 스토리보드</title>
+<link rel="stylesheet" href="assets/sb.css">
+</head>
+<body>
+
+<div class="sb-topbar">
+  <a href="index.html">SB 목록</a>
+  <span class="sep">/</span>
+  <a href="ia.html">IA</a>
+  <span class="sep">·</span>
+  <a href="admin-dashboard.html">관리자 홈</a>
+  <span class="sep">·</span>
+  <a href="main.html">메인화면</a>
+  <span class="sep">·</span>
+  <a href="about.html">회사소개</a>
+  <span class="sep">·</span>
+  <a href="products.html">여행상품</a>
+  <span class="sep">·</span>
+  <a href="pet-travel.html">반려동물 동반여행</a>
+  <span class="sep">·</span>
+  <a href="inbound.html">인바운드</a>
+  <span class="sep">·</span>
+  <a href="reviews.html">여행후기</a>
+  <span class="sep">·</span>
+  <a href="support.html">고객센터</a>
+  <span class="sep">·</span>
+  <a href="contact.html">문의·예약</a>
+  <span class="sep">·</span>
+  <a href="search.html">통합검색</a>
+  <span class="sep">·</span>
+  <a href="product-detail.html">상품 상세(패키지)</a>
+  <span class="sep">·</span>
+  <a href="pet-detail.html">상품 상세(반려동물)</a>
+  <span class="sep">·</span>
+  <span class="current">상품 상세(인바운드)</span>
+  <span class="sep">·</span>
+  <a href="notice-detail.html">공지사항 상세</a>
+</div>
+
+<div class="sb-wrap">
+  <div class="sb-page">
+
+    <div class="sb-meta">
+      <table class="sb-meta-table">
+        <tr>
+          <th>버전(ver)</th><td>1.0</td>
+          <th>화면명</th><td>상품 상세(인바운드)</td>
+          <th>Screen ID</th><td>UI-InboundDetail-01</td>
+          <th>이용자</th><td>PC / Mobile</td>
+        </tr>
+        <tr>
+          <th>작성인</th><td>이한빛</td>
+          <th>작성일</th><td>2026.07.30</td>
+          <th>페이지 경로</th><td colspan="3">/inbound-detail.html (인바운드 상품 카드 클릭 시 진입)</td>
+        </tr>
+      </table>
+      <div class="sb-meta-desc-title">Description</div>
+    </div>
+
+    <div class="sb-content">
+      <div class="sb-screen-col">
+        <div class="sb-screen-inner" style="width:960px; height:1695px;">
+          <div class="sb-screen-clip" style="width:960px; height:1695px;">
+            <div class="sb-scaled-frame" style="width:1745px; height:3082px; transform:scale(0.55);">
+              <iframe src="../anytour/user/inbound-detail.html" width="1745" height="3082" scrolling="no" title="상품 상세(인바운드) 미리보기"></iframe>
+            </div>
+          </div>
+          <div class="sb-markers">
+            <div class="sb-callout" style="top:0px;">
+              <span class="num">1</span><span class="dash"></span><span class="tag">Header</span>
+            </div>
+            <div class="sb-callout" style="top:36px;">
+              <span class="num">2</span><span class="dash"></span><span class="tag">타이틀 바</span>
+            </div>
+            <div class="sb-callout" style="top:91px;">
+              <span class="num">3</span><span class="dash"></span><span class="tag">히어로</span>
+            </div>
+            <div class="sb-callout" style="top:322px;">
+              <span class="num">4</span><span class="dash"></span><span class="tag">포함 내역</span>
+            </div>
+            <div class="sb-callout" style="top:555px;">
+              <span class="num">5</span><span class="dash"></span><span class="tag">방문지</span>
+            </div>
+            <div class="sb-callout" style="top:1088px;">
+              <span class="num">6</span><span class="dash"></span><span class="tag">진행 코스</span>
+            </div>
+            <div class="sb-callout" style="top:1322px;">
+              <span class="num">7</span><span class="dash"></span><span class="tag">CTA</span>
+            </div>
+            <div class="sb-callout" style="top:1474px;">
+              <span class="num">8</span><span class="dash"></span><span class="tag">Footer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sb-desc-col">
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">1</span><span class="sb-desc-title">Header UI (공통)</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            메인화면과 동일한 공통 헤더. 상세는 <a href="main.html">SB · 메인화면 ①</a> 참조.
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">2</span><span class="sb-desc-title">타이틀 바</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            투어명과 운영 일정, 공유하기 버튼을 상단에 고정 노출. <a href="product-detail.html">SB · 상품 상세(패키지) ②</a>와 구조 동일, 매일 출발 시간을 표기.
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">3</span><span class="sb-desc-title">히어로(detail-hero)</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            투어 대표 이미지 위에 카테고리·투어명·해시태그를 노출. 구조는 <a href="product-detail.html">SB · 상품 상세(패키지) ③</a>과 동일.
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">4</span><span class="sb-desc-title">포함 내역(CHECK POINT)</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            투어 포함 서비스(통역 가이드·쇼핑 코스·시식·도보투어·소규모 그룹·포토타임)를 아이콘 카드 6개로 요약.
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">5</span><span class="sb-desc-title">방문지(DESTINATIONS)</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            명동 투어의 핵심 방문지(경복궁·남산타워 등) 6곳을 사진과 캡션으로 소개.
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">6</span><span class="sb-desc-title">진행 코스(COURSE)</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            투어 진행 순서를 부(1부~3부) 탭으로 전환해서 보여준다.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">인터랙션</span>
+            탭 클릭 → 해당 부 패널만 active로 전환
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">7</span><span class="sb-desc-title">CTA 배너</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            상담 문의를 유도하는 배너.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">인터랙션</span>
+            "02-998-3091 상담 문의" 버튼 클릭 → contact.html 이동
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">8</span><span class="sb-desc-title">Footer UI (공통)</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            메인화면과 동일한 공통 푸터. 상세는 <a href="main.html">SB · 메인화면 ⑥</a> 참조.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <p class="sb-note">
+    ※ 좌측 화면은 실제 프로토타입(<code>04_storyboard/prototype/user/inbound-detail.html</code>)을 iframe으로 축소(55%) 표시한 라이브 미리보기이며, 명동 K-Beauty 나이트투어 상품 기준입니다.
+    <a href="product-detail.html">상품 상세(패키지)</a>와 동일한 템플릿(마크업 구조)을 공유합니다.
+    프로토타입 수정 시 이 화면도 자동으로 최신 상태를 반영합니다. 로컬 서버(<code>serve.ps1</code>)로 열어야 헤더/푸터 include가 정상 렌더링됩니다.
+    데이터 연동 항목은 개발 단계에서 정하는 것으로 하고 이 문서에는 생략했습니다.
+  </p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SB · 메인화면 | 애니투어 스토리보드</title>
+<link rel="stylesheet" href="assets/sb.css">
+</head>
+<body>
+
+<div class="sb-topbar">
+  <a href="index.html">SB 목록</a>
+  <span class="sep">/</span>
+  <a href="ia.html">IA</a>
+  <span class="sep">·</span>
+  <a href="admin-dashboard.html">관리자 홈</a>
+  <span class="sep">·</span>
+  <span class="current">메인화면</span>
+  <span class="sep">·</span>
+  <a href="about.html">회사소개</a>
+  <span class="sep">·</span>
+  <a href="products.html">여행상품</a>
+  <span class="sep">·</span>
+  <a href="pet-travel.html">반려동물 동반여행</a>
+  <span class="sep">·</span>
+  <a href="inbound.html">인바운드</a>
+  <span class="sep">·</span>
+  <a href="reviews.html">여행후기</a>
+  <span class="sep">·</span>
+  <a href="support.html">고객센터</a>
+  <span class="sep">·</span>
+  <a href="contact.html">문의·예약</a>
+  <span class="sep">·</span>
+  <a href="search.html">통합검색</a>
+  <span class="sep">·</span>
+  <a href="product-detail.html">상품 상세(패키지)</a>
+  <span class="sep">·</span>
+  <a href="pet-detail.html">상품 상세(반려동물)</a>
+  <span class="sep">·</span>
+  <a href="inbound-detail.html">상품 상세(인바운드)</a>
+  <span class="sep">·</span>
+  <a href="notice-detail.html">공지사항 상세</a>
+</div>
+
+<div class="sb-wrap">
+  <div class="sb-page">
+
+    <div class="sb-meta">
+      <table class="sb-meta-table">
+        <tr>
+          <th>버전(ver)</th><td>1.0</td>
+          <th>화면명</th><td>메인화면</td>
+          <th>Screen ID</th><td>UI-Main-01</td>
+          <th>이용자</th><td>PC / Mobile</td>
+        </tr>
+        <tr>
+          <th>작성인</th><td>이한빛</td>
+          <th>작성일</th><td>2026.07.30</td>
+          <th>페이지 경로</th><td colspan="3">/main.html (GNB 로고)</td>
+        </tr>
+      </table>
+      <div class="sb-meta-desc-title">Description</div>
+    </div>
+
+    <div class="sb-content">
+      <div class="sb-screen-col">
+        <div class="sb-screen-inner" style="width:960px; height:1462px;">
+          <div class="sb-screen-clip" style="width:960px; height:1462px;">
+            <div class="sb-scaled-frame" style="width:1745px; height:2659px; transform:scale(0.55);">
+              <iframe src="../anytour/user/main.html" width="1745" height="2659" scrolling="no" title="메인화면 미리보기"></iframe>
+            </div>
+          </div>
+          <div class="sb-markers">
+            <div class="sb-callout" style="top:0px;">
+              <span class="num">1</span><span class="dash"></span><span class="tag">Header</span>
+            </div>
+            <div class="sb-callout" style="top:36px;">
+              <span class="num">2</span><span class="dash"></span><span class="tag">Hero Slider</span>
+            </div>
+            <div class="sb-callout" style="top:353px;">
+              <span class="num">3</span><span class="dash"></span><span class="tag">타임특가</span>
+            </div>
+            <div class="sb-callout" style="top:682px;">
+              <span class="num">4</span><span class="dash"></span><span class="tag">월간 Best</span>
+            </div>
+            <div class="sb-callout" style="top:919px;">
+              <span class="num">5</span><span class="dash"></span><span class="tag">이미지 갤러리</span>
+            </div>
+            <div class="sb-callout" style="top:1230px;">
+              <span class="num">6</span><span class="dash"></span><span class="tag">Footer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sb-desc-col">
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">1</span><span class="sb-desc-title">Header UI (공통)</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            전 페이지 상단 고정(sticky) 공통 영역. 로고·검색·GNB를 제공하며 모든 페이지에서 동일하게 노출된다.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            <ul>
+              <li>로고(A애니투어), 검색창(여행지·상품명)</li>
+              <li>GNB 7개: 회사소개/여행상품/반려동물 동반여행/인바운드/여행후기/고객센터/문의·예약</li>
+              <li>모바일 햄버거 버튼, 검색 아이콘</li>
+            </ul>
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">인터랙션</span>
+            <ul>
+              <li>로고 클릭 → main.html 이동</li>
+              <li>메뉴 클릭 → 해당 페이지 이동, 현재 메뉴는 밑줄 강조</li>
+              <li>모바일: 햄버거 클릭 시 GNB 슬라이드 오픈/클로즈</li>
+              <li>검색창: 키워드 입력 후 Enter 또는 검색 아이콘 클릭 → search.html?q=검색어로 이동(통합검색 결과 화면)</li>
+              <li>검색어 미입력 상태로 제출 시 동작 없음(placeholder 유지)</li>
+              <li>모바일은 mobile-search 영역의 검색창이 동일 폼으로 동일하게 동작</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">2</span><span class="sb-desc-title">Hero Slider UI</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            메인 최상단 풀와이드 이미지 슬라이더. 브랜드 핵심 메시지(반려동물 동반여행 등)를 순환 노출한다.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            <ul>
+              <li>슬라이드 3장</li>
+              <li>이전/다음 버튼, 현재 슬라이드 카운터(1/3)</li>
+            </ul>
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">인터랙션</span>
+            <ul>
+              <li>6초 간격 자동 재생</li>
+              <li>이전/다음 버튼 클릭 시 슬라이드 전환 + 자동재생 타이머 리셋</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">3</span><span class="sb-desc-title">타임특가 섹션</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            기간 한정 할인 상품 4개를 카드형으로 노출, 상단 필터 칩으로 카드를 실제 필터링한다.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            <ul>
+              <li>필터 칩 4개(#소형견동반 기본 활성 · #대형견동반 · #국내펜션 · #해외동반), 상품 카드 4개(썸네일/태그/상품명/정가·할인가)</li>
+            </ul>
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">인터랙션</span>
+            <ul>
+              <li>페이지 로드 시에도 기본 활성 칩(#소형견동반) 기준으로 카드가 필터링된 상태로 시작</li>
+              <li>카드 클릭 → product-detail.html 이동</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">4</span><span class="sb-desc-title">월간 Best 랭킹 섹션</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            인기 Top3 상품을 순위 배지와 대형 이미지 카드로 노출.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            <ul><li>순위 카드 3개(1~3위 배지, 배경이미지, 제목, 해시태그)</li></ul>
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">인터랙션</span>
+            카드 클릭 → inbound-detail.html 이동
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">5</span><span class="sb-desc-title">이미지 갤러리 섹션</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            여행지 사진 중심의 감성 4분할 갤러리. 다크 배경으로 앞 섹션과 톤을 구분한다.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            갤러리 카드 4개(배경 이미지 + 하단 오버레이 상품명·가격)
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">인터랙션</span>
+            카드 클릭 → product-detail.html 이동
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">6</span><span class="sb-desc-title">Footer UI (공통)</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            전 페이지 공통 하단 영역. SNS·사이트맵·회사정보·저작권을 제공한다.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            <ul>
+              <li>SNS 아이콘 4개, 로고 + 고객센터 전화</li>
+              <li>여행상품/고객지원 링크 목록</li>
+              <li>회사정보(대표/주소/전화/사업자등록번호), 저작권, 약관 링크 2개</li>
+            </ul>
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">인터랙션</span>
+            <ul>
+              <li>각 링크 클릭 → 해당 페이지 이동</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <p class="sb-note">
+    ※ 좌측 화면은 실제 프로토타입(<code>04_storyboard/prototype/user/main.html</code>)을 iframe으로 축소(50%) 표시한 라이브 미리보기입니다.
+    프로토타입 수정 시 이 화면도 자동으로 최신 상태를 반영합니다. 로컬 서버(<code>serve.ps1</code>)로 열어야 헤더/푸터 include가 정상 렌더링됩니다.
+    ※ 모바일 등 좁은 화면에서 한글 텍스트가 단어 중간에서 줄바꿈되던 문제를 <code>body { word-break: keep-all; }</code>로 수정했다(사이트 전체 공통 적용, 특정 화면 전용 항목은 아니라 별도 마커는 두지 않음).
+  </p>
+</div>
+
+</body>
+</html>

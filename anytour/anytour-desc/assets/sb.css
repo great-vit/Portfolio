@@ -1,0 +1,354 @@
+/* Storyboard(SB) description template — shared by 04_storyboard/description/*.html
+   Format reference: 04_storyboard/reference-captures/SB.png */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  color: #222;
+  background: #eceff1;
+}
+
+.sb-topbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  padding: 10px 24px;
+  background: #1c1c1e;
+  color: #fff;
+  font-size: 13px;
+}
+
+.sb-topbar a {
+  color: #cfd8dc;
+  text-decoration: none;
+}
+
+.sb-topbar a:hover { color: #fff; }
+
+.sb-topbar .sep { color: #555; }
+
+.sb-topbar .current { font-weight: 700; color: #fff; }
+
+.sb-wrap {
+  max-width: 1400px;
+  margin: 24px auto 60px;
+  padding: 0 24px;
+}
+
+.sb-page {
+  border: 2px solid #2b2b2b;
+  background: #fff;
+}
+
+/* ---- Meta bar (버전/화면명/Screen ID/이용자 + Description title) ---- */
+.sb-meta {
+  display: flex;
+  border-bottom: 2px solid #2b2b2b;
+}
+
+.sb-meta-table {
+  flex: 1;
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.sb-meta-table th,
+.sb-meta-table td {
+  border: 1px solid #999;
+  padding: 7px 10px;
+  font-size: 12.5px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.sb-meta-table th {
+  background: #f2f2f2;
+  font-weight: 700;
+  width: 13%;
+  white-space: nowrap;
+}
+
+.sb-meta-desc-title {
+  width: 340px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 15px;
+  border-left: 2px solid #2b2b2b;
+  background: #fafafa;
+}
+
+/* ---- Content row: screen (left) + description panel (right) ---- */
+.sb-content {
+  display: flex;
+  align-items: flex-start;
+}
+
+.sb-screen-col {
+  flex: 1;
+  min-width: 0;
+  padding: 32px 24px 32px 56px;
+  overflow-x: auto;
+}
+
+.sb-screen-inner {
+  position: relative;
+}
+
+.sb-screen-clip {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+
+.sb-scaled-frame {
+  transform-origin: 0 0;
+}
+
+.sb-scaled-frame iframe {
+  display: block;
+  border: 0;
+  pointer-events: none;
+  background: #fff;
+}
+
+.sb-markers {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.sb-callout {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  /* top:{Y}px on each callout is the measured midpoint of the real
+     whitespace gap between the previous region's content and the next
+     region's content (see comments in each description page for the
+     exact rects used) — not just the section's own box edge — so the
+     circle+line+tag sits centered in an actual empty gap, clear of any
+     text or card underneath it. */
+}
+
+.sb-callout .num {
+  position: relative;
+  left: -18px;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #e8384f;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 3px #fff;
+}
+
+.sb-callout .dash {
+  flex: 1;
+  border-top: 2px dashed #e8384f;
+  margin: 0 8px;
+}
+
+.sb-callout .tag {
+  flex-shrink: 0;
+  color: #e8384f;
+  font-weight: 700;
+  font-size: 13px;
+  white-space: nowrap;
+  background: #fff;
+  padding: 1px 6px;
+  border: 1px solid #e8384f;
+  border-radius: 3px;
+}
+
+/* ---- Description panel (right) ---- */
+.sb-desc-col {
+  width: 340px;
+  flex-shrink: 0;
+  border-left: 2px solid #2b2b2b;
+  padding: 16px;
+}
+
+.sb-desc-item {
+  padding: 10px 4px 16px;
+  border-bottom: 1px dashed #bbb;
+  margin-bottom: 14px;
+}
+
+.sb-desc-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.sb-desc-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.sb-desc-num {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #e8384f;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sb-desc-title {
+  font-weight: 700;
+  font-size: 13.5px;
+}
+
+.sb-desc-block {
+  margin-top: 7px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.sb-desc-block .lbl {
+  display: block;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 2px;
+}
+
+.sb-desc-block ul {
+  margin: 0;
+  padding-left: 16px;
+}
+
+.sb-desc-block li {
+  margin-bottom: 2px;
+}
+
+.sb-note {
+  padding: 12px 24px;
+  font-size: 12px;
+  color: #666;
+  border-top: 1px solid #ddd;
+}
+
+/* ---- IA (Information Architecture) diagram ----
+   Format reference: 04_storyboard/reference-captures/IA.png */
+.ia-wrap {
+  max-width: 1400px;
+  margin: 24px auto 60px;
+  padding: 0 24px;
+}
+
+.ia-badge {
+  display: inline-block;
+  background: #1c1c1e;
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 8px 16px;
+}
+
+.ia-rule {
+  border: 0;
+  border-top: 1px solid #999;
+  margin: 0 0 12px;
+}
+
+.ia-meta {
+  font-size: 12.5px;
+  color: #666;
+  margin: 0 0 40px;
+}
+
+.ia-group-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: #888;
+  margin: 0 0 14px;
+}
+
+.ia-tree {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 36px 28px;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+
+.ia-branch {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 210px;
+}
+
+.ia-node {
+  background: #6b6b6b;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
+  padding: 18px 12px;
+  border-radius: 6px;
+  border: 1px solid #4d4d4d;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .12);
+  text-decoration: none;
+  display: block;
+}
+
+.ia-node:hover { background: #57575a; }
+
+.ia-children {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  margin-top: 14px;
+  padding-top: 14px;
+}
+
+.ia-children::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 14px;
+  background: #bbb;
+}
+
+.ia-child {
+  background: #e7e8f2;
+  color: #222;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  padding: 14px 10px;
+  border-radius: 6px;
+  border: 1px solid #b8bad0;
+  text-decoration: none;
+  display: block;
+}
+
+.ia-child:hover { border-color: #e8384f; color: #e8384f; }

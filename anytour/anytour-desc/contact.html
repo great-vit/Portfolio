@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SB · 문의·예약 | 애니투어 스토리보드</title>
+<link rel="stylesheet" href="assets/sb.css">
+</head>
+<body>
+
+<div class="sb-topbar">
+  <a href="index.html">SB 목록</a>
+  <span class="sep">/</span>
+  <a href="ia.html">IA</a>
+  <span class="sep">·</span>
+  <a href="admin-dashboard.html">관리자 홈</a>
+  <span class="sep">·</span>
+  <a href="main.html">메인화면</a>
+  <span class="sep">·</span>
+  <a href="about.html">회사소개</a>
+  <span class="sep">·</span>
+  <a href="products.html">여행상품</a>
+  <span class="sep">·</span>
+  <a href="pet-travel.html">반려동물 동반여행</a>
+  <span class="sep">·</span>
+  <a href="inbound.html">인바운드</a>
+  <span class="sep">·</span>
+  <a href="reviews.html">여행후기</a>
+  <span class="sep">·</span>
+  <a href="support.html">고객센터</a>
+  <span class="sep">·</span>
+  <span class="current">문의·예약</span>
+  <span class="sep">·</span>
+  <a href="search.html">통합검색</a>
+  <span class="sep">·</span>
+  <a href="product-detail.html">상품 상세(패키지)</a>
+  <span class="sep">·</span>
+  <a href="pet-detail.html">상품 상세(반려동물)</a>
+  <span class="sep">·</span>
+  <a href="inbound-detail.html">상품 상세(인바운드)</a>
+  <span class="sep">·</span>
+  <a href="notice-detail.html">공지사항 상세</a>
+</div>
+
+<div class="sb-wrap">
+  <div class="sb-page">
+
+    <div class="sb-meta">
+      <table class="sb-meta-table">
+        <tr>
+          <th>버전(ver)</th><td>1.0</td>
+          <th>화면명</th><td>문의·예약</td>
+          <th>Screen ID</th><td>UI-Contact-01</td>
+          <th>이용자</th><td>PC / Mobile</td>
+        </tr>
+        <tr>
+          <th>작성인</th><td>이한빛</td>
+          <th>작성일</th><td>2026.07.30</td>
+          <th>페이지 경로</th><td colspan="3">/contact.html (GNB &gt; 문의·예약)</td>
+        </tr>
+      </table>
+      <div class="sb-meta-desc-title">Description</div>
+    </div>
+
+    <div class="sb-content">
+      <div class="sb-screen-col">
+        <div class="sb-screen-inner" style="width:960px; height:1202px;">
+          <div class="sb-screen-clip" style="width:960px; height:1202px;">
+            <div class="sb-scaled-frame" style="width:1745px; height:2185px; transform:scale(0.55);">
+              <iframe src="../anytour/user/contact.html" width="1745" height="2185" scrolling="no" title="문의·예약 미리보기"></iframe>
+            </div>
+          </div>
+          <div class="sb-markers">
+            <div class="sb-callout" style="top:0px;">
+              <span class="num">1</span><span class="dash"></span><span class="tag">Header</span>
+            </div>
+            <div class="sb-callout" style="top:36px;">
+              <span class="num">2</span><span class="dash"></span><span class="tag">페이지 배너</span>
+            </div>
+            <div class="sb-callout" style="top:229px;">
+              <span class="num">3</span><span class="dash"></span><span class="tag">상담 절차</span>
+            </div>
+            <div class="sb-callout" style="top:412px;">
+              <span class="num">4</span><span class="dash"></span><span class="tag">연락처 카드</span>
+            </div>
+            <div class="sb-callout" style="top:579px;">
+              <span class="num">5</span><span class="dash"></span><span class="tag">문의 폼</span>
+            </div>
+            <div class="sb-callout" style="top:963px;">
+              <span class="num">6</span><span class="dash"></span><span class="tag">Footer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sb-desc-col">
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">1</span><span class="sb-desc-title">Header UI (공통)</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            메인화면과 동일한 공통 헤더. 상세는 <a href="main.html">SB · 메인화면 ①</a> 참조. "문의·예약" 메뉴가 is-current로 강조된다.
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">2</span><span class="sb-desc-title">페이지 배너 UI</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            문의·예약 페이지 배너.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            eyebrow(CONTACT), 헤드라인("문의·예약"), 서브카피
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">3</span><span class="sb-desc-title">상담 진행 절차(PROCESS)</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            문의부터 예약 확정까지의 흐름을 4단계로 안내하는 스텝 리스트.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            단계 카드 4개(① 문의 접수 → ② 담당자 상담 → ③ 견적·일정 확정 → ④ 예약 확정), 각 번호·타이틀·설명
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">인터랙션</span>
+            없음(정적 안내)
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">4</span><span class="sb-desc-title">연락처 카드</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            전화 문의처와 SNS 채널 안내를 카드 2개로 병렬 노출.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            여행 문의 카드(전화번호 + 운영시간), SNS 채널 카드(카카오톡·인스타그램·블로그·유튜브 안내)
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">5</span><span class="sb-desc-title">온라인 문의 폼(INQUIRY FORM)</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            이름·연락처·이메일·여행종류·문의내용을 입력받는 상담 신청 폼.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            입력 필드(이름/연락처/이메일 — 모두 필수), 여행 종류 셀렉트(필수), 문의 내용 textarea(필수), 개인정보 수집·이용 동의 체크박스(필수), 제출 버튼, 데모 안내 문구, 제출 완료 메시지 영역
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">6</span><span class="sb-desc-title">Footer UI (공통)</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            메인화면과 동일한 공통 푸터. 상세는 <a href="main.html">SB · 메인화면 ⑥</a> 참조.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <p class="sb-note">
+    ※ 좌측 화면은 실제 프로토타입(<code>04_storyboard/prototype/user/contact.html</code>)을 iframe으로 축소(55%) 표시한 라이브 미리보기입니다.
+    프로토타입 수정 시 이 화면도 자동으로 최신 상태를 반영합니다. 로컬 서버(<code>serve.ps1</code>)로 열어야 헤더/푸터 include가 정상 렌더링됩니다.
+    데이터 연동 항목은 개발 단계에서 정하는 것으로 하고 이 문서에는 생략했습니다.
+  </p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SB · 여행후기 | 애니투어 스토리보드</title>
+<link rel="stylesheet" href="assets/sb.css">
+</head>
+<body>
+
+<div class="sb-topbar">
+  <a href="index.html">SB 목록</a>
+  <span class="sep">/</span>
+  <a href="ia.html">IA</a>
+  <span class="sep">·</span>
+  <a href="admin-dashboard.html">관리자 홈</a>
+  <span class="sep">·</span>
+  <a href="main.html">메인화면</a>
+  <span class="sep">·</span>
+  <a href="about.html">회사소개</a>
+  <span class="sep">·</span>
+  <a href="products.html">여행상품</a>
+  <span class="sep">·</span>
+  <a href="pet-travel.html">반려동물 동반여행</a>
+  <span class="sep">·</span>
+  <a href="inbound.html">인바운드</a>
+  <span class="sep">·</span>
+  <span class="current">여행후기</span>
+  <span class="sep">·</span>
+  <a href="support.html">고객센터</a>
+  <span class="sep">·</span>
+  <a href="contact.html">문의·예약</a>
+  <span class="sep">·</span>
+  <a href="search.html">통합검색</a>
+  <span class="sep">·</span>
+  <a href="product-detail.html">상품 상세(패키지)</a>
+  <span class="sep">·</span>
+  <a href="pet-detail.html">상품 상세(반려동물)</a>
+  <span class="sep">·</span>
+  <a href="inbound-detail.html">상품 상세(인바운드)</a>
+  <span class="sep">·</span>
+  <a href="notice-detail.html">공지사항 상세</a>
+</div>
+
+<div class="sb-wrap">
+  <div class="sb-page">
+
+    <div class="sb-meta">
+      <table class="sb-meta-table">
+        <tr>
+          <th>버전(ver)</th><td>1.1</td>
+          <th>화면명</th><td>여행후기</td>
+          <th>Screen ID</th><td>UI-Reviews-01</td>
+          <th>이용자</th><td>PC / Mobile</td>
+        </tr>
+        <tr>
+          <th>작성인</th><td>이한빛</td>
+          <th>작성일</th><td>2026.07.31</td>
+          <th>페이지 경로</th><td colspan="3">/reviews.html (GNB &gt; 여행후기)</td>
+        </tr>
+      </table>
+      <div class="sb-meta-desc-title">Description</div>
+    </div>
+
+    <div class="sb-content">
+      <div class="sb-screen-col">
+        <div class="sb-screen-inner" style="width:960px; height:2160px;">
+          <div class="sb-screen-clip" style="width:960px; height:2160px;">
+            <div class="sb-scaled-frame" style="width:1745px; height:3927px; transform:scale(0.55);">
+              <iframe src="../anytour/user/reviews.html" width="1745" height="3927" scrolling="no" title="여행후기 미리보기"></iframe>
+            </div>
+          </div>
+          <div class="sb-markers">
+            <div class="sb-callout" style="top:0px;">
+              <span class="num">1</span><span class="dash"></span><span class="tag">Header</span>
+            </div>
+            <div class="sb-callout" style="top:36px;">
+              <span class="num">2</span><span class="dash"></span><span class="tag">페이지 배너</span>
+            </div>
+            <div class="sb-callout" style="top:225px;">
+              <span class="num">3</span><span class="dash"></span><span class="tag">리뷰 등록·필터·정렬</span>
+            </div>
+            <div class="sb-callout" style="top:305px;">
+              <span class="num">4</span><span class="dash"></span><span class="tag">리뷰 목록</span>
+            </div>
+            <div class="sb-callout" style="top:1787px;">
+              <span class="num">5</span><span class="dash"></span><span class="tag">CTA</span>
+            </div>
+            <div class="sb-callout" style="top:1939px;">
+              <span class="num">6</span><span class="dash"></span><span class="tag">Footer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sb-desc-col">
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">1</span><span class="sb-desc-title">Header UI (공통)</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            메인화면과 동일한 공통 헤더. 상세는 <a href="main.html">SB · 메인화면 ①</a> 참조. "여행후기" 메뉴가 is-current로 강조된다.
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">2</span><span class="sb-desc-title">페이지 배너 UI</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            여행후기 페이지 배너.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            eyebrow(REVIEW), 헤드라인, 서브카피
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">3</span><span class="sb-desc-title">리뷰 등록·필터·정렬</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            리뷰 개수 옆에 "리뷰 등록" 버튼이 추가되었고, 그 아래에 리뷰 검색·종류·여행종류·별점 필터와 정렬 컨트롤이 이어진다.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            "리뷰 등록" 버튼, 검색 아이콘(확장형 입력창), 리뷰 종류(전체/포토) 셀렉트, 여행 종류 셀렉트, 별점 셀렉트(전체 별점/5점~1점), 정렬 셀렉트(최신순/평점높은순), 리뷰 작성/수정 모달(dialog)
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">인터랙션</span>
+            <ul>
+              <li>"리뷰 등록" 클릭 → 리뷰 작성 모달 오픈(여행 종류·별점·작성자 이름·비밀번호·제목·내용·사진 첨부(최대 4장)). 비회원도 작성 가능</li>
+              <li>모달에서 "리뷰 등록" 제출 → 등록 완료 안내 후 모달 닫힘(데모: 목록에는 실제 반영되지 않음)</li>
+              <li>검색 아이콘 클릭 → 검색 입력창 펼침</li>
+              <li>각 필터·정렬 변경 시 조건에 맞게 필터링/정렬하여 4번 영역을 재렌더링, 1페이지로 리셋</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">4</span><span class="sb-desc-title">리뷰 목록</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            필터링된 리뷰를 포토 카드 그리드로 노출하고 페이지네이션으로 넘겨본다. 카드에는 상품명 대신 여행 종류만 표기한다.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            리뷰 포토 카드(#reviewGrid, 사진·별점·제목·날짜·여행종류 태그, 24개/페이지), 이전/다음 페이지 버튼 + 페이지 정보, 하단 예시 데이터 고지문, 상세 모달(dialog)
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">인터랙션</span>
+            <ul>
+              <li>리뷰 카드 클릭 → 상세 모달 오픈, 사진·별점·제목·날짜·여행 종류·"수정" 버튼 표시</li>
+              <li>상세 모달의 "수정" 클릭 → 비밀번호 입력 확인 후(데모: 값 입력 시 통과) 리뷰 작성 모달이 수정 모드로 재사용되어 열림(여행 종류·별점·제목이 기존 값으로 채워짐), 제출 시 "리뷰 수정" 완료 안내</li>
+              <li>모달 닫기(✕) 클릭 또는 배경 클릭 → 모달 닫힘</li>
+              <li>이전/다음 버튼 클릭 → 페이지 전환, 버튼은 첫/마지막 페이지에서 비활성화</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">5</span><span class="sb-desc-title">CTA 배너</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            상담 신청을 유도하는 배너.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">인터랙션</span>
+            "문의·예약하기" 버튼 클릭 → contact.html 이동
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">6</span><span class="sb-desc-title">Footer UI (공통)</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            메인화면과 동일한 공통 푸터. 상세는 <a href="main.html">SB · 메인화면 ⑥</a> 참조.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <p class="sb-note">
+    ※ 좌측 화면은 실제 프로토타입(<code>04_storyboard/prototype/user/reviews.html</code>)을 iframe으로 축소(55%) 표시한 라이브 미리보기입니다. 페이지가 길어(리뷰 24개) 스크린 영역도 세로로 깁니다.
+    프로토타입 수정 시 이 화면도 자동으로 최신 상태를 반영합니다. 로컬 서버(<code>serve.ps1</code>)로 열어야 헤더/푸터 include가 정상 렌더링됩니다.
+    데이터 연동 항목은 개발 단계에서 정하는 것으로 하고 이 문서에는 생략했습니다.
+  </p>
+</div>
+
+</body>
+</html>

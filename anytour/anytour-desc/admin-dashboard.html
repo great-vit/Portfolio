@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SB · 관리자 홈 | 애니투어 스토리보드</title>
+<link rel="stylesheet" href="assets/sb.css">
+</head>
+<body>
+
+<div class="sb-topbar">
+  <a href="index.html">SB 목록</a>
+  <span class="sep">/</span>
+  <a href="ia.html">IA</a>
+  <span class="sep">·</span>
+  <a href="admin-login.html">관리자 로그인</a>
+  <span class="sep">·</span>
+  <span class="current">관리자 홈</span>
+  <span class="sep">·</span>
+  <a href="admin-products.html">상품관리</a>
+  <span class="sep">·</span>
+  <a href="admin-product-form.html">상품 등록/수정</a>
+  <span class="sep">·</span>
+  <a href="admin-admins.html">계정관리</a>
+  <span class="sep">·</span>
+  <a href="admin-notices.html">공지사항 관리</a>
+  <span class="sep">·</span>
+  <a href="admin-notice-register.html">공지사항 등록</a>
+  <span class="sep">·</span>
+  <a href="admin-notice-edit.html">공지사항 수정</a>
+  <span class="sep">·</span>
+  <a href="admin-faq.html">FAQ 관리</a>
+  <span class="sep">·</span>
+  <a href="admin-faq-register.html">FAQ 등록</a>
+  <span class="sep">·</span>
+  <a href="admin-faq-edit.html">FAQ 수정</a>
+  <span class="sep">·</span>
+  <a href="admin-reviews.html">리뷰 관리</a>
+  <span class="sep">·</span>
+  <a href="admin-review-detail.html">리뷰 상세보기</a>
+  <span class="sep">·</span>
+  <a href="admin-inquiries.html">문의·예약 관리</a>
+</div>
+
+<div class="sb-wrap">
+  <div class="sb-page">
+
+    <div class="sb-meta">
+      <table class="sb-meta-table">
+        <tr>
+          <th>버전(ver)</th><td>1.1</td>
+          <th>화면명</th><td>관리자 홈</td>
+          <th>Screen ID</th><td>UI-AdminHome-01</td>
+          <th>이용자</th><td>PC (관리자 전용)</td>
+        </tr>
+        <tr>
+          <th>작성인</th><td>이한빛</td>
+          <th>작성일</th><td>2026.07.31</td>
+          <th>페이지 경로</th><td colspan="3">/admin/index.html (로그인 후 진입)</td>
+        </tr>
+      </table>
+      <div class="sb-meta-desc-title">Description</div>
+    </div>
+
+    <div class="sb-content">
+      <div class="sb-screen-col">
+        <div class="sb-screen-inner" style="width:960px; height:296px;">
+          <div class="sb-screen-clip" style="width:960px; height:296px;">
+            <div class="sb-scaled-frame" style="width:1745px; height:539px; transform:scale(0.55);">
+              <iframe src="../anytour/admin/index.html" width="1745" height="539" scrolling="no" title="관리자 홈 미리보기"></iframe>
+            </div>
+          </div>
+          <div class="sb-markers">
+            <div class="sb-callout" style="top:0px;">
+              <span class="num">1</span><span class="dash"></span><span class="tag">Header</span>
+            </div>
+            <div class="sb-callout" style="top:31px;">
+              <span class="num">2</span><span class="dash"></span><span class="tag">상단 메뉴</span>
+            </div>
+            <div class="sb-callout" style="top:71px;">
+              <span class="num">3</span><span class="dash"></span><span class="tag">통계 카드</span>
+            </div>
+            <div class="sb-callout" style="top:193px;">
+              <span class="num">4</span><span class="dash"></span><span class="tag">빠른 메뉴</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sb-desc-col">
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">1</span><span class="sb-desc-title">Header (공통)</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            모든 관리자 화면에 공통으로 노출되는 상단 바.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            "ADMINISTRATOR" 로고, 운영자 아바타·이름, "관리자" 권한 배지, HOMEPAGE 링크, LOG-OUT 링크
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">인터랙션</span>
+            <ul>
+              <li>로고 클릭 → admin/index.html(관리자 홈) 이동</li>
+              <li>HOMEPAGE 클릭 → 사용자 홈페이지(/user/main.html) 새 탭으로 이동</li>
+              <li>LOG-OUT 클릭 → admin/login.html 이동(데모 목적, 세션 처리 미연동)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">2</span><span class="sb-desc-title">상단 메뉴(공통)</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            관리자 기능을 4개 그룹으로 나눈 최상위 탭 메뉴. 관리자 홈에서는 활성 탭이 없다. 관리자 계정이 1개(고정)라는 전제로 계정관리를 가장 마지막 탭으로 배치했다.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            상품관리 / 사이트관리 / 문의관리 / 계정관리 4개 탭
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">인터랙션</span>
+            탭 클릭 → 해당 그룹의 첫 화면으로 이동(상품관리→상품 목록, 사이트관리→공지사항 관리, 문의관리→문의·예약 관리, 계정관리→관리자 정보 수정)
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">3</span><span class="sb-desc-title">통계 카드</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            주요 데이터 현황을 요약해 보여주는 카드 5개.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            전체 상품 수, 공지사항 수, FAQ 수, 등록된 리뷰 수, 대기중 문의 수(각 카드는 클릭 가능)
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">인터랙션</span>
+            카드 클릭 → 해당 관리 화면으로 이동(등록된 리뷰 카드 → <a href="admin-reviews.html">SB · 리뷰 관리</a>)
+          </div>
+        </div>
+
+        <div class="sb-desc-item">
+          <div class="sb-desc-head"><span class="sb-desc-num">4</span><span class="sb-desc-title">빠른 메뉴</span></div>
+          <div class="sb-desc-block">
+            <span class="lbl">설명</span>
+            자주 쓰는 등록·확인 기능으로 바로 이동하는 바로가기 버튼 모음.
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">구성요소</span>
+            상품 등록, 공지사항 등록, FAQ 등록, 문의·예약 확인, 리뷰 확인, 관리자 정보 수정 버튼
+          </div>
+          <div class="sb-desc-block">
+            <span class="lbl">인터랙션</span>
+            버튼 클릭 → 해당 관리 화면으로 이동("리뷰 확인" → <a href="admin-reviews.html">SB · 리뷰 관리</a>, "관리자 정보 수정" → <a href="admin-admins.html">SB · 계정관리</a>)
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <p class="sb-note">
+    ※ 좌측 화면은 실제 프로토타입(<code>04_storyboard/prototype/admin/index.html</code>)을 iframe으로 축소(55%) 표시한 라이브 미리보기입니다.
+    프로토타입 수정 시 이 화면도 자동으로 최신 상태를 반영합니다. 로컬 서버(<code>serve.ps1</code>)로 열어야 정상 렌더링됩니다.
+    통계 수치는 데모 데이터(seed-data.js) 기준이며, 실제 연동 시 서버 집계값으로 대체됩니다.
+  </p>
+</div>
+
+</body>
+</html>
